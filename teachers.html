@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedic Space: Partnering for Profound Impact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 400px;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+            border: 2px solid #A7C4BC;
+            border-radius: 0.75rem;
+            background-color: #DFE8E6;
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: #5E8B7E;
+            align-self: center;
+            margin: 0 1rem;
+        }
+        .icon {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+        .stat-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .stat-card p {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #2F5D62, #5E8B7E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-['Inter'] text-gray-800 bg-gray-50 min-h-screen">
+
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold text-[#2F5D62]">Vedic Space: Partnering for Impact</h1>
+            <span class="text-sm text-gray-500 mt-2 md:mt-0">An Opportunity for Teachers</span>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="intro" class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#2F5D62] to-[#5E8B7E] text-transparent bg-clip-text">Empowering Lives Through Ancient Wisdom</h2>
+            <p class="max-w-3xl mx-auto text-gray-600 text-base md:text-lg">
+                Vedic Space invites passionate teachers to join a platform dedicated to transformative spiritual practice. Discover how you can share profound wisdom and make a global impact.
+            </p>
+        </section>
+
+        <section id="opportunity" class="mb-12 md:mb-16">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#2F5D62]">The Growing Demand for Authentic Practice</h2>
+                <p class="text-gray-600 mt-2">A global audience seeks genuine spiritual guidance and holistic well-being.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold text-center mb-6 text-[#2F5D62]">Global Reach & Engagement</h3>
+                <div class="chart-container h-96 max-h-[450px] mx-auto max-w-4xl">
+                    <canvas id="globalReachChart"></canvas>
+                </div>
+                <p class="text-center text-gray-600 mt-4">
+                    The demand for accessible, structured spiritual practices is expanding worldwide, offering teachers an unprecedented opportunity to connect with diverse students.
+                </p>
+            </div>
+        </section>
+
+        <section id="why-vedic-space" class="mb-12 md:mb-16">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#2F5D62]">Why Partner with Vedic Space?</h2>
+                <p class="text-gray-600 mt-2">Unique advantages for teachers seeking to make a difference.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#5E8B7E]">
+                    <h3 class="text-xl font-semibold text-[#2F5D62] mb-4">Platform Benefits</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">🌐</span><div><strong class="block">Global Audience:</strong> Reach students beyond geographical limits.</div></li>
+                        <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">📚</span><div><strong class="block">Structured Curriculum:</strong> Leverage our well-designed Sādhana programs.</div></li>
+                        <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">🔬</span><div><strong class="block">Scientific Integration:</strong> Teach practices validated by modern neuroscience.</div></li>
+                        <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">✨</span><div><strong class="block">Professional UX:</strong> Benefit from an intuitive and engaging user experience.</div></li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#A7C4BC]">
+                    <h3 class="text-xl font-semibold text-[#2F5D62] mb-4">Teacher Support</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">🤝</span><div><strong class="block">Collaborative Environment:</strong> Work with a team passionate about Dharma.</div></li>
+                        <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">📈</span><div><strong class="block">Growth Opportunities:</strong> Expand your reach and impact.</div></li>
+                        <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">🛠️</span><div><strong class="block">Technical Backend:</strong> Focus on teaching, we handle the platform.</div></li>
+                        <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">💖</span><div><strong class="block">Meaningful Work:</strong> Contribute to healing and peace globally.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="pedagogy" class="mb-12 md:mb-16">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#2F5D62]">Our Unique Pedagogical Approach</h2>
+                <p class="text-gray-600 mt-2">Bridging ancient wisdom with contemporary understanding.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold text-center mb-6 text-[#2F5D62]">The Vedic Space Synthesis</h3>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                    <div class="flow-item">
+                        <span class="text-2xl">📜</span>
+                        <h4 class="font-semibold mt-1">Ancient Vedic Wisdom</h4>
+                        <p class="text-sm text-gray-600">Timeless Spiritual Practices</p>
+                    </div>
+                    <div class="text-2xl text-[#5E8B7E] transform md:rotate-0 rotate-90">↔️</div>
+                    <div class="flow-item">
+                        <span class="text-2xl">🧠</span>
+                        <h4 class="font-semibold mt-1">Modern Neuroscience</h4>
+                        <p class="text-sm text-gray-600">Empirical Validation & Context</p>
+                    </div>
+                    <div class="text-2xl text-[#5E8B7E] transform md:rotate-0 rotate-90">➡️</div>
+                    <div class="flow-item bg-[#5E8B7E]/20">
+                        <span class="text-2xl">🌟</span>
+                        <h4 class="font-semibold mt-1 text-[#2F5D62]">Holistic Transformation</h4>
+                        <p class="text-sm text-gray-600">Mind, Body, Spirit Harmony</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="student-impact" class="mb-12 md:mb-16">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#2F5D62]">Impact on Students: A Teacher's Reward</h2>
+                <p class="text-gray-600 mt-2">Witness the profound changes in lives you touch.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3>Reported Healing Outcomes</h3>
+                    <p class="text-gray-600 text-sm">Students experience tangible improvements in stress, sleep, and overall well-being.</p>
+                    <div class="chart-container mt-4">
+                        <canvas id="studentHealingChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3>Cultivated Peace & Clarity</h3>
+                    <p class="text-gray-600 text-sm">Participants achieve deep relaxation, mental focus, and inner stability.</p>
+                    <div class="chart-container mt-4">
+                        <canvas id="studentPeaceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="teacher-profile" class="mb-12 md:mb-16">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#2F5D62]">Who We Are Looking For</h2>
+                <p class="text-gray-600 mt-2">Qualities and expertise that align with our mission.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+                    <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">✅</span><div><strong class="block">Deep Knowledge:</strong> Expertise in Vedic chanting, Prāṇāyāma, Mudrā, and meditation.</div></li>
+                    <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">✅</span><div><strong class="block">Authentic Lineage:</strong> A clear spiritual lineage or established practice.</div></li>
+                    <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">✅</span><div><strong class="block">Teaching Experience:</strong> Ability to guide and inspire students effectively.</div></li>
+                    <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">✅</span><div><strong class="block">Passion for Dharma:</strong> Commitment to sharing Sanatana Dharma principles.</div></li>
+                    <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">✅</span><div><strong class="block">Modern Adaptability:</strong> Openness to integrating traditional wisdom with contemporary understanding.</div></li>
+                    <li class="flex items-start"><span class="text-2xl mr-3 flex-shrink-0">✅</span><div><strong class="block">Empathy & Patience:</strong> Ability to support students on their individual journeys.</div></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="call-to-action" class="text-center mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#2F5D62]">Join Our Mission</h2>
+            <p class="max-w-3xl mx-auto text-gray-600 text-base md:text-lg mb-8">
+                If you are a dedicated teacher ready to make a profound impact on individual well-being and contribute to the resurgence of Sanatana Dharma, we invite you to connect with us.
+            </p>
+            <a href="#" class="inline-block bg-[#5E8B7E] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#2F5D62] transition duration-300 ease-in-out">
+                Express Your Interest
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="mt-16 bg-[#2F5D62] text-white">
+        <div class="container mx-auto px-4 py-6 text-center">
+            <p>Vedic Space - Temple of Consciousness.</p>
+            <p class="text-sm opacity-75 mt-1">Empowering profound spiritual journeys.</p>
+        </div>
+    </footer>
+
+    <script>
+        let chartInstances = {};
+
+        const wrapLabel = (str, maxLen = 16) => {
+            if (str.length <= maxLen) {
+                return str;
+            }
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).length > maxLen && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = currentLine ? currentLine + ' ' + word : word;
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine);
+            }
+            return lines;
+        };
+
+        const defaultTooltipCallback = {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#2F5D62'
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        
+        const calmCreativePalette = ['#5E8B7E', '#A7C4BC', '#DFE8E6', '#2F5D62'];
+
+        const renderDoughnutChart = (ctx, label, data, color) => {
+            if (chartInstances[ctx.canvas.id]) {
+                chartInstances[ctx.canvas.id].destroy();
+            }
+            chartInstances[ctx.canvas.id] = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [label, ''],
+                    datasets: [{
+                        data: [data, 100 - data],
+                        backgroundColor: [color, '#e5e7eb'],
+                        borderColor: ['#ffffff'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    rotation: -90,
+                    circumference: 180,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false }
+                    }
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const globalReachCtx = document.getElementById('globalReachChart')?.getContext('2d');
+            if (globalReachCtx) {
+                if (chartInstances.globalReachChart) {
+                    chartInstances.globalReachChart.destroy();
+                }
+                chartInstances.globalReachChart = new Chart(globalReachCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['North America', 'Europe', 'Asia', 'Oceania', 'South America', 'Africa'].map(label => wrapLabel(label)),
+                        datasets: [{
+                            label: 'Interest Level (Relative)',
+                            data: [85, 70, 90, 60, 50, 40],
+                            backgroundColor: calmCreativePalette[0],
+                            borderRadius: 4,
+                            barPercentage: 0.7
+                        }]
+                    },
+                    options: {
+                        ...defaultTooltipCallback,
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 100,
+                                grid: {
+                                    drawOnChartArea: false,
+                                },
+                                ticks: {
+                                    color: '#2F5D62'
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    color: '#2F5D62'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const studentHealingCtx = document.getElementById('studentHealingChart')?.getContext('2d');
+            if (studentHealingCtx) {
+                renderDoughnutChart(studentHealingCtx, 'Healing Reported', 90, calmCreativePalette[1]);
+            }
+
+            const studentPeaceCtx = document.getElementById('studentPeaceChart')?.getContext('2d');
+            if (studentPeaceCtx) {
+                renderDoughnutChart(studentPeaceCtx, 'Peace Reported', 95, calmCreativePalette[0]);
+            }
+        });
+    </script>
+
+</body>
+</html>
