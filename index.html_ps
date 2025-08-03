@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Vedic Space | Temple of Consciousness • Sacred Community • Non‑Profit</title>
+    <meta name="description" content="A sacred digital sanctuary for chanting, breath, and quiet reflection. Rooted in the Vedic tradition.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and Base Styles */
+        *, ::before, ::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #4a1a4a;
+            background-color: #f7f4f0;
+        }
+        
+        .font-serif {
+            font-family: 'Crimson Text', serif;
+        }
+        
+        .font-sans {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Color Variables */
+        :root {
+            --primary-purple: #4a1a4a;
+            --primary-brown: #8B4513;
+            --secondary-brown: #D2691E;
+            --light-brown: #F4A460;
+            --cream: #f7f4f0;
+            --dark-brown: #654321;
+        }
+        
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .text-center { text-align: center; }
+        .hidden { display: none; }
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .justify-center { justify-content: center; }
+        .space-x-8 > * + * { margin-left: 2rem; }
+        .space-x-4 > * + * { margin-left: 1rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .space-y-2 > * + * { margin-top: 0.5rem; }
+        
+        /* Header Styles */
+        .header {
+            background-color: var(--cream);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 3rem;
+            height: 5rem;
+            background-color: var(--primary-purple);
+            border-radius: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-text {
+            color: var(--primary-purple);
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        
+        .logo-subtitle {
+            color: var(--primary-brown);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+        
+        .nav-link {
+            color: var(--primary-brown);
+            text-decoration: none;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-brown);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-brown);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--cream);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1rem;
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav a {
+            display: block;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--cream) 0%, #f0ebe5 100%);
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--secondary-brown);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--primary-purple);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--primary-brown);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--primary-brown);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-brown);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-brown);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-brown);
+            border-color: var(--primary-brown);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-brown);
+            color: white;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-alt {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-brown);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--primary-brown);
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .divider {
+            width: 4rem;
+            height: 2px;
+            background-color: var(--secondary-brown);
+            margin: 0 auto 2rem;
+        }
+        
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .card {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--primary-brown);
+            margin-bottom: 1rem;
+        }
+        
+        .card-description {
+            color: var(--primary-brown);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        /* Mission Section */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .mission-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .mission-icon {
+            color: var(--secondary-brown);
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
+            color: white;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-description {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--primary-brown);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-title {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .btn {
+                display: block;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="flex items-center justify-between">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <div style="width: 0.75rem; height: 0.75rem; border: 1px solid rgba(255,255,255,0.6); border-radius: 0.125rem;"></div>
+                    </div>
+                    <div>
+                        <div class="logo-text font-serif">Vedic Space</div>
+                        <div class="logo-subtitle font-sans">Temple of Consciousness</div>
+                    </div>
+                </a>
+                
+                <nav class="nav-links flex items-center space-x-8">
+                    <a href="https://vishnu.vedicspace.in" class="nav-link font-sans">VSS Sadhana</a>
+                    <a href="https://arts.vedicspace.in" class="nav-link font-sans">Sacred Arts</a>
+                    <a href="https://yatra.vedicspace.in" class="nav-link font-sans">Sacred Spaces</a>
+                    <a href="https://blogs.vedicspace.in" class="nav-link font-sans">Blogs</a>
+                </nav>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </div>
+            
+            <nav id="mobileNav" class="mobile-nav">
+                <a href="https://vishnu.vedicspace.in" class="nav-link font-sans">VSS Sadhana</a>
+                <a href="https://arts.vedicspace.in" class="nav-link font-sans">Sacred Arts</a>
+                <a href="https://yatra.vedicspace.in" class="nav-link font-sans">Sacred Spaces</a>
+                <a href="https://blogs.vedicspace.in" class="nav-link font-sans">Blogs</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container text-center">
+            <div class="hero-badge font-sans">🔱 Sacred Community • Non‑Profit</div>
+            <h1 class="hero-title font-serif">VEDIC SPACE</h1>
+            <p class="hero-subtitle font-serif">Temple of Consciousness • Sacred Community • Non‑Profit</p>
+            <p class="hero-description font-sans">
+                A sacred digital sanctuary for chanting, breath, and quiet reflection. 
+                Rooted in the Vedic tradition, Vedic Space invites you to pause, breathe, 
+                and reconnect with the stillness within. This is not a platform for performance—it is a temple for presence.
+            </p>
+            <div class="space-x-4">
+                <a href="https://vishnu.vedicspace.in" class="btn btn-primary font-sans">Join the 12‑Day Sādhana</a>
+                <a href="#mission" class="btn btn-secondary font-sans">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="section">
+        <div class="container">
+            <h2 class="section-title font-serif">Our Mission</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle font-sans">
+                Reviving sacred traditions and creating space for authentic spiritual practice
+            </p>
+            
+            <div class="mission-grid">
+                <div class="mission-item">
+                    <div class="mission-icon">🕉️</div>
+                    <div>
+                        <h3 class="font-serif" style="color: var(--primary-brown); margin-bottom: 0.5rem;">Revive Sacred Lineages</h3>
+                        <p class="font-sans" style="color: var(--primary-brown); opacity: 0.8;">Preserve sacred Sanskrit chanting lineages for future generations</p>
+                    </div>
+                </div>
+                
+                <div class="mission-item">
+                    <div class="mission-icon">🌿</div>
+                    <div>
+                        <h3 class="font-serif" style="color: var(--primary-brown); margin-bottom: 0.5rem;">Guided Sādhanas</h3>
+                        <p class="font-sans" style="color: var(--primary-brown); opacity: 0.8;">Offer practices rooted in mantra, breath, and silence</p>
+                    </div>
+                </div>
+                
+                <div class="mission-item">
+                    <div class="mission-icon">🎨</div>
+                    <div>
+                        <h3 class="font-serif" style="color: var(--primary-brown); margin-bottom: 0.5rem;">Support Sacred Arts</h3>
+                        <p class="font-sans" style="color: var(--primary-brown); opacity: 0.8;">Preserve living traditions of sacred arts and pilgrimage</p>
+                    </div>
+                </div>
+                
+                <div class="mission-item">
+                    <div class="mission-icon">💝</div>
+                    <div>
+                        <h3 class="font-serif" style="color: var(--primary-brown); margin-bottom: 0.5rem;">Open to All</h3>
+                        <p class="font-sans" style="color: var(--primary-brown); opacity: 0.8;">Keep all offerings donation-based and accessible to everyone</p>
+                    </div>
+                </div>
+                
+                <div class="mission-item">
+                    <div class="mission-icon">🧘</div>
+                    <div>
+                        <h3 class="font-serif" style="color: var(--primary-brown); margin-bottom: 0.5rem;">Deepen Practice</h3>
+                        <p class="font-sans" style="color: var(--primary-brown); opacity: 0.8;">Create space for seekers to deepen—not consume—spiritual practice</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offerings Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title font-serif">Sacred Offerings</h2>
+            <div class="divider"></div>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🕉️</div>
+                    <h3 class="card-title font-serif">Vishnu Sahasranama Sādhana</h3>
+                    <p class="card-description font-sans">
+                        12 Days. 1000 Names. A Journey Inward. Daily chanting of 9 sacred names of Vishnu 
+                        with guided pranayama and meditative silence. Open to all, no experience needed.
+                    </p>
+                    <a href="https://vishnu.vedicspace.in" class="btn btn-primary font-sans" style="margin-top: 1rem;">Begin Sādhana</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3 class="card-title font-serif">Sacred Arts</h3>
+                    <p class="card-description font-sans">
+                        Living traditions like the Veshagararu—folk performers who embody epics through 
+                        movement, voice, and memory. Art as ritual, ancestry, and offering.
+                    </p>
+                    <a href="https://arts.vedicspace.in" class="btn btn-primary font-sans" style="margin-top: 1rem;">Explore Arts</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🛕</div>
+                    <h3 class="card-title font-serif">Sacred Spaces – Yātrā</h3>
+                    <p class="card-description font-sans">
+                        Ancient temples, rivers, forests, and shrines—not as destinations, 
+                        but as companions on the inner journey. Pranic fields charged with devotion.
+                    </p>
+                    <a href="https://yatra.vedicspace.in" class="btn btn-primary font-sans" style="margin-top: 1rem;">Begin Yātrā</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">📖</div>
+                    <h3 class="card-title font-serif">Reflections & Blogs</h3>
+                    <p class="card-description font-sans">
+                        Gentle essays on mantra, breath, practice, and everyday Dharma. 
+                        A quiet space for thought, best read slowly, maybe more than once.
+                    </p>
+                    <a href="https://blogs.vedicspace.in" class="btn btn-primary font-sans" style="margin-top: 1rem;">Read Reflections</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Vedic Space Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title font-serif">Why Vedic Space Matters</h2>
+            <div class="divider"></div>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🌱</div>
+                    <h3 class="card-title font-serif">Authentic Wisdom</h3>
+                    <p class="card-description font-sans">Rooted in authentic Vedic wisdom, not modern interpretations</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">💝</div>
+                    <h3 class="card-title font-serif">Non-Commercial</h3>
+                    <p class="card-description font-sans">Donation-based, open-hearted, and accessible to all</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🙏</div>
+                    <h3 class="card-title font-serif">Sincere Practice</h3>
+                    <p class="card-description font-sans">Created not for scale, but for sincerity and depth</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🧘</div>
+                    <h3 class="card-title font-serif">Sacred Space</h3>
+                    <p class="card-description font-sans">A space where you can breathe, chant, and deepen within</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container text-center">
+            <h2 class="cta-title font-serif">Begin the Journey</h2>
+            <p class="cta-description font-sans">
+                "Breathe. Chant. Awaken within."
+            </p>
+            <div class="space-x-4">
+                <a href="https://vishnu.vedicspace.in" class="btn" style="background-color: white; color: var(--primary-brown);">Join the Sādhana</a>
+                <a href="#" class="btn" style="border-color: white; color: white; background: transparent;">Subscribe to Offerings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="flex items-center space-x-4" style="margin-bottom: 1rem;">
+                        <div style="width: 1.5rem; height: 1.5rem; background-color: var(--primary-purple); border-radius: 0.125rem; display: flex; align-items: center; justify-content: center;">
+                            <div style="width: 0.75rem; height: 0.75rem; border: 1px solid rgba(255,255,255,0.6); border-radius: 0.125rem;"></div>
+                        </div>
+                        <span class="footer-title font-serif">Vedic Space</span>
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
+                        A sacred digital sanctuary for chanting, breath, and quiet reflection. 
+                        Rooted in the Vedic tradition.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title font-serif">Practice</h4>
+                    <a href="https://vishnu.vedicspace.in" class="footer-link font-sans">VSS Sadhana</a>
+                    <a href="#" class="footer-link font-sans">Chant Posters</a>
+                    <a href="#" class="footer-link font-sans">Guided Practices</a>
+                    <a href="#" class="footer-link font-sans">Audio Resources</a>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title font-serif">Explore</h4>
+                    <a href="https://arts.vedicspace.in" class="footer-link font-sans">Sacred Arts</a>
+                    <a href="https://yatra.vedicspace.in" class="footer-link font-sans">Sacred Spaces</a>
+                    <a href="https://blogs.vedicspace.in" class="footer-link font-sans">Reflections</a>
+                    <a href="#" class="footer-link font-sans">Community</a>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title font-serif">Support</h4>
+                    <a href="#" class="footer-link font-sans">Donate</a>
+                    <a href="#" class="footer-link font-sans">Volunteer</a>
+                    <a href="#" class="footer-link font-sans">Contact</a>
+                    <a href="#" class="footer-link font-sans">Newsletter</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="font-sans">© 2025 Vedic Space. All rights reserved. A sacred space for authentic practice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileNav.contains(event.target) && !menuBtn.contains(event.target)) {
+                mobileNav.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
