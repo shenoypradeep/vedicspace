@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Vedic Space | Sacred Digital Sanctuary for Ancient Wisdom</title>
+    <meta name="description" content="Meet the stewards of Vedic Space - a conscious digital platform reviving ancient Dharmic wisdom through Sanskrit chanting, breath-based meditation, and traditional Vedic knowledge.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --deep-blue: #1e40af;
+            --light-blue: #3b82f6;
+            --accent-gold: #f59e0b;
+            --light-gold: #fbbf24;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --text-gray: #64748b;
+            --dark-gray: #334155;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
+            min-height: 100vh;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .sanskrit {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .narrow-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-gold);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(251,191,36,0.1)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(251, 191, 36, 0.2);
+            color: var(--light-gold);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 300;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            color: var(--light-gold);
+        }
+
+        .sanskrit-verse {
+            background: rgba(30, 64, 175, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 500px;
+        }
+
+        .sanskrit-text {
+            font-size: 24px;
+            color: var(--light-gold);
+            margin-bottom: 10px;
+        }
+
+        .translation {
+            font-size: 16px;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        /* Introduction Section */
+        .introduction {
+            padding: 100px 0;
+            background: var(--white);
+            color: var(--dark-gray);
+        }
+
+        .intro-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro-content h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: var(--primary-blue);
+        }
+
+        .intro-paragraph {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: var(--text-gray);
+        }
+
+        .intro-paragraph:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background: var(--light-gray);
+            color: var(--dark-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 15px 50px rgba(30, 58, 138, 0.1);
+            border: 1px solid rgba(30, 58, 138, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+        }
+
+        .member-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--light-gold);
+            flex-shrink: 0;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info h3 {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+        }
+
+        .member-role {
+            font-size: 18px;
+            color: var(--accent-gold);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .member-background {
+            font-size: 16px;
+            color: var(--text-gray);
+            font-style: italic;
+        }
+
+        .member-bio {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+
+        .member-quote {
+            background: rgba(30, 58, 138, 0.05);
+            border-left: 4px solid var(--light-gold);
+            padding: 25px;
+            border-radius: 0 15px 15px 0;
+            font-style: italic;
+            font-size: 18px;
+            color: var(--primary-blue);
+            position: relative;
+        }
+
+        .member-quote::before {
+            content: '"';
+            font-size: 40px;
+            color: var(--light-gold);
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .member-quote::after {
+            content: '"';
+            font-size: 40px;
+            color: var(--light-gold);
+            position: absolute;
+            bottom: -10px;
+            right: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Values Section */
+        .values {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
+            color: var(--white);
+        }
+
+        .values-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .values h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 300;
+            margin-bottom: 50px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .value-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .value-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--light-gold);
+        }
+
+        .value-description {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Call to Connect Section */
+        .connect {
+            padding: 100px 0;
+            background: var(--white);
+            color: var(--dark-gray);
+            text-align: center;
+        }
+
+        .connect-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .connect h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+        }
+
+        .connect-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+        }
+
+        .connect-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            padding: 15px 30px;
+            border: 2px solid var(--primary-blue);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: var(--light-gold);
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: var(--light-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+            
+            .member-header {
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container, .narrow-container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .team-member {
+                padding: 30px 25px;
+            }
+            
+            .member-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .member-photo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .connect-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="logo serif">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vedic%20Space%20-%20old%20lotus%20nada%20nirvana-rlImW4sxJh6tvJRcA3ltTrrQjtmlFm.png" alt="Vedic Space">
+                    Vedic Space
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/courses">Courses</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                <a href="/courses" class="cta-btn">Explore Practices</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="narrow-container">
+            <div class="hero-content fade-in">
+                <div class="hero-badge">
+                    ✨ Sacred Digital Sanctuary
+                </div>
+                
+                <h1 class="serif">
+                    About <span class="highlight">Vedic Space</span>
+                </h1>
+
+                <div class="sanskrit-verse">
+                    <div class="sanskrit-text sanskrit">सत्यं शिवं सुन्दरम्</div>
+                    <div class="translation">Satyaṃ Śivaṃ Sundaram - "Truth, Auspiciousness, Beauty"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="introduction">
+        <div class="narrow-container">
+            <div class="intro-content fade-in">
+                <h2 class="serif">Our Sacred Purpose</h2>
+                
+                <p class="intro-paragraph">
+                    Vedic Space is a conscious digital platform dedicated to reviving the profound inner sciences of ancient Dharmic wisdom. We create sacred sanctuary in the digital realm, where seekers can experience the transformative power of Sanskrit chanting, breath-based meditation, and traditional Vedic knowledge.
+                </p>
+                
+                <p class="intro-paragraph">
+                    In a world increasingly disconnected from its spiritual roots, we serve as humble stewards of timeless practices that have guided humanity toward inner peace for millennia. Our mission is not to modernize these ancient teachings, but to present them with integrity and authenticity, allowing their inherent power to speak directly to the contemporary heart.
+                </p>
+                
+                <p class="intro-paragraph">
+                    Through the sacred technologies of sound and breath, we invite you into a space where tradition meets transformation, where ancient wisdom illuminates the path to inner freedom, and where the digital realm becomes a gateway to the eternal.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title serif">Meet Our Stewards</h2>
+                <p class="section-subtitle">
+                    Three souls united in service to the ancient wisdom traditions, 
+                    each bringing their unique gifts to this sacred work.
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Pradeep Shenoy -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-photo">
+                            <img src="/placeholder.svg?height=120&width=120" alt="Pradeep Shenoy">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="serif">Pradeep Shenoy</h3>
+                            <div class="member-role">Vision Holder & Teaching Lead</div>
+                            <div class="member-background">Computer Science Engineer, IT Team Lead</div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-bio">
+                        Pradeep's journey began in the structured world of technology, where he spent years as a Computer Science engineer and IT team leader. Yet beneath the surface of code and systems, a deeper calling stirred—one that led him to the ancient pathways of Sanskrit and sacred sound. His early exposure to traditional chanting in his family home planted seeds that would later blossom into a profound understanding of how these timeless practices could serve the modern seeker.
+                        
+                        <br><br>
+                        
+                        What sets Pradeep apart is his unwavering commitment to authenticity over popularity. He approaches the Vedic traditions not as content to be consumed, but as living wisdom to be reverently transmitted. His vision for Vedic Space emerged from a recognition that the digital realm, when approached with sacred intention, could become a powerful vehicle for preserving and sharing these transformative practices without diluting their essence.
+                        
+                        <br><br>
+                        
+                        As the guiding force behind Vedic Space, Pradeep brings both the precision of his technical background and the devotion of a sincere practitioner to ensure that every offering maintains the integrity and depth these ancient sciences deserve.
+                    </div>
+                    
+                    <div class="member-quote">
+                        Vedic Space exists because these practices are not relics of the past, but living technologies for transformation. In a world hungry for authentic spiritual nourishment, we have the sacred responsibility to offer these gifts with the same reverence and precision with which they were originally transmitted. This is not about building a platform—it's about serving something infinitely greater than ourselves.
+                    </div>
+                </div>
+
+                <!-- Gopi -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-photo">
+                            <img src="/placeholder.svg?height=120&width=120" alt="Gopi">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="serif">Gopi Krishnan</h3>
+                            <div class="member-role">Tech & Chanting Anchor</div>
+                            <div class="member-background">Sound Design & Digital Experience Specialist</div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-bio">
+                        Gopi brings a unique fusion of technical expertise and spiritual sensitivity to Vedic Space. With a background spanning technology, media, and sound design, he understands that the digital experience of sacred practices requires both technical precision and devotional awareness. His role extends far beyond conventional web development—he is the architect of sacred digital experiences.
+                        
+                        <br><br>
+                        
+                        His deep appreciation for the vibrational qualities of Sanskrit chanting informs every aspect of the platform's sound design and user interface. Gopi recognizes that when seekers engage with these practices online, the quality of sound, the flow of the interface, and the overall digital environment must support rather than distract from the sacred experience.
+                        
+                        <br><br>
+                        
+                        Through his meticulous attention to both the technical and spiritual dimensions of digital practice, Gopi ensures that Vedic Space serves as a true sanctuary—a place where technology becomes transparent and the ancient wisdom can flow unobstructed into the hearts of modern practitioners.
+                    </div>
+                    
+                    <div class="member-quote">
+                        Technology should be like a clear window—completely transparent to the sacred experience it serves. When we get the digital environment right, people forget they're using a platform and simply enter into the practice. That's when the real magic happens, and the ancient wisdom can work its transformation.
+                    </div>
+                </div>
+
+                <!-- Satyan -->
+                <div class="team-member fade-in">
+                    <div class="member-header">
+                        <div class="member-photo">
+                            <img src="/placeholder.svg?height=120&width=120" alt="Satyan">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="serif">Satyan Nair</h3>
+                            <div class="member-role">Practice Mentor & Community Builder</div>
+                            <div class="member-background">Wellness Education & Community Development</div>
+                        </div>
+                    </div>
+                    
+                    <div class="member-bio">
+                        Satyan serves as the heart of community within Vedic Space, bringing years of experience in wellness education and community development to create authentic sangha—sacred fellowship among practitioners. His background in education and deep understanding of how spiritual communities thrive makes him the natural anchor for the daily and weekly practices that form the foundation of our offerings.
+                        
+                        <br><br>
+                        
+                        What distinguishes Satyan's approach is his recognition that true spiritual growth happens not in isolation, but within the supportive embrace of genuine community. He understands that the ancient concept of sangha—spiritual fellowship—is not about gathering followers, but about creating space where sincere seekers can support each other's journey toward inner freedom.
+                        
+                        <br><br>
+                        
+                        Through his gentle guidance and natural ability to hold sacred space, Satyan ensures that every participant in Vedic Space feels both challenged in their practice and supported in their growth. His presence brings warmth, authenticity, and the kind of spiritual maturity that helps others feel safe to explore the deeper dimensions of these ancient practices.
+                    </div>
+                    
+                    <div class="member-quote">
+                        The most profound transformations happen when we practice together with sincere hearts. My role is simply to hold space where the ancient wisdom can work through community, where each person's journey supports and inspires the others. In true sangha, we discover that we're not walking this path alone.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <div class="values-content fade-in">
+                <h2 class="serif">Our Shared Values</h2>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <span class="value-icon">🕉️</span>
+                        <h3 class="value-title">Authenticity Over Popularity</h3>
+                        <p class="value-description">
+                            We choose depth over reach, integrity over influence. Our commitment is to the truth of these practices, not to trends or market demands.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <span class="value-icon">🌿</span>
+                        <h3 class="value-title">Rooted in Tradition</h3>
+                        <p class="value-description">
+                            These teachings come to us through an unbroken lineage of wisdom. We serve as humble custodians, preserving their essence without dilution.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <span class="value-icon">🎵</span>
+                        <h3 class="value-title">Sacred Sound Technology</h3>
+                        <p class="value-description">
+                            Breath and sound are not mere techniques but sacred technologies for transformation, deserving of our deepest reverence and precision.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <span class="value-icon">🌱</span>
+                        <h3 class="value-title">Organic Growth</h3>
+                        <p class="value-description">
+                            We trust in natural expansion over forced marketing. True spiritual communities grow through authentic connection and genuine transformation.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <span class="value-icon">🤝</span>
+                        <h3 class="value-title">Sangha Over Followers</h3>
+                        <p class="value-description">
+                            We cultivate genuine spiritual fellowship rather than collecting audiences. Every member is a valued part of our sacred community.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <span class="value-icon">🔇</span>
+                        <h3 class="value-title">Reverence for Silence</h3>
+                        <p class="value-description">
+                            In the spaces between sounds, between breaths, between words, we find the source. Silence is not empty—it is full of infinite potential.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <span class="value-icon">🚪</span>
+                        <h3 class="value-title">Accessible Depth</h3>
+                        <p class="value-description">
+                            We make these profound practices available to all sincere seekers while never compromising their transformative depth and power.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Connect Section -->
+    <section class="connect">
+        <div class="narrow-container">
+            <div class="connect-content fade-in">
+                <h2 class="serif">Join Our Sacred Journey</h2>
+                
+                <p class="connect-text">
+                    If these words resonate with your heart, if you feel called to explore the profound depths of ancient wisdom in authentic community, we warmly invite you to join us. Whether you're drawn to the transformative power of Sanskrit chanting, the peace of breath-based meditation, or simply the fellowship of sincere seekers, there is a place for you here.
+                </p>
+                
+                <p class="connect-text">
+                    This is not about consuming content or collecting experiences. This is about embarking on a sacred journey of inner transformation, supported by timeless practices and genuine community. Come as you are, with whatever questions, hopes, or longings you carry.
+                </p>
+                
+                <div class="connect-buttons">
+                    <a href="/courses" class="btn-primary">
+                        Explore Our Practices
+                    </a>
+                    <a href="/contact" class="btn-secondary">
+                        Connect With Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vedic%20Space%20-%20old%20lotus%20nada%20nirvana-rlImW4sxJh6tvJRcA3ltTrrQjtmlFm.png" alt="Vedic Space">
+                        <span class="footer-title serif">Vedic Space</span>
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
+                        A sacred digital sanctuary for chanting, breath, and quiet reflection. 
+                        Rooted in the Vedic tradition.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-title serif">Explore</h4>
+                    <a href="/" class="footer-link">Home</a>
+                    <a href="/about" class="footer-link">About Us</a>
+                    <a href="/courses" class="footer-link">Courses</a>
+                    <a href="/blog" class="footer-link">Blog</a>
+                </div>
+                <div>
+                    <h4 class="footer-title serif">Practices</h4>
+                    <a href="/chanting" class="footer-link">Sanskrit Chanting</a>
+                    <a href="/breath" class="footer-link">Breath Work</a>
+                    <a href="/meditation" class="footer-link">Meditation</a>
+                    <a href="/community" class="footer-link">Community</a>
+                </div>
+                <div>
+                    <h4 class="footer-title serif">Connect</h4>
+                    <a href="/contact" class="footer-link">Contact Us</a>
+                    <a href="/newsletter" class="footer-link">Newsletter</a>
+                    <a href="/support" class="footer-link">Support</a>
+                    <a href="/privacy" class="footer-link">Privacy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Vedic Space. All rights reserved. A sacred space for authentic practice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 58, 138, 0.98)';
+            } else {
+                header.style.background = 'rgba(30, 58, 138, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
