@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vedic Space | Meditations</title>
+  <title>Vedic Space | Meditations.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,9 +30,9 @@
       min-height:100vh;
     }
 
-    .app{display:flex}
+    .app{display:flex;flex-direction:column}
 
-    /* Sidebar */
+    /* Desktop Sidebar */
     .sidebar{
       width:var(--sidebar);
       position:fixed;
@@ -69,6 +69,10 @@
       font-size:1rem;
     }
 
+    .search input::placeholder{
+      color:var(--muted);
+    }
+
     .search input:focus{
       outline:none;
       border-color:var(--gold);
@@ -77,6 +81,64 @@
     .count{
       font-size:0.85rem;
       color:var(--muted);
+    }
+
+    /* Redesigned mobile header - compact, sleek sticky bar */
+    .mobile-header{
+      display:none;
+      background:rgba(30,58,138,0.98);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      position:sticky;
+      top:0;
+      z-index:100;
+      border-bottom:1px solid var(--border);
+    }
+
+    .mobile-header-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0.75rem 1rem;
+    }
+
+    .mobile-logo{
+      font-family:Playfair Display,serif;
+      font-size:1.1rem;
+      font-weight:600;
+      color:var(--gold);
+    }
+
+    .mobile-count{
+      font-size:0.75rem;
+      color:var(--muted);
+      background:rgba(255,255,255,0.1);
+      padding:0.25rem 0.6rem;
+      border-radius:12px;
+    }
+
+    .mobile-search{
+      padding:0 1rem 0.75rem;
+    }
+
+    .mobile-search input{
+      width:100%;
+      padding:0.65rem 1rem;
+      border-radius:25px;
+      border:1.5px solid var(--border);
+      background:rgba(255,255,255,0.08);
+      color:white;
+      font-size:0.9rem;
+    }
+
+    .mobile-search input::placeholder{
+      color:var(--muted);
+    }
+
+    .mobile-search input:focus{
+      outline:none;
+      border-color:var(--gold);
+      background:rgba(255,255,255,0.12);
     }
 
     /* Main */
@@ -135,12 +197,14 @@
     audio{
       width:100%;
       margin-top:0.5rem;
+      border-radius:8px;
     }
 
     .file{
       margin-top:0.75rem;
       font-size:0.75rem;
       color:var(--muted);
+      font-family:monospace;
     }
 
     .empty{
@@ -150,9 +214,55 @@
       color:var(--muted);
     }
 
+    /* Improved mobile responsive styles */
     @media(max-width:900px){
       .sidebar{display:none}
-      main{margin:0;padding:2rem 1.25rem}
+      .mobile-header{display:block}
+      .app{flex-direction:column}
+      main{
+        margin:0;
+        padding:1rem;
+        min-height:calc(100vh - 100px);
+      }
+      .cards{
+        grid-template-columns:1fr;
+        gap:1rem;
+      }
+      .card{
+        padding:1.25rem;
+      }
+      .card h2{
+        font-size:1.25rem;
+      }
+      .desc{
+        font-size:0.9rem;
+      }
+    }
+
+    @media(max-width:400px){
+      .mobile-header-top{
+        padding:0.6rem 0.75rem;
+      }
+      .mobile-logo{
+        font-size:1rem;
+      }
+      .mobile-search{
+        padding:0 0.75rem 0.6rem;
+      }
+      .mobile-search input{
+        padding:0.55rem 0.85rem;
+        font-size:0.85rem;
+      }
+      main{
+        padding:0.75rem;
+      }
+      .card{
+        padding:1rem;
+        border-radius:14px;
+      }
+      .card h2{
+        font-size:1.1rem;
+      }
     }
   </style>
 </head>
@@ -160,6 +270,18 @@
 
 <div class="app">
 
+  <!-- Redesigned mobile header - compact top bar with logo + count, search below -->
+  <header class="mobile-header">
+    <div class="mobile-header-top">
+      <div class="mobile-logo">Vedic Space</div>
+      <div class="mobile-count"><span id="count-mobile">0</span> meditations</div>
+    </div>
+    <div class="mobile-search">
+      <input id="search-mobile" placeholder="Search meditations..." autocomplete="off">
+    </div>
+  </header>
+
+  <!-- Desktop Sidebar -->
   <aside class="sidebar">
     <div class="logo">Vedic Space</div>
 
@@ -197,12 +319,19 @@ const meditations = [
 ];
 
 const cards=document.getElementById("cards");
-const search=document.getElementById("search");
-const count=document.getElementById("count");
+const searchDesktop=document.getElementById("search");
+const searchMobile=document.getElementById("search-mobile");
+const countDesktop=document.getElementById("count");
+const countMobile=document.getElementById("count-mobile");
+
+function updateCount(num){
+  countDesktop.textContent=num;
+  countMobile.textContent=num;
+}
 
 function render(list){
   cards.innerHTML="";
-  count.textContent=list.length;
+  updateCount(list.length);
 
   if(!list.length){
     cards.innerHTML=`<div class="empty">No meditations found</div>`;
@@ -219,18 +348,31 @@ function render(list){
       <audio controls preload="none">
         <source src="${m.file}" type="audio/mpeg">
       </audio>
-      <div class="file">${m.file}</div>
+      <div class="file">${m.file.split('/').pop()}</div>
     `;
     cards.appendChild(el);
   });
 }
 
-search.addEventListener("input",e=>{
-  const q=e.target.value.toLowerCase();
-  render(meditations.filter(m=>
+function filterMeditations(query){
+  const q=query.toLowerCase();
+  return meditations.filter(m=>
     m.title.toLowerCase().includes(q) ||
-    m.file.toLowerCase().includes(q)
-  ));
+    m.file.toLowerCase().includes(q) ||
+    (m.description && m.description.toLowerCase().includes(q))
+  );
+}
+
+searchDesktop.addEventListener("input",e=>{
+  const q=e.target.value;
+  searchMobile.value=q;
+  render(filterMeditations(q));
+});
+
+searchMobile.addEventListener("input",e=>{
+  const q=e.target.value;
+  searchDesktop.value=q;
+  render(filterMeditations(q));
 });
 
 render(meditations);
