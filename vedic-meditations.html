@@ -32,7 +32,7 @@
 
     .app{display:flex}
 
-    /* Sidebar */
+    /* Sidebar - Desktop only */
     .sidebar{
       width:var(--sidebar);
       position:fixed;
@@ -69,6 +69,10 @@
       font-size:1rem;
     }
 
+    .search input::placeholder{
+      color:var(--muted);
+    }
+
     .search input:focus{
       outline:none;
       border-color:var(--gold);
@@ -77,6 +81,41 @@
     .count{
       font-size:0.85rem;
       color:var(--muted);
+    }
+
+    /* Mobile Header - shown only on mobile */
+    .mobile-header{
+      display:none;
+      background:rgba(30,58,138,0.95);
+      padding:1.25rem;
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    .mobile-header .logo{
+      text-align:center;
+      margin-bottom:0.75rem;
+    }
+
+    .mobile-header h1{
+      font-family:Playfair Display,serif;
+      font-weight:400;
+      font-size:1.25rem;
+      text-align:center;
+      line-height:1.3;
+      margin-bottom:1rem;
+    }
+
+    .mobile-header h1 span{color:var(--gold)}
+
+    .mobile-header .search{
+      margin-bottom:0.75rem;
+    }
+
+    .mobile-header .count{
+      text-align:center;
     }
 
     /* Main */
@@ -135,12 +174,14 @@
     audio{
       width:100%;
       margin-top:0.5rem;
+      border-radius:8px;
     }
 
     .file{
       margin-top:0.75rem;
       font-size:0.75rem;
       color:var(--muted);
+      font-family:monospace;
     }
 
     .empty{
@@ -150,9 +191,36 @@
       color:var(--muted);
     }
 
+    /* Mobile responsive styles */
     @media(max-width:900px){
       .sidebar{display:none}
-      main{margin:0;padding:2rem 1.25rem}
+      .mobile-header{display:block}
+      main{margin:0;padding:1.25rem}
+      .cards{
+        grid-template-columns:1fr;
+        gap:1rem;
+      }
+      .card{
+        padding:1.5rem;
+      }
+      .card h2{
+        font-size:1.3rem;
+      }
+    }
+
+    @media(max-width:480px){
+      .mobile-header{
+        padding:1rem;
+      }
+      .mobile-header h1{
+        font-size:1.1rem;
+      }
+      main{
+        padding:1rem;
+      }
+      .card{
+        padding:1.25rem;
+      }
     }
   </style>
 </head>
@@ -160,6 +228,19 @@
 
 <div class="app">
 
+  <!-- Mobile Header - visible on small screens -->
+  <header class="mobile-header">
+    <div class="logo">Vedic Space</div>
+    <h1><span>Sādhana</span><br>Guided Meditations</h1>
+    <div class="search">
+      <input id="search-mobile" placeholder="Search meditations…" autocomplete="off">
+    </div>
+    <div class="count">
+      Showing <strong id="count-mobile">0</strong> meditations
+    </div>
+  </header>
+
+  <!-- Desktop Sidebar -->
   <aside class="sidebar">
     <div class="logo">Vedic Space</div>
 
@@ -197,12 +278,19 @@ const meditations = [
 ];
 
 const cards=document.getElementById("cards");
-const search=document.getElementById("search");
-const count=document.getElementById("count");
+const searchDesktop=document.getElementById("search");
+const searchMobile=document.getElementById("search-mobile");
+const countDesktop=document.getElementById("count");
+const countMobile=document.getElementById("count-mobile");
+
+function updateCount(num){
+  countDesktop.textContent=num;
+  countMobile.textContent=num;
+}
 
 function render(list){
   cards.innerHTML="";
-  count.textContent=list.length;
+  updateCount(list.length);
 
   if(!list.length){
     cards.innerHTML=`<div class="empty">No meditations found</div>`;
@@ -219,18 +307,31 @@ function render(list){
       <audio controls preload="none">
         <source src="${m.file}" type="audio/mpeg">
       </audio>
-      <div class="file">${m.file}</div>
+      <div class="file">${m.file.split('/').pop()}</div>
     `;
     cards.appendChild(el);
   });
 }
 
-search.addEventListener("input",e=>{
-  const q=e.target.value.toLowerCase();
-  render(meditations.filter(m=>
+function filterMeditations(query){
+  const q=query.toLowerCase();
+  return meditations.filter(m=>
     m.title.toLowerCase().includes(q) ||
-    m.file.toLowerCase().includes(q)
-  ));
+    m.file.toLowerCase().includes(q) ||
+    (m.description && m.description.toLowerCase().includes(q))
+  );
+}
+
+searchDesktop.addEventListener("input",e=>{
+  const q=e.target.value;
+  searchMobile.value=q;
+  render(filterMeditations(q));
+});
+
+searchMobile.addEventListener("input",e=>{
+  const q=e.target.value;
+  searchDesktop.value=q;
+  render(filterMeditations(q));
 });
 
 render(meditations);
