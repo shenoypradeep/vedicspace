@@ -31,7 +31,7 @@ body{
   min-height:100vh;
 }
 
-.app{display:flex;flex-direction:column}
+.app{display:flex}
 
 /* Sidebar */
 .sidebar{
@@ -70,10 +70,6 @@ body{
   font-size:1rem;
 }
 
-.search input::placeholder{
-  color:var(--muted);
-}
-
 .search input:focus{
   outline:none;
   border-color:var(--gold);
@@ -104,87 +100,6 @@ body{
 .count{
   font-size:0.85rem;
   color:var(--muted);
-}
-
-/* Added mobile header styles */
-.mobile-header{
-  display:none;
-  background:rgba(30,58,138,0.98);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  position:sticky;
-  top:0;
-  z-index:100;
-  border-bottom:1px solid var(--border);
-}
-
-.mobile-header-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0.75rem 1rem;
-}
-
-.mobile-logo{
-  font-family:Playfair Display,serif;
-  font-size:1.1rem;
-  font-weight:600;
-  color:var(--gold);
-}
-
-.mobile-count{
-  font-size:0.75rem;
-  color:var(--muted);
-  background:rgba(255,255,255,0.1);
-  padding:0.25rem 0.6rem;
-  border-radius:12px;
-}
-
-.mobile-search{
-  padding:0 1rem 0.75rem;
-}
-
-.mobile-search input{
-  width:100%;
-  padding:0.65rem 1rem;
-  border-radius:25px;
-  border:1.5px solid var(--border);
-  background:rgba(255,255,255,0.08);
-  color:white;
-  font-size:0.9rem;
-}
-
-.mobile-search input::placeholder{
-  color:var(--muted);
-}
-
-.mobile-search input:focus{
-  outline:none;
-  border-color:var(--gold);
-  background:rgba(255,255,255,0.12);
-}
-
-.mobile-toggle{
-  display:flex;
-  gap:0.4rem;
-  padding:0 1rem 0.75rem;
-}
-
-.mobile-toggle button{
-  flex:1;
-  padding:0.4rem 0;
-  border-radius:16px;
-  border:1px solid var(--border);
-  background:transparent;
-  color:var(--muted);
-  cursor:pointer;
-  font-size:0.75rem;
-}
-
-.mobile-toggle button.active{
-  background:var(--gold);
-  color:#1e3a8a;
-  font-weight:600;
 }
 
 /* Main */
@@ -249,58 +164,9 @@ main{
   color:var(--muted);
 }
 
-/* Updated mobile responsive styles */
 @media(max-width:900px){
   .sidebar{display:none}
-  .mobile-header{display:block}
-  .app{flex-direction:column}
-  main{
-    margin:0;
-    padding:1rem;
-    min-height:calc(100vh - 140px);
-  }
-  .cards{
-    grid-template-columns:1fr;
-    gap:1rem;
-  }
-  .card{
-    padding:1.25rem;
-  }
-  .word{
-    font-size:1.4rem;
-  }
-  .meaning{
-    font-size:0.9rem;
-  }
-}
-
-@media(max-width:400px){
-  .mobile-header-top{
-    padding:0.6rem 0.75rem;
-  }
-  .mobile-logo{
-    font-size:1rem;
-  }
-  .mobile-search{
-    padding:0 0.75rem 0.6rem;
-  }
-  .mobile-search input{
-    padding:0.55rem 0.85rem;
-    font-size:0.85rem;
-  }
-  .mobile-toggle{
-    padding:0 0.75rem 0.6rem;
-  }
-  main{
-    padding:0.75rem;
-  }
-  .card{
-    padding:1rem;
-    border-radius:14px;
-  }
-  .word{
-    font-size:1.2rem;
-  }
+  main{margin:0;padding:2rem 1.25rem}
 }
 </style>
 </head>
@@ -308,22 +174,6 @@ main{
 <body>
 
 <div class="app">
-
-  <!-- Added mobile header with search and script toggle -->
-  <header class="mobile-header">
-    <div class="mobile-header-top">
-      <div class="mobile-logo">Vedic Space</div>
-      <div class="mobile-count">Results: <span id="count-mobile">0</span></div>
-    </div>
-    <div class="mobile-search">
-      <input id="search-mobile" placeholder="Enter Sanskrit word…" autocomplete="off">
-    </div>
-    <div class="mobile-toggle">
-      <button data-script="dv" class="active">DV</button>
-      <button data-script="ia">IAST</button>
-      <button data-script="hk">HK</button>
-    </div>
-  </header>
 
   <aside class="sidebar">
     <div class="logo">Vedic Space</div>
@@ -357,50 +207,25 @@ main{
 const API = "https://vedicspace-skt-dict.shenoypradeep.workers.dev";
 
 const cards = document.getElementById("cards");
-const searchDesktop = document.getElementById("search");
-const searchMobile = document.getElementById("search-mobile");
-const countDesktop = document.getElementById("count");
-const countMobile = document.getElementById("count-mobile");
-const togglesDesktop = document.querySelectorAll(".sidebar .toggle button");
-const togglesMobile = document.querySelectorAll(".mobile-toggle button");
+const search = document.getElementById("search");
+const count = document.getElementById("count");
+const toggles = document.querySelectorAll(".toggle button");
 
 let currentScript = "dv";
 let debounce = null;
 
-function updateCount(num){
-  countDesktop.textContent = num;
-  countMobile.textContent = num;
-}
-
-function setActiveScript(script){
-  currentScript = script;
-  togglesDesktop.forEach(b => {
-    b.classList.toggle("active", b.dataset.script === script);
-  });
-  togglesMobile.forEach(b => {
-    b.classList.toggle("active", b.dataset.script === script);
-  });
-}
-
-togglesDesktop.forEach(btn=>{
+toggles.forEach(btn=>{
   btn.onclick = ()=>{
-    setActiveScript(btn.dataset.script);
-    const q = searchDesktop.value.trim() || searchMobile.value.trim();
-    if(q) lookup(q);
-  };
-});
-
-togglesMobile.forEach(btn=>{
-  btn.onclick = ()=>{
-    setActiveScript(btn.dataset.script);
-    const q = searchMobile.value.trim() || searchDesktop.value.trim();
-    if(q) lookup(q);
+    toggles.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    currentScript = btn.dataset.script;
+    if(search.value.trim()) lookup(search.value.trim());
   };
 });
 
 async function lookup(word){
   cards.innerHTML = `<div class="loading">Searching…</div>`;
-  updateCount("…");
+  count.textContent = "…";
 
   try{
     const url = `${API}?search=${encodeURIComponent(word)}&dir=au`;
@@ -409,13 +234,13 @@ async function lookup(word){
     render(data.results || []);
   }catch{
     cards.innerHTML = `<div class="empty">Unable to fetch results</div>`;
-    updateCount(0);
+    count.textContent = 0;
   }
 }
 
 function render(results){
   cards.innerHTML = "";
-  updateCount(results.length);
+  count.textContent = results.length;
 
   if(!results.length){
     cards.innerHTML = `<div class="empty">No results found</div>`;
@@ -441,25 +266,12 @@ function render(results){
   });
 }
 
-searchDesktop.addEventListener("input", e=>{
+search.addEventListener("input", e=>{
   clearTimeout(debounce);
   const q = e.target.value.trim();
-  searchMobile.value = e.target.value;
   if(!q){
     cards.innerHTML = `<div class="empty">Enter a Sanskrit word to begin</div>`;
-    updateCount(0);
-    return;
-  }
-  debounce = setTimeout(()=>lookup(q), 500);
-});
-
-searchMobile.addEventListener("input", e=>{
-  clearTimeout(debounce);
-  const q = e.target.value.trim();
-  searchDesktop.value = e.target.value;
-  if(!q){
-    cards.innerHTML = `<div class="empty">Enter a Sanskrit word to begin</div>`;
-    updateCount(0);
+    count.textContent = 0;
     return;
   }
   debounce = setTimeout(()=>lookup(q), 500);
