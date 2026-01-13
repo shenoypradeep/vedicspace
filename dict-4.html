@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vedic Space Sanskrit Dictionary</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body{
+    margin:0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background:#faf8f4;
+    color:#1a1a1a;
+  }
+
+  header{
+    padding:16px;
+    background:#1f1b16;
+    color:#f5e6c8;
+    font-size:18px;
+    letter-spacing:0.5px;
+  }
+
+  .container{
+    max-width:900px;
+    margin:auto;
+    padding:16px;
+  }
+
+  input[type="text"]{
+    width:100%;
+    padding:12px;
+    font-size:18px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    box-sizing:border-box;
+  }
+
+  .controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    margin:12px 0;
+    font-size:14px;
+  }
+
+  .controls label{
+    cursor:pointer;
+    white-space:nowrap;
+  }
+
+  .results{
+    margin-top:20px;
+  }
+
+  .card{
+    background:#fff;
+    border-radius:10px;
+    padding:14px;
+    margin-bottom:14px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .sk{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+
+  .grammar{
+    font-size:13px;
+    color:#666;
+  }
+
+  .en{
+    margin-top:6px;
+    font-size:15px;
+  }
+
+  .source{
+    font-size:12px;
+    color:#999;
+    margin-top:4px;
+  }
+
+  .loading, .error{
+    padding:20px;
+    text-align:center;
+    color:#666;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  Vedic Space · Sanskrit Dictionary
+</header>
+
+<div class="container">
+
+  <input id="searchInput" type="text" placeholder="Enter Sanskrit or English word…">
+
+  <!-- CONTROLS -->
+  <div class="controls">
+
+    <!-- SCRIPT TOGGLE -->
+    <div>
+      <strong>Script:</strong><br>
+      <label><input type="radio" name="script" value="dv"> Devanāgarī</label>
+      <label><input type="radio" name="script" value="ia" checked> IAST</label>
+      <label><input type="radio" name="script" value="hk"> HK</label>
+    </div>
+
+    <!-- DIRECTION TOGGLE -->
+    <div>
+      <strong>Direction:</strong><br>
+      <label><input type="radio" name="dir" value="au" checked> Automatic</label>
+      <label><input type="radio" name="dir" value="se"> Sanskrit → English</label>
+      <label><input type="radio" name="dir" value="es"> English → Sanskrit</label>
+    </div>
+
+  </div>
+
+  <div id="results" class="results"></div>
+
+</div>
+
+<script>
+const input = document.getElementById("searchInput");
+const resultsDiv = document.getElementById("results");
+
+let debounceTimer = null;
+
+input.addEventListener("input", () => {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(searchDictionary, 400);
+});
+
+async function searchDictionary(){
+  const query = input.value.trim();
+  if(!query){
+    resultsDiv.innerHTML = "";
+    return;
+  }
+
+  const script = document.querySelector('input[name="script"]:checked').value;
+  const dir = document.querySelector('input[name="dir"]:checked').value;
+
+  resultsDiv.innerHTML = `<div class="loading">Searching…</div>`;
+
+  try{
+    const res = await fetch(
+      `https://vedicspace-skt-dict.shenoypradeep.workers.dev/?search=${encodeURIComponent(query)}&script=${script}&dir=${dir}`
+    );
+    const data = await res.json();
+    renderResults(data, script);
+  }catch(err){
+    resultsDiv.innerHTML = `<div class="error">Failed to load results</div>`;
+  }
+}
+
+function renderResults(data, script){
+  if(!data.results || data.results.length === 0){
+    resultsDiv.innerHTML = `<div class="error">No results found</div>`;
+    return;
+  }
+
+  resultsDiv.innerHTML = "";
+
+  data.results.forEach(r => {
+    const skText =
+      script === "dv" ? r.dv :
+      script === "ia" ? r.ia :
+      r.sk;
+
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <div class="sk">${skText}</div>
+      <div class="grammar">${r.grammar || ""}</div>
+      <div class="en">${r.en || ""}</div>
+      <div class="source">${r.source || ""}</div>
+    `;
+
+    resultsDiv.appendChild(card);
+  });
+}
+</script>
+
+</body>
+</html>
