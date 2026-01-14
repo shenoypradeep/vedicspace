@@ -44,7 +44,6 @@ body{
   display:flex;
   flex-direction:column;
   gap:1.25rem;
-  overflow-y:auto;
 }
 
 .logo{
@@ -80,45 +79,26 @@ body{
   border-color:var(--gold);
 }
 
-/* Replaced toggle buttons with radio button controls */
-.controls{
+.toggle{
   display:flex;
-  flex-direction:column;
-  gap:1.2rem;
-  font-size:0.9rem;
-}
-
-.controls > div{
-  display:flex;
-  flex-direction:column;
   gap:0.5rem;
 }
 
-.controls strong{
-  font-size:0.85rem;
-  text-transform:uppercase;
-  letter-spacing:0.05em;
-  color:var(--gold);
-  margin-bottom:0.3rem;
-}
-
-.controls label{
-  display:flex;
-  align-items:center;
-  cursor:pointer;
+.toggle button{
+  flex:1;
+  padding:0.45rem 0;
+  border-radius:20px;
+  border:1px solid var(--border);
+  background:transparent;
   color:var(--muted);
-  gap:0.6rem;
-}
-
-.controls input[type="radio"]{
-  width:16px;
-  height:16px;
   cursor:pointer;
-  accent-color:var(--gold);
+  font-size:0.8rem;
 }
 
-.controls label:hover{
-  color:var(--text);
+.toggle button.active{
+  background:var(--gold);
+  color:#1e3a8a;
+  font-weight:600;
 }
 
 .count{
@@ -184,33 +164,27 @@ body{
   background:rgba(255,255,255,0.12);
 }
 
-/* Mobile radio controls */
-.mobile-controls{
-  display:none;
+.mobile-toggle{
+  display:flex;
+  gap:0.4rem;
   padding:0 1rem 0.75rem;
-  gap:1rem;
 }
 
-.mobile-controls > div{
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.8rem;
+.mobile-toggle button{
+  flex:1;
+  padding:0.4rem 0;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
   font-size:0.75rem;
 }
 
-.mobile-controls label{
-  display:flex;
-  align-items:center;
-  gap:0.4rem;
-  cursor:pointer;
-  color:var(--muted);
-}
-
-.mobile-controls input[type="radio"]{
-  width:14px;
-  height:14px;
-  cursor:pointer;
-  accent-color:var(--gold);
+.mobile-toggle button.active{
+  background:var(--gold);
+  color:#1e3a8a;
+  font-weight:600;
 }
 
 /* Main */
@@ -279,12 +253,11 @@ main{
 @media(max-width:900px){
   .sidebar{display:none}
   .mobile-header{display:block}
-  .mobile-controls{display:flex}
   .app{flex-direction:column}
   main{
     margin:0;
     padding:1rem;
-    min-height:calc(100vh - 160px);
+    min-height:calc(100vh - 140px);
   }
   .cards{
     grid-template-columns:1fr;
@@ -315,7 +288,7 @@ main{
     padding:0.55rem 0.85rem;
     font-size:0.85rem;
   }
-  .mobile-controls{
+  .mobile-toggle{
     padding:0 0.75rem 0.6rem;
   }
   main{
@@ -336,7 +309,7 @@ main{
 
 <div class="app">
 
-  <!-- Mobile header with radio controls -->
+  <!-- Added mobile header with search and script toggle -->
   <header class="mobile-header">
     <div class="mobile-header-top">
       <div class="mobile-logo">Vedic Space</div>
@@ -345,21 +318,13 @@ main{
     <div class="mobile-search">
       <input id="search-mobile" placeholder="Enter Sanskrit word…" autocomplete="off">
     </div>
-    <div class="mobile-controls">
-      <div>
-        <label><input type="radio" name="script" value="dv" checked> DV</label>
-        <label><input type="radio" name="script" value="ia"> IAST</label>
-        <label><input type="radio" name="script" value="hk"> HK</label>
-      </div>
-      <div>
-        <label><input type="radio" name="dir" value="au" checked> Auto</label>
-        <label><input type="radio" name="dir" value="se"> S→E</label>
-        <label><input type="radio" name="dir" value="es"> E→S</label>
-      </div>
+    <div class="mobile-toggle">
+      <button data-script="dv" class="active">DV</button>
+      <button data-script="ia">IAST</button>
+      <button data-script="hk">HK</button>
     </div>
   </header>
 
-  <!-- Sidebar with radio controls instead of buttons -->
   <aside class="sidebar">
     <div class="logo">Vedic Space</div>
 
@@ -369,19 +334,10 @@ main{
       <input id="search" placeholder="Enter Sanskrit word…" autocomplete="off">
     </div>
 
-    <div class="controls">
-      <div>
-        <strong>Script</strong>
-        <label><input type="radio" name="script" value="dv" checked> Devanāgarī</label>
-        <label><input type="radio" name="script" value="ia"> IAST</label>
-        <label><input type="radio" name="script" value="hk"> HK</label>
-      </div>
-      <div>
-        <strong>Direction</strong>
-        <label><input type="radio" name="dir" value="au" checked> Automatic</label>
-        <label><input type="radio" name="dir" value="se"> Sanskrit → English</label>
-        <label><input type="radio" name="dir" value="es"> English → Sanskrit</label>
-      </div>
+    <div class="toggle">
+      <button data-script="dv" class="active">DV</button>
+      <button data-script="ia">IAST</button>
+      <button data-script="hk">HK</button>
     </div>
 
     <div class="count">
@@ -405,13 +361,11 @@ const searchDesktop = document.getElementById("search");
 const searchMobile = document.getElementById("search-mobile");
 const countDesktop = document.getElementById("count");
 const countMobile = document.getElementById("count-mobile");
+const togglesDesktop = document.querySelectorAll(".sidebar .toggle button");
+const togglesMobile = document.querySelectorAll(".mobile-toggle button");
 
 let currentScript = "dv";
-let currentDir = "au";
 let debounce = null;
-
-const scriptRadios = document.querySelectorAll('input[name="script"]');
-const dirRadios = document.querySelectorAll('input[name="dir"]');
 
 function updateCount(num){
   countDesktop.textContent = num;
@@ -420,26 +374,28 @@ function updateCount(num){
 
 function setActiveScript(script){
   currentScript = script;
+  togglesDesktop.forEach(b => {
+    b.classList.toggle("active", b.dataset.script === script);
+  });
+  togglesMobile.forEach(b => {
+    b.classList.toggle("active", b.dataset.script === script);
+  });
 }
 
-function setActiveDir(dir){
-  currentDir = dir;
-}
-
-scriptRadios.forEach(radio => {
-  radio.addEventListener("change", (e) => {
-    setActiveScript(e.target.value);
+togglesDesktop.forEach(btn=>{
+  btn.onclick = ()=>{
+    setActiveScript(btn.dataset.script);
     const q = searchDesktop.value.trim() || searchMobile.value.trim();
     if(q) lookup(q);
-  });
+  };
 });
 
-dirRadios.forEach(radio => {
-  radio.addEventListener("change", (e) => {
-    setActiveDir(e.target.value);
-    const q = searchDesktop.value.trim() || searchMobile.value.trim();
+togglesMobile.forEach(btn=>{
+  btn.onclick = ()=>{
+    setActiveScript(btn.dataset.script);
+    const q = searchMobile.value.trim() || searchDesktop.value.trim();
     if(q) lookup(q);
-  });
+  };
 });
 
 async function lookup(word){
@@ -447,7 +403,7 @@ async function lookup(word){
   updateCount("…");
 
   try{
-    const url = `${API}?search=${encodeURIComponent(word)}&dir=${currentDir}`;
+    const url = `${API}?search=${encodeURIComponent(word)}&dir=au`;
     const res = await fetch(url);
     const data = await res.json();
     render(data.results || []);
