@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prāṇāyāma - Breathing Techniques | Vedic Space</title>
+    <style>
+        :root {
+            --blue: #1e3a8a;
+            --gold: #fbbf24;
+            --bg: #0f172a;
+            --card: rgba(255, 255, 255, 0.06);
+            --border: rgba(251, 191, 36, 0.25);
+            --text: #f8fafc;
+            --muted: #cbd5e1;
+            --radius: 20px;
+            --sidebar: 300px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: linear-gradient(135deg, #1e3a8a, #0f172a);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .app {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Desktop Sidebar */
+        .sidebar {
+            width: var(--sidebar);
+            position: fixed;
+            inset: 0 auto 0 0;
+            background: rgba(30, 58, 138, 0.95);
+            border-right: 1px solid var(--border);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            z-index: 40;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .sidebar h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            line-height: 1.2;
+            font-size: 1.3rem;
+        }
+
+        .sidebar h1 span {
+            color: var(--gold);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.9rem 1.1rem;
+            border-radius: 30px;
+            border: 2px solid var(--border);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input::placeholder {
+            color: var(--muted);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .count {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .count strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Mobile Header */
+        .mobile-header {
+            display: none;
+            background: rgba(30, 58, 138, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+        }
+
+        .mobile-logo {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .mobile-count {
+            font-size: 0.75rem;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+        }
+
+        .mobile-search {
+            padding: 0 1rem 0.75rem;
+        }
+
+        .mobile-search input {
+            width: 100%;
+            padding: 0.65rem 1rem;
+            border-radius: 25px;
+            border: 1.5px solid var(--border);
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-search input::placeholder {
+            color: var(--muted);
+        }
+
+        .mobile-search input:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        /* Main Content */
+        main {
+            margin-left: var(--sidebar);
+            padding: 3rem;
+            width: 100%;
+            flex: 1;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+            border-color: var(--gold);
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1e3a8a;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            width: fit-content;
+        }
+
+        .card h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .desc {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .file {
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+        }
+
+        .empty {
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 5rem 2rem;
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        /* Mobile responsive styles */
+        @media (max-width: 900px) {
+            .sidebar {
+                display: none;
+            }
+            .mobile-header {
+                display: block;
+            }
+            .app {
+                flex-direction: column;
+            }
+            main {
+                margin: 0;
+                padding: 1rem;
+                min-height: calc(100vh - 100px);
+            }
+            .cards {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .card {
+                padding: 1.25rem;
+            }
+            .card h2 {
+                font-size: 1.25rem;
+            }
+            .desc {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .mobile-header-top {
+                padding: 0.6rem 0.75rem;
+            }
+            .mobile-logo {
+                font-size: 1rem;
+            }
+            .mobile-search {
+                padding: 0 0.75rem 0.6rem;
+            }
+            .mobile-search input {
+                padding: 0.55rem 0.85rem;
+                font-size: 0.85rem;
+            }
+            main {
+                padding: 0.75rem;
+            }
+            .card {
+                padding: 1rem;
+                border-radius: 14px;
+            }
+            .card h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- Mobile Header -->
+        <header class="mobile-header">
+            <div class="mobile-header-top">
+                <div class="mobile-logo">Vedic Space</div>
+                <div class="mobile-count"><span id="mobile-count">5</span> pranayamas</div>
+            </div>
+            <div class="mobile-search">
+                <input
+                    id="mobileSearch"
+                    type="text"
+                    placeholder="Search pranayamas..."
+                    autocomplete="off"
+                />
+            </div>
+        </header>
+
+        <!-- Desktop Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">Vedic Space</div>
+
+            <h1>
+                <span>Prāṇāyāma</span><br>
+                Breathing Techniques
+            </h1>
+
+            <div class="search-box">
+                <input
+                    id="desktopSearch"
+                    type="text"
+                    placeholder="Search pranayamas…"
+                    autocomplete="off"
+                />
+            </div>
+
+            <div class="count">
+                Showing <strong><span id="desktop-count">5</span></strong> pranayamas
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <div class="cards" id="cardsContainer">
+                <!-- Cards will be inserted here by JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const pranayamas = [
+            {
+                id: 1,
+                title: 'Nadi Shodhana - Alternate Nostril Breathing',
+                videoId: 'dQw4w9WgXcQ',
+                description: 'Balance the left and right energy channels with this calming pranayama technique. Perfect for mental clarity and emotional equilibrium.',
+                file: 'nadi_shodhana_alternate_nostril.mp4',
+            },
+            {
+                id: 2,
+                title: 'Ujjayi Breath - Victorious Breath',
+                videoId: 'dQw4w9WgXcQ',
+                description: 'Develop inner strength and focus with this warming pranayama. Creates a gentle oceanic sound in the throat.',
+                file: 'ujjayi_victorious_breath.mp4',
+            },
+            {
+                id: 3,
+                title: 'Kapalabhati - Skull Shining Breath',
+                videoId: 'dQw4w9WgXcQ',
+                description: 'Energize your body and clear your mind with forceful exhalations. An excellent practice for mental clarity.',
+                file: 'kapalabhati_skull_shining.mp4',
+            },
+            {
+                id: 4,
+                title: 'Bhastrika - Bellows Breath',
+                videoId: 'dQw4w9WgXcQ',
+                description: 'Awaken Kundalini energy and invigorate the nervous system with rapid, powerful breathing cycles.',
+                file: 'bhastrika_bellows_breath.mp4',
+            },
+            {
+                id: 5,
+                title: 'Bhramari - Bee Breath',
+                videoId: 'dQw4w9WgXcQ',
+                description: 'Calm the mind and reduce anxiety with this humming pranayama. Create inner vibrations of peace.',
+                file: 'bhramari_bee_breath.mp4',
+            },
+            {
+                id: 6,
+                title: 'Sitali Breath - Cooling Breath',
+                videoId: 'dQw4w9WgXcQ',
+                description: 'Cool the body and mind naturally. Excellent for hot seasons and overactive energy.',
+                file: 'sitali_cooling_breath.mp4',
+            },
+        ];
+
+        const desktopSearch = document.getElementById('desktopSearch');
+        const mobileSearch = document.getElementById('mobileSearch');
+        const cardsContainer = document.getElementById('cardsContainer');
+        const desktopCount = document.getElementById('desktop-count');
+        const mobileCount = document.getElementById('mobile-count');
+
+        function filterAndRender() {
+            const query = desktopSearch.value.toLowerCase();
+            
+            const filtered = pranayamas.filter(p => 
+                p.title.toLowerCase().includes(query) ||
+                p.file.toLowerCase().includes(query) ||
+                p.description.toLowerCase().includes(query)
+            );
+
+            // Update counts
+            desktopCount.textContent = filtered.length;
+            mobileCount.textContent = filtered.length;
+
+            // Clear and render cards
+            cardsContainer.innerHTML = '';
+
+            if (filtered.length === 0) {
+                cardsContainer.innerHTML = '<div class="empty">No pranayamas found</div>';
+                return;
+            }
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <span class="badge">Pranayama</span>
+                    <h2>${p.title}</h2>
+                    <p class="desc">${p.description}</p>
+                    <div class="video-container">
+                        <iframe
+                            src="https://www.youtube.com/embed/${p.videoId}"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            title="${p.title}"
+                        ></iframe>
+                    </div>
+                    <div class="file">${p.file}</div>
+                `;
+                cardsContainer.appendChild(card);
+            });
+        }
+
+        // Sync search inputs
+        desktopSearch.addEventListener('input', (e) => {
+            mobileSearch.value = e.target.value;
+            filterAndRender();
+        });
+
+        mobileSearch.addEventListener('input', (e) => {
+            desktopSearch.value = e.target.value;
+            filterAndRender();
+        });
+
+        // Initial render
+        filterAndRender();
+    </script>
+</body>
+</html>
