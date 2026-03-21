@@ -1,0 +1,515 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="UTF-8"/><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/chunks/%5Broot-of-the-server%5D__51d697a8._.css" data-precedence="next_static/chunks/[root-of-the-server]__51d697a8._.css"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_5bca705f._.js"/><script src="/_next/static/chunks/7eb69_dist_compiled_react-dom-experimental_cjs_react-dom-client_development_9f191c88.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_compiled_react-dom-experimental_cjs_react-dom_development_40c74c32.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_compiled_react-dom-experimental_2aa4b8b1._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_compiled_react-server-dom-turbopack-experimental_59ad6398._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_compiled_next-devtools_index_ab95c7de.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_compiled_ffec15bc._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_client_c3fa36e4._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_b2240ff2._.js" async=""></script><script src="/_next/static/chunks/69652_%40swc_helpers_cjs_679851cc._.js" async=""></script><script src="/_next/static/chunks/_a0ff3932._.js" async=""></script><script src="/_next/static/chunks/turbopack-_9bc0ee10._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_0f56702c._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js" async=""></script><script src="/_next/static/chunks/app_layout_tsx_c0ce61db._.js" async=""></script><link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600&amp;family=Noto+Sans+Kannada:wght@400;500;600&amp;display=swap" as="style"/><link rel="expect" href="#_R_" blocking="render"/><meta name="next-size-adjust" content=""/><title>Kannada to English Translator</title><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><title>v0 App</title><meta name="description" content="Created with v0"/><meta name="generator" content="v0.app"/><script src="/_next/static/chunks/75973_next_dist_build_polyfills_polyfill-nomodule.js" noModule=""></script><script>(function(){let e=Symbol.for("__v0_runtime_injected");if(window[e])return;function t(e){window.debug&&console.log("[vm:postMessage:out]",e),window.parent.postMessage(Object.assign({__v0_remote__:1},e),"*")}window[e]=!0;let r="",n=document.location.hash,i=window.self!==window.top;function a(){if(r!==document.location.href&&t({type:"location_change",href:r=document.location.href,canGoForward:window.navigation?.canGoForward,canGoBack:window.navigation?.canGoBack}),i){let e=window.location.hash;if(e!==n&&(n=e,e&&"#"!==e)){let t=document.querySelector(e);t&&t.scrollIntoView()}}}function o(){t({type:"app_navigation_state",loading:!1})}new MutationObserver(a).observe(document,{childList:!0,subtree:!0,attributes:!0,characterData:!0}),a(),window.addEventListener("popstate",a),window.addEventListener("hashchange",a),window.addEventListener("message",function(e){let t=e.data;if(t&&"object"==typeof t&&t.__v0_remote__)switch(window.debug&&console.log("[vm:postMessage:in]",t),t.type){case"navigate_back":window.history.back();break;case"navigate_forward":window.history.forward();break;case"navigate_to":window.location.href=t.href;break;case"reload":location.reload()}}),window.addEventListener("load",o),"complete"===document.readyState&&o(),requestAnimationFrame(()=>{requestAnimationFrame(()=>{t({type:"page_ready",url:window.location.href})})});let s="sb-3l704iba7mac";{let e=window.WebSocket,t=["/__nextjs/ws","/_next/webpack-hmr"];function u(r,n){let i=new URL("string"==typeof r?r:r.toString(),window.location.href),a=t.some(e=>i.pathname.startsWith(e)),o=i.hostname.endsWith(".vercel.run");return!a||o?new e(r,n):(i.protocol="wss:",i.hostname=`${s}.vercel.run`,i.port="",new e(i.toString(),n))}u.prototype=e.prototype,Object.assign(u,e),window.WebSocket=u}if(window.V0_S_ID=s,"next"in window&&window.next&&window.next.version){let e=document.createElement("style");e.textContent="nextjs-portal { display: none !important }",document.head.appendChild(e)}let l=Symbol.for("__v0_snapshot_capturer_initialized");if(!window[l]){async function c(){try{if(!window.freezeDry)return null;let e=await window.freezeDry.freezeDry(window.document);return e=e.replace(/<link rel="preload" as="script" [^>]*>/g,"").replace(/<link rel="original" href="[^>]+>/g,"")}catch(e){return null}}window[l]=!0;let e=async function(){let e=document.createElement("script");return e.src="/v0-vm-assets/freeze-dry.umd.js",e.async=!0,document.head.appendChild(e),new Promise((t,r)=>{e.onload=()=>{t()},e.onerror=e=>{r(e)}})}();function d(r=2e3){setTimeout(async()=>{try{await e;let r=await c();r&&function(e){if(e)try{t({type:"snapshot_capture",data:e})}catch(e){}}(r)}catch(e){}},r)}"complete"===document.readyState?d():window.addEventListener("load",()=>{d()})}let p=Object.getOwnPropertyDescriptor(Document.prototype,"cookie")||Object.getOwnPropertyDescriptor(HTMLDocument.prototype,"cookie");p&&p.configurable&&p.get&&p.set&&Object.defineProperty(document,"cookie",{get:()=>p.get.call(document),set(e){let t=e.replace(/;\s*SameSite=(Lax|Strict|None)/gi,"");(t+="; SameSite=None").includes("Secure")||(t+="; Secure"),p.set.call(document,t)}})})();</script></head><body class="font-sans antialiased"><div hidden=""><!--$--><!--/$--></div><html lang="en"><head><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600&amp;family=Noto+Sans+Kannada:wght@400;500;600&amp;display=swap" rel="stylesheet"/><style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+
+          :root {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --border-color: #dadce0;
+            --blue-accent: #1f8fe8;
+            --shadow-light: 0 1px 2px rgba(32, 33, 36, 0.08);
+            --shadow-md: 0 2px 8px rgba(32, 33, 36, 0.15);
+          }
+
+          body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            min-height: 100vh;
+          }
+
+          .serif {
+            font-family: 'Playfair Display', serif;
+          }
+
+          .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+          }
+
+          .header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+          }
+
+          .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--text-primary);
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+          }
+
+          .logo span {
+            color: var(--blue-accent);
+          }
+
+          .logo-subtitle {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 400;
+            display: block;
+            text-align: center;
+            margin-top: 4px;
+          }
+
+          .main-layout {
+            display: flex;
+            gap: 0;
+            min-height: calc(100vh - 100px);
+            background-color: var(--bg-secondary);
+            margin-top: 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+          }
+
+          .panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border-right: 1px solid var(--border-color);
+            position: relative;
+          }
+
+          .panel:last-child {
+            border-right: none;
+          }
+
+          .panel-title {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+          }
+
+          .upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            background-color: var(--bg-primary);
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+          }
+
+          .upload-area:hover {
+            border-color: var(--blue-accent);
+            background-color: rgba(31, 143, 232, 0.05);
+          }
+
+          .upload-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+          }
+
+          .upload-text {
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-size: 14px;
+          }
+
+          .upload-hint {
+            font-size: 12px;
+            color: var(--text-secondary);
+          }
+
+          .file-input {
+            display: none;
+          }
+
+          .image-preview {
+            width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            object-fit: contain;
+            border: 1px solid var(--border-color);
+          }
+
+          .text-display {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            flex: 1;
+            overflow-y: auto;
+            word-wrap: break-word;
+            font-family: 'Noto Sans Kannada', sans-serif;
+            color: var(--text-primary);
+            user-select: text;
+            line-height: 1.7;
+            font-size: 16px;
+          }
+
+          .text-display.english {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          }
+
+          .button-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+          }
+
+          .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+            height: 36px;
+            min-width: fit-content;
+            color: var(--text-secondary);
+            background-color: transparent;
+          }
+
+          .btn-primary {
+            background-color: var(--blue-accent);
+            color: white;
+          }
+
+          .btn-secondary {
+            background-color: var(--bg-primary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+          }
+
+          .btn:hover:not(:disabled) {
+            background-color: rgba(31, 143, 232, 0.1);
+            color: var(--blue-accent);
+          }
+
+          .btn-primary:hover:not(:disabled) {
+            background-color: #1a73e8;
+            color: white;
+          }
+
+          .btn-secondary:hover:not(:disabled) {
+            background-color: var(--bg-primary);
+            border-color: var(--text-secondary);
+            color: var(--text-primary);
+          }
+
+          .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
+
+          .loading {
+            text-align: center;
+            color: var(--text-secondary);
+            margin: 16px 0;
+            font-size: 13px;
+          }
+
+          .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--border-color);
+            border-top-color: var(--blue-accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+          }
+
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+
+          .empty-state {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 32px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .empty-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+          }
+
+          .feedback {
+            padding: 10px 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            display: none;
+            border-left: 4px solid transparent;
+          }
+
+          .feedback.success {
+            display: block;
+            background-color: #f1f3f4;
+            border-left-color: #34a853;
+            color: #1b7939;
+          }
+
+          .feedback.error {
+            display: block;
+            background-color: #f8d7da;
+            border-left-color: #d32f2f;
+            color: #b3261e;
+          }
+
+          @media (max-width: 1024px) {
+            .main-layout {
+              flex-direction: column;
+            }
+
+            .panel {
+              border-right: none;
+              border-bottom: 1px solid var(--border-color);
+            }
+
+            .panel:last-child {
+              border-bottom: none;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .panel {
+              padding: 16px;
+            }
+
+            .header {
+              padding: 12px 16px;
+            }
+
+            .logo {
+              font-size: 20px;
+            }
+          }
+        </style></head><body><header class="header"><div class="container"><div class="logo">Kannada <span>Translator</span></div></div></header><div class="container" style="padding-top:16px;padding-bottom:16px"><div class="main-layout"><div class="panel"><h2 class="panel-title">Kannada (Source)</h2><div id="kannadaUploadArea" class="upload-area"><div class="upload-icon">📄</div><div class="upload-text">Upload image of Kannada text</div><div class="upload-hint">PNG, JPG, GIF, or BMP</div><input id="kannadaImageInput" type="file" accept="image/*" class="file-input"/></div><img id="kannadaImagePreview" class="image-preview" style="display:none"/><div id="kannadaFeedback" class="feedback"></div><div id="kannadaExtractContainer" style="display:none;margin-bottom:12px"><button id="extractBtn" class="btn btn-primary" style="width:100%">Extract Text</button></div><div id="kannadaTextContainer" style="display:none"><div id="kannadaText" class="text-display"></div><div class="button-group"><button id="kannadaSpeakBtn" class="btn btn-secondary">Speak</button><button id="kannadaCopyBtn" class="btn btn-secondary">Copy</button><button id="kannadaDownloadBtn" class="btn btn-secondary">Download</button></div></div><div id="kannadaEmptyState" class="empty-state"><p style="font-size:14px;margin-bottom:8px">Kannada text will appear here after extraction</p></div></div><div class="panel"><h2 class="panel-title">English (Translation)</h2><div id="englishFeedback" class="feedback"></div><div id="englishTextContainer" style="display:none"><div id="englishText" class="text-display english"></div><div class="button-group"><button id="englishSpeakBtn" class="btn btn-secondary">Speak</button><button id="englishCopyBtn" class="btn btn-secondary">Copy</button><button id="englishDownloadBtn" class="btn btn-secondary">Download</button></div></div><div id="englishEmptyState" class="empty-state"><p style="font-size:14px">English translation will appear here</p></div></div></div></div><script>
+          let uploadedFile = null;
+          let kannadaText = '';
+          let englishText = '';
+
+          // File upload handler
+          const imageInput = document.getElementById('kannadaImageInput');
+          const uploadArea = document.getElementById('kannadaUploadArea');
+          const imagePreview = document.getElementById('kannadaImagePreview');
+          const extractBtn = document.getElementById('extractBtn');
+
+          // Drag and drop
+          uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'var(--light-gold)';
+            uploadArea.style.background = 'rgba(251, 191, 36, 0.1)';
+          });
+
+          uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = 'rgba(251, 191, 36, 0.5)';
+            uploadArea.style.background = 'rgba(255, 255, 255, 0.02)';
+          });
+
+          uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'rgba(251, 191, 36, 0.5)';
+            uploadArea.style.background = 'rgba(255, 255, 255, 0.02)';
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+              handleFileSelect(files[0]);
+            }
+          });
+
+          uploadArea.addEventListener('click', () => imageInput.click());
+          imageInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+              handleFileSelect(e.target.files[0]);
+            }
+          });
+
+          function handleFileSelect(file) {
+            uploadedFile = file;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+              imagePreview.src = event.target.result;
+              imagePreview.style.display = 'block';
+              document.getElementById('kannadaExtractContainer').style.display = 'block';
+              document.getElementById('kannadaEmptyState').style.display = 'none';
+              showFeedback('kannadaFeedback', 'Image loaded. Click Extract Text to process.', 'success');
+            };
+            reader.readAsDataURL(file);
+          }
+
+          // Extract and translate
+          extractBtn.addEventListener('click', extractAndTranslate);
+
+          async function extractAndTranslate() {
+            if (!uploadedFile) {
+              showFeedback('kannadaFeedback', 'Please upload an image first.', 'error');
+              return;
+            }
+
+            extractBtn.disabled = true;
+            extractBtn.innerHTML = '<span class="spinner"></span>Processing...';
+            showFeedback('kannadaFeedback', 'Extracting text from image...', 'success');
+
+            try {
+              // For production: Implement Google Cloud Vision API call to your backend
+              // For demo: Use Tesseract.js (requires adding script tag)
+              const text = await mockOCR(uploadedFile);
+              kannadaText = text;
+              updateKannadaPanel(text);
+              
+              showFeedback('kannadaFeedback', 'Text extracted successfully!', 'success');
+              
+              // Auto-translate
+              await translateKannadaText(text);
+            } catch (error) {
+              console.error('Error:', error);
+              showFeedback('kannadaFeedback', 'Error processing image. See console for details.', 'error');
+            } finally {
+              extractBtn.disabled = false;
+              extractBtn.innerHTML = '✨ Extract Text';
+            }
+          }
+
+          async function mockOCR(file) {
+            // Demo implementation - in production use Google Cloud Vision API
+            // Example: https://cloud.google.com/vision/docs/ocr
+            return 'ಕನ್ನಡ ಭಾಷೆಯು ದ್ರಾವಿಡ ಪರಿವಾರದ ಭಾಷೆ.\nಇದು ಕರ್ನಾಟಕ ರಾ���್ಯದ ಅಧಿಕೃತ ಭಾಷೆ.\nಕನ್ನಡ ಲಿಪಿ ತುಂಬಾ ಪುರಾತನ ಮತ್ತು ಸುಂದರವಾದದ್ದು.';
+          }
+
+          async function translateKannadaText(text) {
+            showFeedback('englishFeedback', 'Translating to English...', 'success');
+            
+            try {
+              // For production: Use Google Translate API
+              // https://cloud.google.com/translate/docs/basic/setup
+              const translated = mockTranslate(text);
+              englishText = translated;
+              updateEnglishPanel(translated);
+              showFeedback('englishFeedback', 'Translation complete!', 'success');
+            } catch (error) {
+              console.error('Translation error:', error);
+              showFeedback('englishFeedback', 'Error translating text.', 'error');
+            }
+          }
+
+          function mockTranslate(text) {
+            // Demo implementation - in production use Google Translate API
+            const translations = {
+              'ಕನ್ನಡ': 'Kannada',
+              'ಭಾಷೆ': 'Language',
+              'ದ್ರಾವಿಡ': 'Dravidian',
+              'ಪರಿವಾರ': 'Family',
+              'ಕರ್ನಾಟಕ': 'Karnataka',
+              'ರಾಜ್ಯ': 'State',
+              'ಅಧಿಕೃತ': 'Official',
+              'ಲಿಪಿ': 'Script',
+              'ತುಂಬಾ': 'Very',
+              'ಪುರಾತನ': 'Ancient',
+              'ಸುಂದರ': 'Beautiful'
+            };
+            
+            return 'The Kannada language is from the Dravidian family.\nIt is the official language of the state of Karnataka.\nThe Kannada script is very ancient and beautiful.';
+          }
+
+          function updateKannadaPanel(text) {
+            document.getElementById('kannadaText').textContent = text;
+            document.getElementById('kannadaTextContainer').style.display = 'block';
+            document.getElementById('kannadaEmptyState').style.display = 'none';
+            document.getElementById('kannadaExtractContainer').style.display = 'none';
+          }
+
+          function updateEnglishPanel(text) {
+            document.getElementById('englishText').textContent = text;
+            document.getElementById('englishTextContainer').style.display = 'block';
+            document.getElementById('englishEmptyState').style.display = 'none';
+          }
+
+          // Speech synthesis
+          function speakText(text, lang = 'en') {
+            if ('speechSynthesis' in window) {
+              window.speechSynthesis.cancel();
+              const utterance = new SpeechSynthesisUtterance(text);
+              utterance.lang = lang === 'kn' ? 'kn-IN' : 'en-US';
+              utterance.rate = 0.9;
+              window.speechSynthesis.speak(utterance);
+            }
+          }
+
+          document.getElementById('kannadaSpeakBtn').addEventListener('click', () => {
+            speakText(kannadaText, 'kn');
+          });
+
+          document.getElementById('englishSpeakBtn').addEventListener('click', () => {
+            speakText(englishText, 'en');
+          });
+
+          // Copy to clipboard
+          document.getElementById('kannadaCopyBtn').addEventListener('click', () => {
+            navigator.clipboard.writeText(kannadaText).then(() => {
+              showFeedback('kannadaFeedback', 'Copied to clipboard!', 'success');
+            });
+          });
+
+          document.getElementById('englishCopyBtn').addEventListener('click', () => {
+            navigator.clipboard.writeText(englishText).then(() => {
+              showFeedback('englishFeedback', 'Copied to clipboard!', 'success');
+            });
+          });
+
+          // Download text
+          document.getElementById('kannadaDownloadBtn').addEventListener('click', () => {
+            downloadText(kannadaText, 'kannada-text.txt');
+          });
+
+          document.getElementById('englishDownloadBtn').addEventListener('click', () => {
+            downloadText(englishText, 'english-translation.txt');
+          });
+
+          function downloadText(text, filename) {
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+          }
+
+          function showFeedback(elementId, message, type) {
+            const el = document.getElementById(elementId);
+            el.textContent = message;
+            el.className = 'feedback ' + type;
+            setTimeout(() => {
+              el.className = 'feedback';
+            }, 3000);
+          }
+        </script><!--$--><!--/$--><script id="_R_">self.__next_r="q1ayLKbNxQ1VsuINSqhtM"</script><script src="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_5bca705f._.js" async=""></script></body></html><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"7:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"SegmentViewNode\"]\n9:\"$Sreact.fragment\"\n19:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"default\"]\n1b:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"default\"]\n3d:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/lib/framework/boundary-components.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"OutletBoundary\"]\n3f:\"$Sreact.suspense\"\n48:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/lib/framework/boundary-components.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"ViewportBoundary\"]\n4f:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/lib/framework/boundary-components.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"MetadataBoundary\"]\n55:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/components/builtin/global-error.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"default\"]\n:HL[\"/_next/static/chunks/%5Broot-of-the-server%5D__51d697a8._.css\",\"style\"]\n:HL[\"/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700\u0026family=Playfair+Display:ital,wght@0,400;0,600\u0026family=Noto+Sans+Kannada:wght@400;500;600\u0026display=swap\",\"style\"]\n:N1770791729206.5837\n3:\"$EObject.defineProperty(()=\u003e{ctx.componentMod.preloadStyle(fullHref,ctx.renderOpts.crossOrigin,ctx.nonce)},\\\"name\\\",{value:\\\"\\\"})\"\n4:\"$EObject.defineProperty(()=\u003e{ctx.componentMod.preloadFont(href,type,ctx.renderOpts.crossOrigin,ctx.nonce)},\\\"name\\\",{value:\\\"\\\"})\"\n5:\"$EObject.defineProperty(()=\u003e{ctx.componentMod.preloadFont(href,type,ctx.renderOpts.crossOrigin,ctx.nonce)},\\\"name\\\",{value:\\\"\\\"})\"\n2:{\"name\":\"Preloads\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{\"preloadCallbacks\":[\"$3\",\"$4\",\"$5\"]}}\n6:[]\n8:[]\na:[[\"Array.map\",\"\",0,0,0,0,false]]\nb:[[\"Array.map\",\"\",0,0,0,0,false]]\ne:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"default\"]\n11:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist"])</script><script>self.__next_f.push([1,"_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"default\"]\n12:{}\n13:[[\"Promise.all\",\"\",0,0,0,0,true]]\n10:{\"children\":[\"$\",\"$L11\",null,\"$12\",null,\"$13\",1]}\n14:[[\"Promise.all\",\"\",0,0,0,0,true]]\nf:{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$9\",null,\"$10\",null,\"$14\",0],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$Y\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\",\"segmentViewBoundaries\":\"$Y\"}\n15:[[\"Promise.all\",\"\",0,0,0,0,true]]\nd:{\"name\":\"RootLayout\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{\"children\":[\"$\",\"$Le\",null,\"$f\",null,\"$15\",1],\"params\":\"$Y\"}}\n16:[[\"RootLayout\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__ac56d647._.js\",78,390,77,1,false]]\n17:[[\"RootLayout\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__ac56d647._.js\",80,397,77,1,false]]\n18:[[\"Promise.all\",\"\",0,0,0,0,true]]\n1a:[[\"Promise.all\",\"\",0,0,0,0,true]]\n1c:[]\n1e:{\"name\":\"NotFound\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{}}\n1f:{\"name\":\"HTTPAccessErrorFallback\",\"key\":null,\"env\":\"Server\",\"owner\":\"$1e\",\"stack\":[],\"props\":{\"status\":404,\"message\":\"This page could not be found.\"}}\n20:[]\n21:[]\n22:[]\n23:[]\n24:[]\n25:[]\n26:[]\n27:[[\"Promise.all\",\"\",0,0,0,0,true]]\n28:[[\"Promise.all\",\"\",0,0,0,0,true]]\n29:[[\"Promise.all\",\"\",0,0,0,0,true]]\n2a:[[\"Promise.all\",\"\",0,0,0,0,true]]\n2c:{\"name\":\"Page\",\"key\":null,\"env\":\"Server\",\"stack\":[[\"Promise.all\",\"\",0,0,0,0,true]],\"props\":{\"params\":\"$@2d\",\"searchParams\":\"$@2e\"}}\n2f:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",22,390,21,1,false]]\n30:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",25,391,21,1,false]]\n31:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",27,399,21,1,false]]\n32:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",34,399,21,1,false]]\n33:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",42,399,21,1,false]]\n34:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",49,399,21,1,false]]\n35:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",57,399,21,1,false]]\n36:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",66,399,21,1,false]]\n37:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",74,399,21,1,false]]\n3b:{\"name\":\"Next.MetadataOutlet\",\"key\":null,\"env\":\"Server\",\"stack\":[[\"Promise.all\",\"\",0,0,0,0,true]],\"props\":{}}\n3c:[]\n3e:[]\n41:[]\n"])</script><script>self.__next_f.push([1,"44:\"$EObject.defineProperty(function(type,config,children){for(var propName,i=2;i\u003carguments.length;i++)validateChildKeys(arguments[i]);i={};var key=null;if(null!=config)for(propName in didWarnAboutOldJSXRuntime||!(\\\"__self\\\"in config)||\\\"key\\\"in config||(didWarnAboutOldJSXRuntime=!0,console.warn(\\\"Your app (or one of its dependencies) is using an outdated JSX transform. Update to the modern JSX transform for faster performance: https://react.dev/link/new-jsx-transform\\\")),hasValidKey(config)\u0026\u0026(config.key===REACT_OPTIMISTIC_KEY?key=REACT_OPTIMISTIC_KEY:(checkKeyStringCoercion(config.key),key=\\\"\\\"+config.key)),config)hasOwnProperty.call(config,propName)\u0026\u0026\\\"key\\\"!==propName\u0026\u0026\\\"__self\\\"!==propName\u0026\u0026\\\"__source\\\"!==propName\u0026\u0026(i[propName]=config[propName]);var childrenLength=arguments.length-2;if(1===childrenLength)i.children=children;else if(1\u003cchildrenLength){for(var childArray=Array(childrenLength),_i=0;_i\u003cchildrenLength;_i++)childArray[_i]=arguments[_i+2];Object.freeze\u0026\u0026Object.freeze(childArray),i.children=childArray}if(type\u0026\u0026type.defaultProps)for(propName in childrenLength=type.defaultProps)void 0===i[propName]\u0026\u0026(i[propName]=childrenLength[propName]);return key\u0026\u0026function(props,displayName){function warnAboutAccessingKey(){specialPropKeyWarningShown||(specialPropKeyWarningShown=!0,console.error(\\\"%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)\\\",displayName))}warnAboutAccessingKey.isReactWarning=!0,Object.defineProperty(props,\\\"key\\\",{get:warnAboutAccessingKey,configurable:!0})}(i,\\\"function\\\"==typeof type?type.displayName||type.name||\\\"Unknown\\\":type),(propName=1e4\u003eReactSharedInternals.recentlyCreatedOwnerStacks++)?(childArray=Error.stackTraceLimit,Error.stackTraceLimit=10,childrenLength=Error(\\\"react-stack-top-frame\\\"),Error.stackTraceLimit=childArray):childrenLength=unknownOwnerDebugStack,ReactElement(type,key,i,getOwner(),childrenLength,propName?createTask(getTaskName(type)):unknownOwnerDebugTask)},\\\"name\\\",{value:\\\"\\\"})\"\n"])</script><script>self.__next_f.push([1,"43:{\"name\":\"NonIndex\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{\"createElement\":\"$44\",\"pagePath\":\"/\",\"statusCode\":200,\"isPossibleServerAction\":false}}\n46:{\"name\":\"ViewportWrapper\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{}}\n47:[]\n4a:{\"name\":\"Next.Viewport\",\"key\":null,\"env\":\"Server\",\"owner\":\"$46\",\"stack\":[],\"props\":{}}\n4c:{\"name\":\"MetadataWrapper\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{}}\n4d:[]\n4e:[]\n50:[]\n52:{\"name\":\"Next.Metadata\",\"key\":null,\"env\":\"Server\",\"owner\":\"$4c\",\"stack\":[],\"props\":{}}\n53:[]\n56:[]\n2d:{}\n2e:\n57:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",402,391,21,1,false]]\n58:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",404,399,21,1,false]]\n59:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",406,413,21,1,false]]\n5a:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",408,417,21,1,false]]\n5b:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",412,415,21,1,false]]\n5c:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",435,399,21,1,false]]\n5d:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",441,413,21,1,false]]\n5e:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",444,411,21,1,false]]\n5f:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",447,419,21,1,false]]\n60:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",455,419,21,1,false]]\n61:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",459,427,21,1,false]]\n62:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",467,427,21,1,false]]\n63:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",475,427,21,1,false]]\n64:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",483,427,21,1,false]]\n65:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",499,419,21,1,false]]\n66:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",510,419,21,1,false]]\n67:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",518,419,21,1,false]]\n68:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",524,433,21,1,false]]\n69:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",541,419,21,1,false]]\n6a:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",547,427,21,1,false]]\n6b:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",555,427,21,1,false]]\n6c:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",558,435,21,1,false]]\n6d:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",567,435,21,1,false]]\n6e:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",576,435,21,1,false]]\n6f:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",597,419,21,1,false]]\n70:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",600,433,21,1,false]]\n71:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",622,411,21,1,false]]\n72:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._."])</script><script>self.__next_f.push([1,"js\",625,419,21,1,false]]\n73:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",633,419,21,1,false]]\n74:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",641,419,21,1,false]]\n75:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",647,427,21,1,false]]\n76:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",655,427,21,1,false]]\n77:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",658,435,21,1,false]]\n78:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",667,435,21,1,false]]\n79:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",676,435,21,1,false]]\n7a:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",697,419,21,1,false]]\n7b:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",700,433,21,1,false]]\n7c:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",732,399,21,1,false]]\n7e:[]\n7f:[]\n80:[]\n81:[]\n82:[]\n1:D{\"time\":0.2956699999049306}\n1:D\"$2\"\n1:D{\"time\":0.3515039999037981}\n1:null\nc:D{\"time\":0.9569029998965561}\nc:D\"$d\"\nc:D{\"time\":1.0808939998969436}\n1d:D{\"time\":1.3619739999994636}\n1d:D\"$1e\"\n1d:D{\"time\":1.4594290000386536}\n1d:D\"$1f\"\n1d:D{\"time\":1.5907310000620782}\n1d:[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"},\"$1f\",\"$20\",1],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}},\"$1f\",\"$23\",1],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404},\"$1f\",\"$24\",1],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"},\"$1f\",\"$26\",1]},\"$1f\",\"$25\",1]]},\"$1f\",\"$22\",1]},\"$1f\",\"$21\",1]]\nc:[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"font-sans antialiased\",\"children\":[\"$\",\"$L19\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L1b\",null,{},null,\"$1a\",1],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[\"$\",\"$L7\",\"c-not-found\",{\"type\":\"not-found\",\"pagePath\":\"__next_builtin__not-found.js\",\"children\":[\"$1d\",[]]},null,\"$1c\",0],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\",\"segmentViewBoundaries\":[[\"$\",\"$L7\",null,{\"type\":\"boundary:not-found\",\"pagePath\":\"__next_builtin__not-found.js@boundary\"},null,\"$27\",1],\"$undefined\",\"$undefined\",[\"$\",\"$L7\",null,{\"type\":\"boundary:global-error\",\"pagePath\":\"__next_builtin__global-error.js\"},null,\"$28\",1]]},null,\"$18\",1]},\"$d\",\"$17\",1]},\"$d\",\"$16\",1]\n2b:D{\"time\":2.61486200010404}\n2b:D\"$2c\"\n2b:D{\"time\":3.3010749998502433}\n38:T202c,"])</script><script>self.__next_f.push([1,"\n          * {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n          }\n\n          :root {\n            --bg-primary: #f8f9fa;\n            --bg-secondary: #ffffff;\n            --text-primary: #202124;\n            --text-secondary: #5f6368;\n            --border-color: #dadce0;\n            --blue-accent: #1f8fe8;\n            --shadow-light: 0 1px 2px rgba(32, 33, 36, 0.08);\n            --shadow-md: 0 2px 8px rgba(32, 33, 36, 0.15);\n          }\n\n          body {\n            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            line-height: 1.6;\n            color: var(--text-primary);\n            background-color: var(--bg-primary);\n            min-height: 100vh;\n          }\n\n          .serif {\n            font-family: 'Playfair Display', serif;\n          }\n\n          .container {\n            max-width: 1200px;\n            margin: 0 auto;\n            padding: 0 20px;\n          }\n\n          .header {\n            background-color: var(--bg-secondary);\n            border-bottom: 1px solid var(--border-color);\n            padding: 16px 20px;\n            box-shadow: var(--shadow-light);\n            position: sticky;\n            top: 0;\n            z-index: 100;\n          }\n\n          .logo {\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            gap: 12px;\n            color: var(--text-primary);\n            font-size: 24px;\n            font-weight: 600;\n            letter-spacing: 0.5px;\n          }\n\n          .logo span {\n            color: var(--blue-accent);\n          }\n\n          .logo-subtitle {\n            color: var(--text-secondary);\n            font-size: 13px;\n            font-weight: 400;\n            display: block;\n            text-align: center;\n            margin-top: 4px;\n          }\n\n          .main-layout {\n            display: flex;\n            gap: 0;\n            min-height: calc(100vh - 100px);\n            background-color: var(--bg-secondary);\n            margin-top: 16px;\n            border-radius: 8px;\n            overflow: hidden;\n            box-shadow: var(--shadow-md);\n          }\n\n          .panel {\n            flex: 1;\n            display: flex;\n            flex-direction: column;\n            padding: 20px;\n            border-right: 1px solid var(--border-color);\n            position: relative;\n          }\n\n          .panel:last-child {\n            border-right: none;\n          }\n\n          .panel-title {\n            font-size: 12px;\n            color: var(--text-secondary);\n            margin-bottom: 12px;\n            text-transform: uppercase;\n            font-weight: 600;\n            letter-spacing: 0.8px;\n          }\n\n          .upload-area {\n            border: 2px dashed var(--border-color);\n            border-radius: 8px;\n            padding: 24px;\n            text-align: center;\n            background-color: var(--bg-primary);\n            margin-bottom: 16px;\n            cursor: pointer;\n            transition: all 0.2s ease;\n          }\n\n          .upload-area:hover {\n            border-color: var(--blue-accent);\n            background-color: rgba(31, 143, 232, 0.05);\n          }\n\n          .upload-icon {\n            font-size: 32px;\n            margin-bottom: 8px;\n          }\n\n          .upload-text {\n            color: var(--text-primary);\n            font-weight: 500;\n            margin-bottom: 4px;\n            font-size: 14px;\n          }\n\n          .upload-hint {\n            font-size: 12px;\n            color: var(--text-secondary);\n          }\n\n          .file-input {\n            display: none;\n          }\n\n          .image-preview {\n            width: 100%;\n            max-height: 300px;\n            border-radius: 8px;\n            margin-bottom: 16px;\n            object-fit: contain;\n            border: 1px solid var(--border-color);\n          }\n\n          .text-display {\n            background-color: var(--bg-primary);\n            border: 1px solid var(--border-color);\n            border-radius: 8px;\n            padding: 16px;\n            margin-bottom: 16px;\n            flex: 1;\n            overflow-y: auto;\n            word-wrap: break-word;\n            font-family: 'Noto Sans Kannada', sans-serif;\n            color: var(--text-primary);\n            user-select: text;\n            line-height: 1.7;\n            font-size: 16px;\n          }\n\n          .text-display.english {\n            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n          }\n\n          .button-group {\n            display: flex;\n            gap: 8px;\n            flex-wrap: wrap;\n          }\n\n          .btn {\n            padding: 8px 12px;\n            border: none;\n            border-radius: 4px;\n            font-weight: 500;\n            cursor: pointer;\n            transition: all 0.2s ease;\n            font-size: 13px;\n            display: flex;\n            align-items: center;\n            gap: 6px;\n            justify-content: center;\n            height: 36px;\n            min-width: fit-content;\n            color: var(--text-secondary);\n            background-color: transparent;\n          }\n\n          .btn-primary {\n            background-color: var(--blue-accent);\n            color: white;\n          }\n\n          .btn-secondary {\n            background-color: var(--bg-primary);\n            color: var(--text-secondary);\n            border: 1px solid var(--border-color);\n          }\n\n          .btn:hover:not(:disabled) {\n            background-color: rgba(31, 143, 232, 0.1);\n            color: var(--blue-accent);\n          }\n\n          .btn-primary:hover:not(:disabled) {\n            background-color: #1a73e8;\n            color: white;\n          }\n\n          .btn-secondary:hover:not(:disabled) {\n            background-color: var(--bg-primary);\n            border-color: var(--text-secondary);\n            color: var(--text-primary);\n          }\n\n          .btn:disabled {\n            opacity: 0.5;\n            cursor: not-allowed;\n          }\n\n          .loading {\n            text-align: center;\n            color: var(--text-secondary);\n            margin: 16px 0;\n            font-size: 13px;\n          }\n\n          .spinner {\n            display: inline-block;\n            width: 16px;\n            height: 16px;\n            border: 2px solid var(--border-color);\n            border-top-color: var(--blue-accent);\n            border-radius: 50%;\n            animation: spin 0.8s linear infinite;\n            margin-right: 8px;\n            vertical-align: middle;\n          }\n\n          @keyframes spin {\n            to { transform: rotate(360deg); }\n          }\n\n          .empty-state {\n            text-align: center;\n            color: var(--text-secondary);\n            padding: 32px 20px;\n            flex: 1;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n          }\n\n          .empty-icon {\n            font-size: 36px;\n            margin-bottom: 12px;\n          }\n\n          .feedback {\n            padding: 10px 12px;\n            border-radius: 4px;\n            margin-bottom: 12px;\n            font-size: 12px;\n            display: none;\n            border-left: 4px solid transparent;\n          }\n\n          .feedback.success {\n            display: block;\n            background-color: #f1f3f4;\n            border-left-color: #34a853;\n            color: #1b7939;\n          }\n\n          .feedback.error {\n            display: block;\n            background-color: #f8d7da;\n            border-left-color: #d32f2f;\n            color: #b3261e;\n          }\n\n          @media (max-width: 1024px) {\n            .main-layout {\n              flex-direction: column;\n            }\n\n            .panel {\n              border-right: none;\n              border-bottom: 1px solid var(--border-color);\n            }\n\n            .panel:last-child {\n              border-bottom: none;\n            }\n          }\n\n          @media (max-width: 768px) {\n            .panel {\n              padding: 16px;\n            }\n\n            .header {\n              padding: 12px 16px;\n            }\n\n            .logo {\n              font-size: 20px;\n            }\n          }\n        "])</script><script>self.__next_f.push([1,"2b:[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"meta\",null,{\"charSet\":\"UTF-8\"},\"$2c\",\"$31\",1],[\"$\",\"meta\",null,{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1.0\"},\"$2c\",\"$32\",1],[\"$\",\"title\",null,{\"children\":\"Kannada to English Translator\"},\"$2c\",\"$33\",1],[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://fonts.googleapis.com\"},\"$2c\",\"$34\",1],[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://fonts.gstatic.com\",\"crossOrigin\":\"anonymous\"},\"$2c\",\"$35\",1],[\"$\",\"link\",null,{\"href\":\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700\u0026family=Playfair+Display:ital,wght@0,400;0,600\u0026family=Noto+Sans+Kannada:wght@400;500;600\u0026display=swap\",\"rel\":\"stylesheet\"},\"$2c\",\"$36\",1],[\"$\",\"style\",null,{\"children\":\"$38\"},\"$2c\",\"$37\",1]]},\"$2c\",\"$30\",1],\"$L39\"]},\"$2c\",\"$2f\",1]\n3a:D{\"time\":3.732691999990493}\n3a:D\"$3b\"\n3a:D{\"time\":5.075623999815434}\n3a:[\"$\",\"$L3d\",null,{\"children\":[\"$\",\"$3f\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@40\"},\"$3b\",\"$3e\",1]},\"$3b\",\"$3c\",1]\n42:D{\"time\":5.481596999801695}\n42:D\"$43\"\n42:D{\"time\":5.492062000092119}\n42:null\n45:D{\"time\":5.579279999714345}\n45:D\"$46\"\n45:D{\"time\":5.657374999951571}\n49:D{\"time\":5.7251339997164905}\n49:D\"$4a\"\n45:[\"$\",\"$L48\",null,{\"children\":\"$L49\"},\"$46\",\"$47\",1]\n4b:D{\"time\":6.173161000013351}\n4b:D\"$4c\"\n4b:D{\"time\":6.275506000034511}\n51:D{\"time\":6.399333999957889}\n51:D\"$52\"\n4b:[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$L4f\",null,{\"children\":[\"$\",\"$3f\",null,{\"name\":\"Next.Metadata\",\"children\":\"$L51\"},\"$4c\",\"$50\",1]},\"$4c\",\"$4e\",1]},\"$4c\",\"$4d\",1]\n54:[]\n0:{\"P\":\"$1\",\"b\":\"development\",\"c\":[\"\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[[\"$\",\"$L7\",\"layout\",{\"type\":\"layout\",\"pagePath\":\"layout.tsx\",\"children\":[\"$\",\"$9\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/%5Broot-of-the-server%5D__51d697a8._.css\",\"precedence\":\"next_static/chunks/[root-of-the-server]__51d697a8._.css\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"},null,\"$a\",0],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/app_layout_tsx_c0ce61db._.js\",\"async\":true,\"nonce\":\"$undefined\"},null,\"$b\",0]],\"$c\"]},null,\"$8\",1]},null,\"$6\",0],{\"children\":[[\"$\",\"$9\",\"c\",{\"children\":[[\"$\",\"$L7\",\"c-page\",{\"type\":\"page\",\"pagePath\":\"page.tsx\",\"children\":\"$2b\"},null,\"$2a\",1],null,\"$3a\"]},null,\"$29\",0],{},null,false,false]},null,false,false],[\"$\",\"$9\",\"h\",{\"children\":[\"$42\",\"$45\",\"$4b\",[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"},null,\"$53\",1]]},null,\"$41\",0],false]],\"m\":\"$W54\",\"G\":[\"$55\",[\"$\",\"$L7\",\"ge-svn\",{\"type\":\"global-error\",\"pagePath\":\"__next_builtin__global-error.js\",\"children\":[]},null,\"$56\",0]],\"S\":false}\n39:D{\"time\":6.971194999758154}\n7d:T221f,"])</script><script>self.__next_f.push([1,"\n          let uploadedFile = null;\n          let kannadaText = '';\n          let englishText = '';\n\n          // File upload handler\n          const imageInput = document.getElementById('kannadaImageInput');\n          const uploadArea = document.getElementById('kannadaUploadArea');\n          const imagePreview = document.getElementById('kannadaImagePreview');\n          const extractBtn = document.getElementById('extractBtn');\n\n          // Drag and drop\n          uploadArea.addEventListener('dragover', (e) =\u003e {\n            e.preventDefault();\n            uploadArea.style.borderColor = 'var(--light-gold)';\n            uploadArea.style.background = 'rgba(251, 191, 36, 0.1)';\n          });\n\n          uploadArea.addEventListener('dragleave', () =\u003e {\n            uploadArea.style.borderColor = 'rgba(251, 191, 36, 0.5)';\n            uploadArea.style.background = 'rgba(255, 255, 255, 0.02)';\n          });\n\n          uploadArea.addEventListener('drop', (e) =\u003e {\n            e.preventDefault();\n            uploadArea.style.borderColor = 'rgba(251, 191, 36, 0.5)';\n            uploadArea.style.background = 'rgba(255, 255, 255, 0.02)';\n            const files = e.dataTransfer.files;\n            if (files.length \u003e 0) {\n              handleFileSelect(files[0]);\n            }\n          });\n\n          uploadArea.addEventListener('click', () =\u003e imageInput.click());\n          imageInput.addEventListener('change', (e) =\u003e {\n            if (e.target.files.length \u003e 0) {\n              handleFileSelect(e.target.files[0]);\n            }\n          });\n\n          function handleFileSelect(file) {\n            uploadedFile = file;\n            const reader = new FileReader();\n            reader.onload = (event) =\u003e {\n              imagePreview.src = event.target.result;\n              imagePreview.style.display = 'block';\n              document.getElementById('kannadaExtractContainer').style.display = 'block';\n              document.getElementById('kannadaEmptyState').style.display = 'none';\n              showFeedback('kannadaFeedback', 'Image loaded. Click Extract Text to process.', 'success');\n            };\n            reader.readAsDataURL(file);\n          }\n\n          // Extract and translate\n          extractBtn.addEventListener('click', extractAndTranslate);\n\n          async function extractAndTranslate() {\n            if (!uploadedFile) {\n              showFeedback('kannadaFeedback', 'Please upload an image first.', 'error');\n              return;\n            }\n\n            extractBtn.disabled = true;\n            extractBtn.innerHTML = '\u003cspan class=\"spinner\"\u003e\u003c/span\u003eProcessing...';\n            showFeedback('kannadaFeedback', 'Extracting text from image...', 'success');\n\n            try {\n              // For production: Implement Google Cloud Vision API call to your backend\n              // For demo: Use Tesseract.js (requires adding script tag)\n              const text = await mockOCR(uploadedFile);\n              kannadaText = text;\n              updateKannadaPanel(text);\n              \n              showFeedback('kannadaFeedback', 'Text extracted successfully!', 'success');\n              \n              // Auto-translate\n              await translateKannadaText(text);\n            } catch (error) {\n              console.error('Error:', error);\n              showFeedback('kannadaFeedback', 'Error processing image. See console for details.', 'error');\n            } finally {\n              extractBtn.disabled = false;\n              extractBtn.innerHTML = '✨ Extract Text';\n            }\n          }\n\n          async function mockOCR(file) {\n            // Demo implementation - in production use Google Cloud Vision API\n            // Example: https://cloud.google.com/vision/docs/ocr\n            return 'ಕನ್ನಡ ಭಾಷೆಯು ದ್ರಾವಿಡ ಪರಿವಾರದ ಭಾಷೆ.\\nಇದು ಕರ್ನಾಟಕ ರಾ���್ಯದ ಅಧಿಕೃತ ಭಾಷೆ.\\nಕನ್ನಡ ಲಿಪಿ ತುಂಬಾ ಪುರಾತನ ಮತ್ತು ಸುಂದರವಾದದ್ದು.';\n          }\n\n          async function translateKannadaText(text) {\n            showFeedback('englishFeedback', 'Translating to English...', 'success');\n            \n            try {\n              // For production: Use Google Translate API\n              // https://cloud.google.com/translate/docs/basic/setup\n              const translated = mockTranslate(text);\n              englishText = translated;\n              updateEnglishPanel(translated);\n              showFeedback('englishFeedback', 'Translation complete!', 'success');\n            } catch (error) {\n              console.error('Translation error:', error);\n              showFeedback('englishFeedback', 'Error translating text.', 'error');\n            }\n          }\n\n          function mockTranslate(text) {\n            // Demo implementation - in production use Google Translate API\n            const translations = {\n              'ಕನ್ನಡ': 'Kannada',\n              'ಭಾಷೆ': 'Language',\n              'ದ್ರಾವಿಡ': 'Dravidian',\n              'ಪರಿವಾರ': 'Family',\n              'ಕರ್ನಾಟಕ': 'Karnataka',\n              'ರಾಜ್ಯ': 'State',\n              'ಅಧಿಕೃತ': 'Official',\n              'ಲಿಪಿ': 'Script',\n              'ತುಂಬಾ': 'Very',\n              'ಪುರಾತನ': 'Ancient',\n              'ಸುಂದರ': 'Beautiful'\n            };\n            \n            return 'The Kannada language is from the Dravidian family.\\nIt is the official language of the state of Karnataka.\\nThe Kannada script is very ancient and beautiful.';\n          }\n\n          function updateKannadaPanel(text) {\n            document.getElementById('kannadaText').textContent = text;\n            document.getElementById('kannadaTextContainer').style.display = 'block';\n            document.getElementById('kannadaEmptyState').style.display = 'none';\n            document.getElementById('kannadaExtractContainer').style.display = 'none';\n          }\n\n          function updateEnglishPanel(text) {\n            document.getElementById('englishText').textContent = text;\n            document.getElementById('englishTextContainer').style.display = 'block';\n            document.getElementById('englishEmptyState').style.display = 'none';\n          }\n\n          // Speech synthesis\n          function speakText(text, lang = 'en') {\n            if ('speechSynthesis' in window) {\n              window.speechSynthesis.cancel();\n              const utterance = new SpeechSynthesisUtterance(text);\n              utterance.lang = lang === 'kn' ? 'kn-IN' : 'en-US';\n              utterance.rate = 0.9;\n              window.speechSynthesis.speak(utterance);\n            }\n          }\n\n          document.getElementById('kannadaSpeakBtn').addEventListener('click', () =\u003e {\n            speakText(kannadaText, 'kn');\n          });\n\n          document.getElementById('englishSpeakBtn').addEventListener('click', () =\u003e {\n            speakText(englishText, 'en');\n          });\n\n          // Copy to clipboard\n          document.getElementById('kannadaCopyBtn').addEventListener('click', () =\u003e {\n            navigator.clipboard.writeText(kannadaText).then(() =\u003e {\n              showFeedback('kannadaFeedback', 'Copied to clipboard!', 'success');\n            });\n          });\n\n          document.getElementById('englishCopyBtn').addEventListener('click', () =\u003e {\n            navigator.clipboard.writeText(englishText).then(() =\u003e {\n              showFeedback('englishFeedback', 'Copied to clipboard!', 'success');\n            });\n          });\n\n          // Download text\n          document.getElementById('kannadaDownloadBtn').addEventListener('click', () =\u003e {\n            downloadText(kannadaText, 'kannada-text.txt');\n          });\n\n          document.getElementById('englishDownloadBtn').addEventListener('click', () =\u003e {\n            downloadText(englishText, 'english-translation.txt');\n          });\n\n          function downloadText(text, filename) {\n            const element = document.createElement('a');\n            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));\n            element.setAttribute('download', filename);\n            element.style.display = 'none';\n            document.body.appendChild(element);\n            element.click();\n            document.body.removeChild(element);\n          }\n\n          function showFeedback(elementId, message, type) {\n            const el = document.getElementById(elementId);\n            el.textContent = message;\n            el.className = 'feedback ' + type;\n            setTimeout(() =\u003e {\n              el.className = 'feedback';\n            }, 3000);\n          }\n        "])</script><script>self.__next_f.push([1,"39:[\"$\",\"body\",null,{\"children\":[[\"$\",\"header\",null,{\"className\":\"header\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[\"$\",\"div\",null,{\"className\":\"logo\",\"children\":[\"Kannada \",[\"$\",\"span\",null,{\"children\":\"Translator\"},\"$2c\",\"$5b\",1]]},\"$2c\",\"$5a\",1]},\"$2c\",\"$59\",1]},\"$2c\",\"$58\",1],[\"$\",\"div\",null,{\"className\":\"container\",\"style\":{\"paddingTop\":\"16px\",\"paddingBottom\":\"16px\"},\"children\":[\"$\",\"div\",null,{\"className\":\"main-layout\",\"children\":[[\"$\",\"div\",null,{\"className\":\"panel\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"panel-title\",\"children\":\"Kannada (Source)\"},\"$2c\",\"$5f\",1],[\"$\",\"div\",null,{\"id\":\"kannadaUploadArea\",\"className\":\"upload-area\",\"children\":[[\"$\",\"div\",null,{\"className\":\"upload-icon\",\"children\":\"📄\"},\"$2c\",\"$61\",1],[\"$\",\"div\",null,{\"className\":\"upload-text\",\"children\":\"Upload image of Kannada text\"},\"$2c\",\"$62\",1],[\"$\",\"div\",null,{\"className\":\"upload-hint\",\"children\":\"PNG, JPG, GIF, or BMP\"},\"$2c\",\"$63\",1],[\"$\",\"input\",null,{\"id\":\"kannadaImageInput\",\"type\":\"file\",\"accept\":\"image/*\",\"className\":\"file-input\"},\"$2c\",\"$64\",1]]},\"$2c\",\"$60\",1],[\"$\",\"img\",null,{\"id\":\"kannadaImagePreview\",\"className\":\"image-preview\",\"style\":{\"display\":\"none\"}},\"$2c\",\"$65\",1],[\"$\",\"div\",null,{\"id\":\"kannadaFeedback\",\"className\":\"feedback\"},\"$2c\",\"$66\",1],[\"$\",\"div\",null,{\"id\":\"kannadaExtractContainer\",\"style\":{\"display\":\"none\",\"marginBottom\":\"12px\"},\"children\":[\"$\",\"button\",null,{\"id\":\"extractBtn\",\"className\":\"btn btn-primary\",\"style\":{\"width\":\"100%\"},\"children\":\"Extract Text\"},\"$2c\",\"$68\",1]},\"$2c\",\"$67\",1],[\"$\",\"div\",null,{\"id\":\"kannadaTextContainer\",\"style\":{\"display\":\"none\"},\"children\":[[\"$\",\"div\",null,{\"id\":\"kannadaText\",\"className\":\"text-display\"},\"$2c\",\"$6a\",1],[\"$\",\"div\",null,{\"className\":\"button-group\",\"children\":[[\"$\",\"button\",null,{\"id\":\"kannadaSpeakBtn\",\"className\":\"btn btn-secondary\",\"children\":\"Speak\"},\"$2c\",\"$6c\",1],[\"$\",\"button\",null,{\"id\":\"kannadaCopyBtn\",\"className\":\"btn btn-secondary\",\"children\":\"Copy\"},\"$2c\",\"$6d\",1],[\"$\",\"button\",null,{\"id\":\"kannadaDownloadBtn\",\"className\":\"btn btn-secondary\",\"children\":\"Download\"},\"$2c\",\"$6e\",1]]},\"$2c\",\"$6b\",1]]},\"$2c\",\"$69\",1],[\"$\",\"div\",null,{\"id\":\"kannadaEmptyState\",\"className\":\"empty-state\",\"children\":[\"$\",\"p\",null,{\"style\":{\"fontSize\":\"14px\",\"marginBottom\":\"8px\"},\"children\":\"Kannada text will appear here after extraction\"},\"$2c\",\"$70\",1]},\"$2c\",\"$6f\",1]]},\"$2c\",\"$5e\",1],[\"$\",\"div\",null,{\"className\":\"panel\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"panel-title\",\"children\":\"English (Translation)\"},\"$2c\",\"$72\",1],[\"$\",\"div\",null,{\"id\":\"englishFeedback\",\"className\":\"feedback\"},\"$2c\",\"$73\",1],[\"$\",\"div\",null,{\"id\":\"englishTextContainer\",\"style\":{\"display\":\"none\"},\"children\":[[\"$\",\"div\",null,{\"id\":\"englishText\",\"className\":\"text-display english\"},\"$2c\",\"$75\",1],[\"$\",\"div\",null,{\"className\":\"button-group\",\"children\":[[\"$\",\"button\",null,{\"id\":\"englishSpeakBtn\",\"className\":\"btn btn-secondary\",\"children\":\"Speak\"},\"$2c\",\"$77\",1],[\"$\",\"button\",null,{\"id\":\"englishCopyBtn\",\"className\":\"btn btn-secondary\",\"children\":\"Copy\"},\"$2c\",\"$78\",1],[\"$\",\"button\",null,{\"id\":\"englishDownloadBtn\",\"className\":\"btn btn-secondary\",\"children\":\"Download\"},\"$2c\",\"$79\",1]]},\"$2c\",\"$76\",1]]},\"$2c\",\"$74\",1],[\"$\",\"div\",null,{\"id\":\"englishEmptyState\",\"className\":\"empty-state\",\"children\":[\"$\",\"p\",null,{\"style\":{\"fontSize\":\"14px\"},\"children\":\"English translation will appear here\"},\"$2c\",\"$7b\",1]},\"$2c\",\"$7a\",1]]},\"$2c\",\"$71\",1]]},\"$2c\",\"$5d\",1]},\"$2c\",\"$5c\",1],[\"$\",\"script\",null,{\"children\":\"$7d\"},\"$2c\",\"$7c\",1]]},\"$2c\",\"$57\",1]\n"])</script><script>self.__next_f.push([1,"49:D{\"time\":9.731223999988288}\n49:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"},\"$3b\",\"$7e\",0],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},\"$3b\",\"$7f\",0]]\n40:D{\"time\":10.096615999937057}\n40:null\n51:D{\"time\":10.1058109998703}\n51:[[\"$\",\"title\",\"0\",{\"children\":\"v0 App\"},\"$3b\",\"$80\",0],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Created with v0\"},\"$3b\",\"$81\",0],[\"$\",\"meta\",\"2\",{\"name\":\"generator\",\"content\":\"v0.app\"},\"$3b\",\"$82\",0]]\n"])</script></body></html>

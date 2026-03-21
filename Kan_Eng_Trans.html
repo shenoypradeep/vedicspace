@@ -1,0 +1,489 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="UTF-8"/><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/chunks/%5Broot-of-the-server%5D__51d697a8._.css" data-precedence="next_static/chunks/[root-of-the-server]__51d697a8._.css"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_5bca705f._.js"/><script src="/_next/static/chunks/7eb69_dist_compiled_react-dom-experimental_cjs_react-dom-client_development_9f191c88.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_compiled_react-dom-experimental_cjs_react-dom_development_40c74c32.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_compiled_react-dom-experimental_2aa4b8b1._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_compiled_react-server-dom-turbopack-experimental_59ad6398._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_compiled_next-devtools_index_ab95c7de.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_compiled_ffec15bc._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_client_c3fa36e4._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_b2240ff2._.js" async=""></script><script src="/_next/static/chunks/69652_%40swc_helpers_cjs_679851cc._.js" async=""></script><script src="/_next/static/chunks/_a0ff3932._.js" async=""></script><script src="/_next/static/chunks/turbopack-_9bc0ee10._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_0f56702c._.js" async=""></script><script src="/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js" async=""></script><script src="/_next/static/chunks/app_layout_tsx_c0ce61db._.js" async=""></script><link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600&amp;family=Noto+Sans+Kannada:wght@400;500;600&amp;display=swap" as="style"/><link rel="expect" href="#_R_" blocking="render"/><meta name="next-size-adjust" content=""/><title>Kannada to English Translator</title><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><title>v0 App</title><meta name="description" content="Created with v0"/><meta name="generator" content="v0.app"/><script src="/_next/static/chunks/75973_next_dist_build_polyfills_polyfill-nomodule.js" noModule=""></script><script>(function(){let e=Symbol.for("__v0_runtime_injected");if(window[e])return;function t(e){window.debug&&console.log("[vm:postMessage:out]",e),window.parent.postMessage(Object.assign({__v0_remote__:1},e),"*")}window[e]=!0;let r="",n=document.location.hash,i=window.self!==window.top;function a(){if(r!==document.location.href&&t({type:"location_change",href:r=document.location.href,canGoForward:window.navigation?.canGoForward,canGoBack:window.navigation?.canGoBack}),i){let e=window.location.hash;if(e!==n&&(n=e,e&&"#"!==e)){let t=document.querySelector(e);t&&t.scrollIntoView()}}}function o(){t({type:"app_navigation_state",loading:!1})}new MutationObserver(a).observe(document,{childList:!0,subtree:!0,attributes:!0,characterData:!0}),a(),window.addEventListener("popstate",a),window.addEventListener("hashchange",a),window.addEventListener("message",function(e){let t=e.data;if(t&&"object"==typeof t&&t.__v0_remote__)switch(window.debug&&console.log("[vm:postMessage:in]",t),t.type){case"navigate_back":window.history.back();break;case"navigate_forward":window.history.forward();break;case"navigate_to":window.location.href=t.href;break;case"reload":location.reload()}}),window.addEventListener("load",o),"complete"===document.readyState&&o(),requestAnimationFrame(()=>{requestAnimationFrame(()=>{t({type:"page_ready",url:window.location.href})})});let s="sb-3l704iba7mac";{let e=window.WebSocket,t=["/__nextjs/ws","/_next/webpack-hmr"];function u(r,n){let i=new URL("string"==typeof r?r:r.toString(),window.location.href),a=t.some(e=>i.pathname.startsWith(e)),o=i.hostname.endsWith(".vercel.run");return!a||o?new e(r,n):(i.protocol="wss:",i.hostname=`${s}.vercel.run`,i.port="",new e(i.toString(),n))}u.prototype=e.prototype,Object.assign(u,e),window.WebSocket=u}if(window.V0_S_ID=s,"next"in window&&window.next&&window.next.version){let e=document.createElement("style");e.textContent="nextjs-portal { display: none !important }",document.head.appendChild(e)}let l=Symbol.for("__v0_snapshot_capturer_initialized");if(!window[l]){async function c(){try{if(!window.freezeDry)return null;let e=await window.freezeDry.freezeDry(window.document);return e=e.replace(/<link rel="preload" as="script" [^>]*>/g,"").replace(/<link rel="original" href="[^>]+>/g,"")}catch(e){return null}}window[l]=!0;let e=async function(){let e=document.createElement("script");return e.src="/v0-vm-assets/freeze-dry.umd.js",e.async=!0,document.head.appendChild(e),new Promise((t,r)=>{e.onload=()=>{t()},e.onerror=e=>{r(e)}})}();function d(r=2e3){setTimeout(async()=>{try{await e;let r=await c();r&&function(e){if(e)try{t({type:"snapshot_capture",data:e})}catch(e){}}(r)}catch(e){}},r)}"complete"===document.readyState?d():window.addEventListener("load",()=>{d()})}let p=Object.getOwnPropertyDescriptor(Document.prototype,"cookie")||Object.getOwnPropertyDescriptor(HTMLDocument.prototype,"cookie");p&&p.configurable&&p.get&&p.set&&Object.defineProperty(document,"cookie",{get:()=>p.get.call(document),set(e){let t=e.replace(/;\s*SameSite=(Lax|Strict|None)/gi,"");(t+="; SameSite=None").includes("Secure")||(t+="; Secure"),p.set.call(document,t)}})})();</script></head><body class="font-sans antialiased"><div hidden=""><!--$--><!--/$--></div><html lang="en"><head><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600&amp;family=Noto+Sans+Kannada:wght@400;500;600&amp;display=swap" rel="stylesheet"/><style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+
+          :root {
+            --primary-blue: #1e3a8a;
+            --deep-blue: #1e40af;
+            --accent-gold: #f59e0b;
+            --light-gold: #fbbf24;
+            --white: #ffffff;
+          }
+
+          body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
+            min-height: 100vh;
+          }
+
+          .serif {
+            font-family: 'Playfair Display', serif;
+          }
+
+          .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+          }
+
+          .header {
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            padding: 30px 0;
+            margin-bottom: 40px;
+            text-align: center;
+          }
+
+          .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: var(--white);
+            font-size: 32px;
+            font-weight: 600;
+          }
+
+          .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 32px;
+          }
+
+          .logo-subtitle {
+            color: var(--light-gold);
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 8px;
+          }
+
+          .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            min-height: calc(100vh - 200px);
+          }
+
+          .panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            overflow-y: auto;
+            max-height: calc(100vh - 180px);
+          }
+
+          .panel-title {
+            font-size: 24px;
+            color: var(--light-gold);
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+          }
+
+          .upload-area {
+            border: 2px dashed rgba(251, 191, 36, 0.5);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            margin-bottom: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+
+          .upload-area:hover {
+            border-color: var(--light-gold);
+            background: rgba(251, 191, 36, 0.1);
+          }
+
+          .upload-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+          }
+
+          .upload-text {
+            color: var(--light-gold);
+            font-weight: 600;
+            margin-bottom: 8px;
+          }
+
+          .upload-hint {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+          }
+
+          .file-input {
+            display: none;
+          }
+
+          .image-preview {
+            width: 100%;
+            max-height: 400px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            object-fit: contain;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+          }
+
+          .text-display {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            min-height: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            word-wrap: break-word;
+            font-family: 'Noto Sans Kannada', sans-serif;
+            color: rgba(255, 255, 255, 0.9);
+            user-select: text;
+            line-height: 1.8;
+          }
+
+          .text-display.english {
+            font-family: 'Inter', sans-serif;
+          }
+
+          .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+          }
+
+          .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            min-height: 40px;
+          }
+
+          .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
+          }
+
+          .btn-secondary {
+            background: transparent;
+            color: var(--light-gold);
+            border: 2px solid var(--light-gold);
+          }
+
+          .btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          }
+
+          .btn-secondary:hover:not(:disabled) {
+            background: var(--light-gold);
+            color: var(--primary-blue);
+          }
+
+          .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+          }
+
+          .loading {
+            text-align: center;
+            color: var(--light-gold);
+            margin: 20px 0;
+            font-size: 14px;
+          }
+
+          .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-top-color: var(--light-gold);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+          }
+
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+
+          .empty-state {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 40px 20px;
+          }
+
+          .empty-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+          }
+
+          .feedback {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            display: none;
+          }
+
+          .feedback.success {
+            display: block;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            color: #86efac;
+          }
+
+          .feedback.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            color: #fca5a5;
+          }
+
+          @media (max-width: 1024px) {
+            .main-layout {
+              grid-template-columns: 1fr;
+              gap: 30px;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .panel {
+              padding: 20px;
+            }
+            
+            .button-group {
+              flex-direction: column;
+            }
+            
+            .btn {
+              flex: 1;
+            }
+          }
+        </style></head><body><header class="header"><div class="container"><div class="logo serif"><div class="logo-icon">📖</div><div><div>Kannada Translator</div><div class="logo-subtitle">Transform Kannada texts to English</div></div></div></div></header><div class="container"><div class="main-layout"><div class="panel"><h2 class="panel-title serif">ಕನ್ನಡ ಮೂಲ</h2><div id="kannadaUploadArea" class="upload-area"><div class="upload-icon">📸</div><div class="upload-text">Upload Scanned Document</div><div class="upload-hint">Click or drag image of Kannada text here</div><input id="kannadaImageInput" type="file" accept="image/*" class="file-input"/></div><img id="kannadaImagePreview" class="image-preview" style="display:none"/><div id="kannadaFeedback" class="feedback"></div><div id="kannadaTextContainer" style="display:none"><div id="kannadaText" class="text-display"></div><div class="button-group"><button id="kannadaSpeakBtn" class="btn btn-primary">🔊 Read Aloud</button><button id="kannadaCopyBtn" class="btn btn-secondary">📋 Copy</button><button id="kannadaDownloadBtn" class="btn btn-secondary">⬇️ Download</button></div></div><div id="kannadaEmptyState" class="empty-state"><div class="empty-icon">ಅ</div><p>Upload an image to extract Kannada text</p></div><div id="kannadaExtractContainer" style="display:none"><div class="button-group"><button id="extractBtn" class="btn btn-primary">✨ Extract Text</button></div></div></div><div class="panel"><h2 class="panel-title serif">English Translation</h2><div id="englishFeedback" class="feedback"></div><div id="englishTextContainer" style="display:none"><div id="englishText" class="text-display english"></div><div class="button-group"><button id="englishSpeakBtn" class="btn btn-primary">🔊 Read Aloud</button><button id="englishCopyBtn" class="btn btn-secondary">📋 Copy</button><button id="englishDownloadBtn" class="btn btn-secondary">⬇️ Download</button></div></div><div id="englishEmptyState" class="empty-state"><div class="empty-icon">🌐</div><p>English translation will appear here</p></div></div></div></div><script>
+          let uploadedFile = null;
+          let kannadaText = '';
+          let englishText = '';
+
+          // File upload handler
+          const imageInput = document.getElementById('kannadaImageInput');
+          const uploadArea = document.getElementById('kannadaUploadArea');
+          const imagePreview = document.getElementById('kannadaImagePreview');
+          const extractBtn = document.getElementById('extractBtn');
+
+          // Drag and drop
+          uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'var(--light-gold)';
+            uploadArea.style.background = 'rgba(251, 191, 36, 0.1)';
+          });
+
+          uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = 'rgba(251, 191, 36, 0.5)';
+            uploadArea.style.background = 'rgba(255, 255, 255, 0.02)';
+          });
+
+          uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = 'rgba(251, 191, 36, 0.5)';
+            uploadArea.style.background = 'rgba(255, 255, 255, 0.02)';
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+              handleFileSelect(files[0]);
+            }
+          });
+
+          uploadArea.addEventListener('click', () => imageInput.click());
+          imageInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+              handleFileSelect(e.target.files[0]);
+            }
+          });
+
+          function handleFileSelect(file) {
+            uploadedFile = file;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+              imagePreview.src = event.target.result;
+              imagePreview.style.display = 'block';
+              document.getElementById('kannadaExtractContainer').style.display = 'block';
+              document.getElementById('kannadaEmptyState').style.display = 'none';
+              showFeedback('kannadaFeedback', 'Image loaded. Click Extract Text to process.', 'success');
+            };
+            reader.readAsDataURL(file);
+          }
+
+          // Extract and translate
+          extractBtn.addEventListener('click', extractAndTranslate);
+
+          async function extractAndTranslate() {
+            if (!uploadedFile) {
+              showFeedback('kannadaFeedback', 'Please upload an image first.', 'error');
+              return;
+            }
+
+            extractBtn.disabled = true;
+            extractBtn.innerHTML = '<span class="spinner"></span>Processing...';
+            showFeedback('kannadaFeedback', 'Extracting text from image...', 'success');
+
+            try {
+              // For production: Implement Google Cloud Vision API call to your backend
+              // For demo: Use Tesseract.js (requires adding script tag)
+              const text = await mockOCR(uploadedFile);
+              kannadaText = text;
+              updateKannadaPanel(text);
+              
+              showFeedback('kannadaFeedback', 'Text extracted successfully!', 'success');
+              
+              // Auto-translate
+              await translateKannadaText(text);
+            } catch (error) {
+              console.error('Error:', error);
+              showFeedback('kannadaFeedback', 'Error processing image. See console for details.', 'error');
+            } finally {
+              extractBtn.disabled = false;
+              extractBtn.innerHTML = '✨ Extract Text';
+            }
+          }
+
+          async function mockOCR(file) {
+            // Demo implementation - in production use Google Cloud Vision API
+            // Example: https://cloud.google.com/vision/docs/ocr
+            return 'ಕನ್ನಡ ಭಾಷೆಯು ದ್ರಾವಿಡ ಪರಿವಾರದ ಭಾಷೆ.\nಇದು ಕರ್ನಾಟಕ ರಾಜ್ಯದ ಅಧಿಕೃತ ಭಾಷೆ.\nಕನ್ನಡ ಲಿಪಿ ತುಂಬಾ ಪುರಾತನ ಮತ್ತು ಸುಂದರವಾದದ್ದು.';
+          }
+
+          async function translateKannadaText(text) {
+            showFeedback('englishFeedback', 'Translating to English...', 'success');
+            
+            try {
+              // For production: Use Google Translate API
+              // https://cloud.google.com/translate/docs/basic/setup
+              const translated = mockTranslate(text);
+              englishText = translated;
+              updateEnglishPanel(translated);
+              showFeedback('englishFeedback', 'Translation complete!', 'success');
+            } catch (error) {
+              console.error('Translation error:', error);
+              showFeedback('englishFeedback', 'Error translating text.', 'error');
+            }
+          }
+
+          function mockTranslate(text) {
+            // Demo implementation - in production use Google Translate API
+            const translations = {
+              'ಕನ್ನಡ': 'Kannada',
+              'ಭಾಷೆ': 'Language',
+              'ದ್ರಾವಿಡ': 'Dravidian',
+              'ಪರಿವಾರ': 'Family',
+              'ಕರ್ನಾಟಕ': 'Karnataka',
+              'ರಾಜ್ಯ': 'State',
+              'ಅಧಿಕೃತ': 'Official',
+              'ಲಿಪಿ': 'Script',
+              'ತುಂಬಾ': 'Very',
+              'ಪುರಾತನ': 'Ancient',
+              'ಸುಂದರ': 'Beautiful'
+            };
+            
+            return 'The Kannada language is from the Dravidian family.\nIt is the official language of the state of Karnataka.\nThe Kannada script is very ancient and beautiful.';
+          }
+
+          function updateKannadaPanel(text) {
+            document.getElementById('kannadaText').textContent = text;
+            document.getElementById('kannadaTextContainer').style.display = 'block';
+            document.getElementById('kannadaEmptyState').style.display = 'none';
+            document.getElementById('kannadaExtractContainer').style.display = 'none';
+          }
+
+          function updateEnglishPanel(text) {
+            document.getElementById('englishText').textContent = text;
+            document.getElementById('englishTextContainer').style.display = 'block';
+            document.getElementById('englishEmptyState').style.display = 'none';
+          }
+
+          // Speech synthesis
+          function speakText(text, lang = 'en') {
+            if ('speechSynthesis' in window) {
+              window.speechSynthesis.cancel();
+              const utterance = new SpeechSynthesisUtterance(text);
+              utterance.lang = lang === 'kn' ? 'kn-IN' : 'en-US';
+              utterance.rate = 0.9;
+              window.speechSynthesis.speak(utterance);
+            }
+          }
+
+          document.getElementById('kannadaSpeakBtn').addEventListener('click', () => {
+            speakText(kannadaText, 'kn');
+          });
+
+          document.getElementById('englishSpeakBtn').addEventListener('click', () => {
+            speakText(englishText, 'en');
+          });
+
+          // Copy to clipboard
+          document.getElementById('kannadaCopyBtn').addEventListener('click', () => {
+            navigator.clipboard.writeText(kannadaText).then(() => {
+              showFeedback('kannadaFeedback', 'Copied to clipboard!', 'success');
+            });
+          });
+
+          document.getElementById('englishCopyBtn').addEventListener('click', () => {
+            navigator.clipboard.writeText(englishText).then(() => {
+              showFeedback('englishFeedback', 'Copied to clipboard!', 'success');
+            });
+          });
+
+          // Download text
+          document.getElementById('kannadaDownloadBtn').addEventListener('click', () => {
+            downloadText(kannadaText, 'kannada-text.txt');
+          });
+
+          document.getElementById('englishDownloadBtn').addEventListener('click', () => {
+            downloadText(englishText, 'english-translation.txt');
+          });
+
+          function downloadText(text, filename) {
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+          }
+
+          function showFeedback(elementId, message, type) {
+            const el = document.getElementById(elementId);
+            el.textContent = message;
+            el.className = 'feedback ' + type;
+            setTimeout(() => {
+              el.className = 'feedback';
+            }, 3000);
+          }
+        </script><!--$--><!--/$--><script id="_R_">self.__next_r="THBYEBfIbH7ojPBxc9s42"</script><script src="/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_5bca705f._.js" async=""></script></body></html><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"7:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/next-devtools/userspace/app/segment-explorer-node.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"SegmentViewNode\"]\n9:\"$Sreact.fragment\"\n19:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"default\"]\n1b:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"default\"]\n3d:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/lib/framework/boundary-components.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"OutletBoundary\"]\n3f:\"$Sreact.suspense\"\n48:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/lib/framework/boundary-components.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"ViewportBoundary\"]\n4f:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/lib/framework/boundary-components.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"MetadataBoundary\"]\n55:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/components/builtin/global-error.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"default\"]\n:HL[\"/_next/static/chunks/%5Broot-of-the-server%5D__51d697a8._.css\",\"style\"]\n:HL[\"/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700\u0026family=Playfair+Display:ital,wght@0,400;0,600\u0026family=Noto+Sans+Kannada:wght@400;500;600\u0026display=swap\",\"style\"]\n:N1770788754437.184\n3:\"$EObject.defineProperty(()=\u003e{ctx.componentMod.preloadStyle(fullHref,ctx.renderOpts.crossOrigin,ctx.nonce)},\\\"name\\\",{value:\\\"\\\"})\"\n4:\"$EObject.defineProperty(()=\u003e{ctx.componentMod.preloadFont(href,type,ctx.renderOpts.crossOrigin,ctx.nonce)},\\\"name\\\",{value:\\\"\\\"})\"\n5:\"$EObject.defineProperty(()=\u003e{ctx.componentMod.preloadFont(href,type,ctx.renderOpts.crossOrigin,ctx.nonce)},\\\"name\\\",{value:\\\"\\\"})\"\n2:{\"name\":\"Preloads\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{\"preloadCallbacks\":[\"$3\",\"$4\",\"$5\"]}}\n6:[]\n8:[]\na:[[\"Array.map\",\"\",0,0,0,0,false]]\nb:[[\"Array.map\",\"\",0,0,0,0,false]]\ne:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/components/layout-router.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"default\"]\n11:I[\"[project]/node_modules/.pnpm/next@16.1.6_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/next/dist/client/components/render-from-template-context.js [app-client] (ecmascript)\",[\"/_next/static/chunks/75973_next_dist_"])</script><script>self.__next_f.push([1,"0f56702c._.js\",\"/_next/static/chunks/75973_next_dist_client_components_builtin_global-error_c0ce61db.js\"],\"default\"]\n12:{}\n13:[[\"Promise.all\",\"\",0,0,0,0,true]]\n10:{\"children\":[\"$\",\"$L11\",null,\"$12\",null,\"$13\",1]}\n14:[[\"Promise.all\",\"\",0,0,0,0,true]]\nf:{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$9\",null,\"$10\",null,\"$14\",0],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$Y\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\",\"segmentViewBoundaries\":\"$Y\"}\n15:[[\"Promise.all\",\"\",0,0,0,0,true]]\nd:{\"name\":\"RootLayout\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{\"children\":[\"$\",\"$Le\",null,\"$f\",null,\"$15\",1],\"params\":\"$Y\"}}\n16:[[\"RootLayout\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__ac56d647._.js\",78,390,77,1,false]]\n17:[[\"RootLayout\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__ac56d647._.js\",80,397,77,1,false]]\n18:[[\"Promise.all\",\"\",0,0,0,0,true]]\n1a:[[\"Promise.all\",\"\",0,0,0,0,true]]\n1c:[]\n1e:{\"name\":\"NotFound\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{}}\n1f:{\"name\":\"HTTPAccessErrorFallback\",\"key\":null,\"env\":\"Server\",\"owner\":\"$1e\",\"stack\":[],\"props\":{\"status\":404,\"message\":\"This page could not be found.\"}}\n20:[]\n21:[]\n22:[]\n23:[]\n24:[]\n25:[]\n26:[]\n27:[[\"Promise.all\",\"\",0,0,0,0,true]]\n28:[[\"Promise.all\",\"\",0,0,0,0,true]]\n29:[[\"Promise.all\",\"\",0,0,0,0,true]]\n2a:[[\"Promise.all\",\"\",0,0,0,0,true]]\n2c:{\"name\":\"Page\",\"key\":null,\"env\":\"Server\",\"stack\":[[\"Promise.all\",\"\",0,0,0,0,true]],\"props\":{\"params\":\"$@2d\",\"searchParams\":\"$@2e\"}}\n2f:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",22,390,21,1,false]]\n30:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",25,391,21,1,false]]\n31:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",27,399,21,1,false]]\n32:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",34,399,21,1,false]]\n33:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",42,399,21,1,false]]\n34:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",49,399,21,1,false]]\n35:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",57,399,21,1,false]]\n36:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",66,399,21,1,false]]\n37:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",74,399,21,1,false]]\n3b:{\"name\":\"Next.MetadataOutlet\",\"key\":null,\"env\":\"Server\",\"stack\":[[\"Promise.all\",\"\",0,0,0,0,true]],\"props\":{}}\n3c:[]\n3e:[]\n41:[]\n"])</script><script>self.__next_f.push([1,"44:\"$EObject.defineProperty(function(type,config,children){for(var propName,i=2;i\u003carguments.length;i++)validateChildKeys(arguments[i]);i={};var key=null;if(null!=config)for(propName in didWarnAboutOldJSXRuntime||!(\\\"__self\\\"in config)||\\\"key\\\"in config||(didWarnAboutOldJSXRuntime=!0,console.warn(\\\"Your app (or one of its dependencies) is using an outdated JSX transform. Update to the modern JSX transform for faster performance: https://react.dev/link/new-jsx-transform\\\")),hasValidKey(config)\u0026\u0026(config.key===REACT_OPTIMISTIC_KEY?key=REACT_OPTIMISTIC_KEY:(checkKeyStringCoercion(config.key),key=\\\"\\\"+config.key)),config)hasOwnProperty.call(config,propName)\u0026\u0026\\\"key\\\"!==propName\u0026\u0026\\\"__self\\\"!==propName\u0026\u0026\\\"__source\\\"!==propName\u0026\u0026(i[propName]=config[propName]);var childrenLength=arguments.length-2;if(1===childrenLength)i.children=children;else if(1\u003cchildrenLength){for(var childArray=Array(childrenLength),_i=0;_i\u003cchildrenLength;_i++)childArray[_i]=arguments[_i+2];Object.freeze\u0026\u0026Object.freeze(childArray),i.children=childArray}if(type\u0026\u0026type.defaultProps)for(propName in childrenLength=type.defaultProps)void 0===i[propName]\u0026\u0026(i[propName]=childrenLength[propName]);return key\u0026\u0026function(props,displayName){function warnAboutAccessingKey(){specialPropKeyWarningShown||(specialPropKeyWarningShown=!0,console.error(\\\"%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)\\\",displayName))}warnAboutAccessingKey.isReactWarning=!0,Object.defineProperty(props,\\\"key\\\",{get:warnAboutAccessingKey,configurable:!0})}(i,\\\"function\\\"==typeof type?type.displayName||type.name||\\\"Unknown\\\":type),(propName=1e4\u003eReactSharedInternals.recentlyCreatedOwnerStacks++)?(childArray=Error.stackTraceLimit,Error.stackTraceLimit=10,childrenLength=Error(\\\"react-stack-top-frame\\\"),Error.stackTraceLimit=childArray):childrenLength=unknownOwnerDebugStack,ReactElement(type,key,i,getOwner(),childrenLength,propName?createTask(getTaskName(type)):unknownOwnerDebugTask)},\\\"name\\\",{value:\\\"\\\"})\"\n"])</script><script>self.__next_f.push([1,"43:{\"name\":\"NonIndex\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{\"createElement\":\"$44\",\"pagePath\":\"/\",\"statusCode\":200,\"isPossibleServerAction\":false}}\n46:{\"name\":\"ViewportWrapper\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{}}\n47:[]\n4a:{\"name\":\"Next.Viewport\",\"key\":null,\"env\":\"Server\",\"owner\":\"$46\",\"stack\":[],\"props\":{}}\n4c:{\"name\":\"MetadataWrapper\",\"key\":null,\"env\":\"Server\",\"stack\":[],\"props\":{}}\n4d:[]\n4e:[]\n50:[]\n52:{\"name\":\"Next.Metadata\",\"key\":null,\"env\":\"Server\",\"owner\":\"$4c\",\"stack\":[],\"props\":{}}\n53:[]\n56:[]\n2d:{}\n2e:\n57:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",376,391,21,1,false]]\n58:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",378,399,21,1,false]]\n59:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",380,413,21,1,false]]\n5a:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",382,417,21,1,false]]\n5b:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",385,415,21,1,false]]\n5c:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",393,415,21,1,false]]\n5d:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",395,423,21,1,false]]\n5e:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",402,423,21,1,false]]\n5f:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",432,399,21,1,false]]\n60:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",434,413,21,1,false]]\n61:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",437,411,21,1,false]]\n62:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",440,419,21,1,false]]\n63:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",448,419,21,1,false]]\n64:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",452,427,21,1,false]]\n65:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",460,427,21,1,false]]\n66:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",468,427,21,1,false]]\n67:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",476,427,21,1,false]]\n68:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",492,419,21,1,false]]\n69:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",503,419,21,1,false]]\n6a:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",511,419,21,1,false]]\n6b:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",517,427,21,1,false]]\n6c:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",525,427,21,1,false]]\n6d:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",528,435,21,1,false]]\n6e:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",537,435,21,1,false]]\n6f:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",546,435,21,1,false]]\n70:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",567,419,21,1,false]]\n71:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",571,427,21,1,false]]\n72:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._."])</script><script>self.__next_f.push([1,"js\",579,427,21,1,false]]\n73:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",592,419,21,1,false]]\n74:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",597,433,21,1,false]]\n75:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",599,437,21,1,false]]\n76:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",624,411,21,1,false]]\n77:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",627,419,21,1,false]]\n78:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",635,419,21,1,false]]\n79:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",643,419,21,1,false]]\n7a:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",649,427,21,1,false]]\n7b:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",657,427,21,1,false]]\n7c:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",660,435,21,1,false]]\n7d:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",669,435,21,1,false]]\n7e:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",678,435,21,1,false]]\n7f:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",699,419,21,1,false]]\n80:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",703,427,21,1,false]]\n81:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",711,427,21,1,false]]\n82:[[\"Page\",\"/vercel/share/v0-next-shadcn/.next/dev/server/chunks/ssr/[root-of-the-server]__f1627132._.js\",741,399,21,1,false]]\n84:[]\n85:[]\n86:[]\n87:[]\n88:[]\n1:D{\"time\":0.341596000129357}\n1:D\"$2\"\n1:D{\"time\":0.44438400003127754}\n1:null\nc:D{\"time\":1.092115000123158}\nc:D\"$d\"\nc:D{\"time\":1.21336799999699}\n1d:D{\"time\":1.471616999944672}\n1d:D\"$1e\"\n1d:D{\"time\":1.5569410000462085}\n1d:D\"$1f\"\n1d:D{\"time\":1.6898710001260042}\n1d:[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"},\"$1f\",\"$20\",1],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}},\"$1f\",\"$23\",1],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404},\"$1f\",\"$24\",1],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"},\"$1f\",\"$26\",1]},\"$1f\",\"$25\",1]]},\"$1f\",\"$22\",1]},\"$1f\",\"$21\",1]]\nc:[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"font-sans antialiased\",\"children\":[\"$\",\"$L19\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L1b\",null,{},null,\"$1a\",1],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[\"$\",\"$L7\",\"c-not-found\",{\"type\":\"not-found\",\"pagePath\":\"__next_builtin__not-found.js\",\"children\":[\"$1d\",[]]},null,\"$1c\",0],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\",\"segmentViewBoundaries\":[[\"$"])</script><script>self.__next_f.push([1,"\",\"$L7\",null,{\"type\":\"boundary:not-found\",\"pagePath\":\"__next_builtin__not-found.js@boundary\"},null,\"$27\",1],\"$undefined\",\"$undefined\",[\"$\",\"$L7\",null,{\"type\":\"boundary:global-error\",\"pagePath\":\"__next_builtin__global-error.js\"},null,\"$28\",1]]},null,\"$18\",1]},\"$d\",\"$17\",1]},\"$d\",\"$16\",1]\n2b:D{\"time\":2.5852310000918806}\n2b:D\"$2c\"\n2b:D{\"time\":4.653623000020161}\n38:T1d77,"])</script><script>self.__next_f.push([1,"\n          * {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n          }\n\n          :root {\n            --primary-blue: #1e3a8a;\n            --deep-blue: #1e40af;\n            --accent-gold: #f59e0b;\n            --light-gold: #fbbf24;\n            --white: #ffffff;\n          }\n\n          body {\n            font-family: 'Inter', sans-serif;\n            line-height: 1.6;\n            color: var(--white);\n            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);\n            min-height: 100vh;\n          }\n\n          .serif {\n            font-family: 'Playfair Display', serif;\n          }\n\n          .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n          }\n\n          .header {\n            background: rgba(30, 58, 138, 0.95);\n            backdrop-filter: blur(10px);\n            border-bottom: 1px solid rgba(251, 191, 36, 0.2);\n            padding: 30px 0;\n            margin-bottom: 40px;\n            text-align: center;\n          }\n\n          .logo {\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            gap: 15px;\n            color: var(--white);\n            font-size: 32px;\n            font-weight: 600;\n          }\n\n          .logo-icon {\n            width: 60px;\n            height: 60px;\n            background: var(--accent-gold);\n            border-radius: 12px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            color: var(--primary-blue);\n            font-size: 32px;\n          }\n\n          .logo-subtitle {\n            color: var(--light-gold);\n            font-size: 16px;\n            font-weight: 400;\n            margin-top: 8px;\n          }\n\n          .main-layout {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 40px;\n            min-height: calc(100vh - 200px);\n          }\n\n          .panel {\n            background: rgba(255, 255, 255, 0.05);\n            backdrop-filter: blur(10px);\n            border: 1px solid rgba(251, 191, 36, 0.2);\n            border-radius: 20px;\n            padding: 30px;\n            overflow-y: auto;\n            max-height: calc(100vh - 180px);\n          }\n\n          .panel-title {\n            font-size: 24px;\n            color: var(--light-gold);\n            margin-bottom: 25px;\n            text-align: center;\n            font-weight: 600;\n          }\n\n          .upload-area {\n            border: 2px dashed rgba(251, 191, 36, 0.5);\n            border-radius: 12px;\n            padding: 30px;\n            text-align: center;\n            background: rgba(255, 255, 255, 0.02);\n            margin-bottom: 25px;\n            cursor: pointer;\n            transition: all 0.3s ease;\n          }\n\n          .upload-area:hover {\n            border-color: var(--light-gold);\n            background: rgba(251, 191, 36, 0.1);\n          }\n\n          .upload-icon {\n            font-size: 48px;\n            margin-bottom: 15px;\n          }\n\n          .upload-text {\n            color: var(--light-gold);\n            font-weight: 600;\n            margin-bottom: 8px;\n          }\n\n          .upload-hint {\n            font-size: 12px;\n            color: rgba(255, 255, 255, 0.6);\n          }\n\n          .file-input {\n            display: none;\n          }\n\n          .image-preview {\n            width: 100%;\n            max-height: 400px;\n            border-radius: 12px;\n            margin-bottom: 20px;\n            object-fit: contain;\n            border: 1px solid rgba(251, 191, 36, 0.2);\n          }\n\n          .text-display {\n            background: rgba(255, 255, 255, 0.1);\n            border: 1px solid rgba(251, 191, 36, 0.2);\n            border-radius: 12px;\n            padding: 20px;\n            margin-bottom: 20px;\n            min-height: 300px;\n            max-height: 400px;\n            overflow-y: auto;\n            word-wrap: break-word;\n            font-family: 'Noto Sans Kannada', sans-serif;\n            color: rgba(255, 255, 255, 0.9);\n            user-select: text;\n            line-height: 1.8;\n          }\n\n          .text-display.english {\n            font-family: 'Inter', sans-serif;\n          }\n\n          .button-group {\n            display: flex;\n            gap: 10px;\n            flex-wrap: wrap;\n            margin-bottom: 20px;\n          }\n\n          .btn {\n            padding: 10px 16px;\n            border: none;\n            border-radius: 8px;\n            font-weight: 600;\n            cursor: pointer;\n            transition: all 0.3s ease;\n            font-size: 12px;\n            display: flex;\n            align-items: center;\n            gap: 6px;\n            flex: 1;\n            justify-content: center;\n            text-transform: uppercase;\n            letter-spacing: 0.05em;\n            min-height: 40px;\n          }\n\n          .btn-primary {\n            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));\n            color: var(--primary-blue);\n          }\n\n          .btn-secondary {\n            background: transparent;\n            color: var(--light-gold);\n            border: 2px solid var(--light-gold);\n          }\n\n          .btn:hover:not(:disabled) {\n            transform: translateY(-2px);\n            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);\n          }\n\n          .btn-secondary:hover:not(:disabled) {\n            background: var(--light-gold);\n            color: var(--primary-blue);\n          }\n\n          .btn:disabled {\n            opacity: 0.5;\n            cursor: not-allowed;\n            transform: none;\n          }\n\n          .loading {\n            text-align: center;\n            color: var(--light-gold);\n            margin: 20px 0;\n            font-size: 14px;\n          }\n\n          .spinner {\n            display: inline-block;\n            width: 16px;\n            height: 16px;\n            border: 2px solid rgba(251, 191, 36, 0.3);\n            border-top-color: var(--light-gold);\n            border-radius: 50%;\n            animation: spin 0.8s linear infinite;\n            margin-right: 8px;\n            vertical-align: middle;\n          }\n\n          @keyframes spin {\n            to { transform: rotate(360deg); }\n          }\n\n          .empty-state {\n            text-align: center;\n            color: rgba(255, 255, 255, 0.6);\n            padding: 40px 20px;\n          }\n\n          .empty-icon {\n            font-size: 48px;\n            margin-bottom: 15px;\n          }\n\n          .feedback {\n            padding: 12px;\n            border-radius: 8px;\n            margin-bottom: 15px;\n            font-size: 13px;\n            display: none;\n          }\n\n          .feedback.success {\n            display: block;\n            background: rgba(16, 185, 129, 0.2);\n            border: 1px solid rgba(16, 185, 129, 0.5);\n            color: #86efac;\n          }\n\n          .feedback.error {\n            display: block;\n            background: rgba(239, 68, 68, 0.2);\n            border: 1px solid rgba(239, 68, 68, 0.5);\n            color: #fca5a5;\n          }\n\n          @media (max-width: 1024px) {\n            .main-layout {\n              grid-template-columns: 1fr;\n              gap: 30px;\n            }\n          }\n\n          @media (max-width: 768px) {\n            .panel {\n              padding: 20px;\n            }\n            \n            .button-group {\n              flex-direction: column;\n            }\n            \n            .btn {\n              flex: 1;\n            }\n          }\n        "])</script><script>self.__next_f.push([1,"2b:[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"meta\",null,{\"charSet\":\"UTF-8\"},\"$2c\",\"$31\",1],[\"$\",\"meta\",null,{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1.0\"},\"$2c\",\"$32\",1],[\"$\",\"title\",null,{\"children\":\"Kannada to English Translator\"},\"$2c\",\"$33\",1],[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://fonts.googleapis.com\"},\"$2c\",\"$34\",1],[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://fonts.gstatic.com\",\"crossOrigin\":\"anonymous\"},\"$2c\",\"$35\",1],[\"$\",\"link\",null,{\"href\":\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700\u0026family=Playfair+Display:ital,wght@0,400;0,600\u0026family=Noto+Sans+Kannada:wght@400;500;600\u0026display=swap\",\"rel\":\"stylesheet\"},\"$2c\",\"$36\",1],[\"$\",\"style\",null,{\"children\":\"$38\"},\"$2c\",\"$37\",1]]},\"$2c\",\"$30\",1],\"$L39\"]},\"$2c\",\"$2f\",1]\n3a:D{\"time\":5.039342999923974}\n3a:D\"$3b\"\n3a:D{\"time\":6.436392999952659}\n3a:[\"$\",\"$L3d\",null,{\"children\":[\"$\",\"$3f\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@40\"},\"$3b\",\"$3e\",1]},\"$3b\",\"$3c\",1]\n42:D{\"time\":6.817892000079155}\n42:D\"$43\"\n42:D{\"time\":6.8285720001440495}\n42:null\n45:D{\"time\":6.893947999924421}\n45:D\"$46\"\n45:D{\"time\":6.965715999947861}\n49:D{\"time\":7.018173000076786}\n49:D\"$4a\"\n45:[\"$\",\"$L48\",null,{\"children\":\"$L49\"},\"$46\",\"$47\",1]\n4b:D{\"time\":7.4206759999506176}\n4b:D\"$4c\"\n4b:D{\"time\":7.5117470000404865}\n51:D{\"time\":7.619173000101}\n51:D\"$52\"\n4b:[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$L4f\",null,{\"children\":[\"$\",\"$3f\",null,{\"name\":\"Next.Metadata\",\"children\":\"$L51\"},\"$4c\",\"$50\",1]},\"$4c\",\"$4e\",1]},\"$4c\",\"$4d\",1]\n54:[]\n0:{\"P\":\"$1\",\"b\":\"development\",\"c\":[\"\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[[\"$\",\"$L7\",\"layout\",{\"type\":\"layout\",\"pagePath\":\"layout.tsx\",\"children\":[\"$\",\"$9\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/%5Broot-of-the-server%5D__51d697a8._.css\",\"precedence\":\"next_static/chunks/[root-of-the-server]__51d697a8._.css\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"},null,\"$a\",0],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/app_layout_tsx_c0ce61db._.js\",\"async\":true,\"nonce\":\"$undefined\"},null,\"$b\",0]],\"$c\"]},null,\"$8\",1]},null,\"$6\",0],{\"children\":[[\"$\",\"$9\",\"c\",{\"children\":[[\"$\",\"$L7\",\"c-page\",{\"type\":\"page\",\"pagePath\":\"page.tsx\",\"children\":\"$2b\"},null,\"$2a\",1],null,\"$3a\"]},null,\"$29\",0],{},null,false,false]},null,false,false],[\"$\",\"$9\",\"h\",{\"children\":[\"$42\",\"$45\",\"$4b\",[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"},null,\"$53\",1]]},null,\"$41\",0],false]],\"m\":\"$W54\",\"G\":[\"$55\",[\"$\",\"$L7\",\"ge-svn\",{\"type\":\"global-error\",\"pagePath\":\"__next_builtin__global-error.js\",\"children\":[]},null,\"$56\",0]],\"S\":false}\n39:D{\"time\":8.1719780000858}\n83:T2219,"])</script><script>self.__next_f.push([1,"\n          let uploadedFile = null;\n          let kannadaText = '';\n          let englishText = '';\n\n          // File upload handler\n          const imageInput = document.getElementById('kannadaImageInput');\n          const uploadArea = document.getElementById('kannadaUploadArea');\n          const imagePreview = document.getElementById('kannadaImagePreview');\n          const extractBtn = document.getElementById('extractBtn');\n\n          // Drag and drop\n          uploadArea.addEventListener('dragover', (e) =\u003e {\n            e.preventDefault();\n            uploadArea.style.borderColor = 'var(--light-gold)';\n            uploadArea.style.background = 'rgba(251, 191, 36, 0.1)';\n          });\n\n          uploadArea.addEventListener('dragleave', () =\u003e {\n            uploadArea.style.borderColor = 'rgba(251, 191, 36, 0.5)';\n            uploadArea.style.background = 'rgba(255, 255, 255, 0.02)';\n          });\n\n          uploadArea.addEventListener('drop', (e) =\u003e {\n            e.preventDefault();\n            uploadArea.style.borderColor = 'rgba(251, 191, 36, 0.5)';\n            uploadArea.style.background = 'rgba(255, 255, 255, 0.02)';\n            const files = e.dataTransfer.files;\n            if (files.length \u003e 0) {\n              handleFileSelect(files[0]);\n            }\n          });\n\n          uploadArea.addEventListener('click', () =\u003e imageInput.click());\n          imageInput.addEventListener('change', (e) =\u003e {\n            if (e.target.files.length \u003e 0) {\n              handleFileSelect(e.target.files[0]);\n            }\n          });\n\n          function handleFileSelect(file) {\n            uploadedFile = file;\n            const reader = new FileReader();\n            reader.onload = (event) =\u003e {\n              imagePreview.src = event.target.result;\n              imagePreview.style.display = 'block';\n              document.getElementById('kannadaExtractContainer').style.display = 'block';\n              document.getElementById('kannadaEmptyState').style.display = 'none';\n              showFeedback('kannadaFeedback', 'Image loaded. Click Extract Text to process.', 'success');\n            };\n            reader.readAsDataURL(file);\n          }\n\n          // Extract and translate\n          extractBtn.addEventListener('click', extractAndTranslate);\n\n          async function extractAndTranslate() {\n            if (!uploadedFile) {\n              showFeedback('kannadaFeedback', 'Please upload an image first.', 'error');\n              return;\n            }\n\n            extractBtn.disabled = true;\n            extractBtn.innerHTML = '\u003cspan class=\"spinner\"\u003e\u003c/span\u003eProcessing...';\n            showFeedback('kannadaFeedback', 'Extracting text from image...', 'success');\n\n            try {\n              // For production: Implement Google Cloud Vision API call to your backend\n              // For demo: Use Tesseract.js (requires adding script tag)\n              const text = await mockOCR(uploadedFile);\n              kannadaText = text;\n              updateKannadaPanel(text);\n              \n              showFeedback('kannadaFeedback', 'Text extracted successfully!', 'success');\n              \n              // Auto-translate\n              await translateKannadaText(text);\n            } catch (error) {\n              console.error('Error:', error);\n              showFeedback('kannadaFeedback', 'Error processing image. See console for details.', 'error');\n            } finally {\n              extractBtn.disabled = false;\n              extractBtn.innerHTML = '✨ Extract Text';\n            }\n          }\n\n          async function mockOCR(file) {\n            // Demo implementation - in production use Google Cloud Vision API\n            // Example: https://cloud.google.com/vision/docs/ocr\n            return 'ಕನ್ನಡ ಭಾಷೆಯು ದ್ರಾವಿಡ ಪರಿವಾರದ ಭಾಷೆ.\\nಇದು ಕರ್ನಾಟಕ ರಾಜ್ಯದ ಅಧಿಕೃತ ಭಾಷೆ.\\nಕನ್ನಡ ಲಿಪಿ ತುಂಬಾ ಪುರಾತನ ಮತ್ತು ಸುಂದರವಾದದ್ದು.';\n          }\n\n          async function translateKannadaText(text) {\n            showFeedback('englishFeedback', 'Translating to English...', 'success');\n            \n            try {\n              // For production: Use Google Translate API\n              // https://cloud.google.com/translate/docs/basic/setup\n              const translated = mockTranslate(text);\n              englishText = translated;\n              updateEnglishPanel(translated);\n              showFeedback('englishFeedback', 'Translation complete!', 'success');\n            } catch (error) {\n              console.error('Translation error:', error);\n              showFeedback('englishFeedback', 'Error translating text.', 'error');\n            }\n          }\n\n          function mockTranslate(text) {\n            // Demo implementation - in production use Google Translate API\n            const translations = {\n              'ಕನ್ನಡ': 'Kannada',\n              'ಭಾಷೆ': 'Language',\n              'ದ್ರಾವಿಡ': 'Dravidian',\n              'ಪರಿವಾರ': 'Family',\n              'ಕರ್ನಾಟಕ': 'Karnataka',\n              'ರಾಜ್ಯ': 'State',\n              'ಅಧಿಕೃತ': 'Official',\n              'ಲಿಪಿ': 'Script',\n              'ತುಂಬಾ': 'Very',\n              'ಪುರಾತನ': 'Ancient',\n              'ಸುಂದರ': 'Beautiful'\n            };\n            \n            return 'The Kannada language is from the Dravidian family.\\nIt is the official language of the state of Karnataka.\\nThe Kannada script is very ancient and beautiful.';\n          }\n\n          function updateKannadaPanel(text) {\n            document.getElementById('kannadaText').textContent = text;\n            document.getElementById('kannadaTextContainer').style.display = 'block';\n            document.getElementById('kannadaEmptyState').style.display = 'none';\n            document.getElementById('kannadaExtractContainer').style.display = 'none';\n          }\n\n          function updateEnglishPanel(text) {\n            document.getElementById('englishText').textContent = text;\n            document.getElementById('englishTextContainer').style.display = 'block';\n            document.getElementById('englishEmptyState').style.display = 'none';\n          }\n\n          // Speech synthesis\n          function speakText(text, lang = 'en') {\n            if ('speechSynthesis' in window) {\n              window.speechSynthesis.cancel();\n              const utterance = new SpeechSynthesisUtterance(text);\n              utterance.lang = lang === 'kn' ? 'kn-IN' : 'en-US';\n              utterance.rate = 0.9;\n              window.speechSynthesis.speak(utterance);\n            }\n          }\n\n          document.getElementById('kannadaSpeakBtn').addEventListener('click', () =\u003e {\n            speakText(kannadaText, 'kn');\n          });\n\n          document.getElementById('englishSpeakBtn').addEventListener('click', () =\u003e {\n            speakText(englishText, 'en');\n          });\n\n          // Copy to clipboard\n          document.getElementById('kannadaCopyBtn').addEventListener('click', () =\u003e {\n            navigator.clipboard.writeText(kannadaText).then(() =\u003e {\n              showFeedback('kannadaFeedback', 'Copied to clipboard!', 'success');\n            });\n          });\n\n          document.getElementById('englishCopyBtn').addEventListener('click', () =\u003e {\n            navigator.clipboard.writeText(englishText).then(() =\u003e {\n              showFeedback('englishFeedback', 'Copied to clipboard!', 'success');\n            });\n          });\n\n          // Download text\n          document.getElementById('kannadaDownloadBtn').addEventListener('click', () =\u003e {\n            downloadText(kannadaText, 'kannada-text.txt');\n          });\n\n          document.getElementById('englishDownloadBtn').addEventListener('click', () =\u003e {\n            downloadText(englishText, 'english-translation.txt');\n          });\n\n          function downloadText(text, filename) {\n            const element = document.createElement('a');\n            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));\n            element.setAttribute('download', filename);\n            element.style.display = 'none';\n            document.body.appendChild(element);\n            element.click();\n            document.body.removeChild(element);\n          }\n\n          function showFeedback(elementId, message, type) {\n            const el = document.getElementById(elementId);\n            el.textContent = message;\n            el.className = 'feedback ' + type;\n            setTimeout(() =\u003e {\n              el.className = 'feedback';\n            }, 3000);\n          }\n        "])</script><script>self.__next_f.push([1,"39:[\"$\",\"body\",null,{\"children\":[[\"$\",\"header\",null,{\"className\":\"header\",\"children\":[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[\"$\",\"div\",null,{\"className\":\"logo serif\",\"children\":[[\"$\",\"div\",null,{\"className\":\"logo-icon\",\"children\":\"📖\"},\"$2c\",\"$5b\",1],[\"$\",\"div\",null,{\"children\":[[\"$\",\"div\",null,{\"children\":\"Kannada Translator\"},\"$2c\",\"$5d\",1],[\"$\",\"div\",null,{\"className\":\"logo-subtitle\",\"children\":\"Transform Kannada texts to English\"},\"$2c\",\"$5e\",1]]},\"$2c\",\"$5c\",1]]},\"$2c\",\"$5a\",1]},\"$2c\",\"$59\",1]},\"$2c\",\"$58\",1],[\"$\",\"div\",null,{\"className\":\"container\",\"children\":[\"$\",\"div\",null,{\"className\":\"main-layout\",\"children\":[[\"$\",\"div\",null,{\"className\":\"panel\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"panel-title serif\",\"children\":\"ಕನ್ನಡ ಮೂಲ\"},\"$2c\",\"$62\",1],[\"$\",\"div\",null,{\"id\":\"kannadaUploadArea\",\"className\":\"upload-area\",\"children\":[[\"$\",\"div\",null,{\"className\":\"upload-icon\",\"children\":\"📸\"},\"$2c\",\"$64\",1],[\"$\",\"div\",null,{\"className\":\"upload-text\",\"children\":\"Upload Scanned Document\"},\"$2c\",\"$65\",1],[\"$\",\"div\",null,{\"className\":\"upload-hint\",\"children\":\"Click or drag image of Kannada text here\"},\"$2c\",\"$66\",1],[\"$\",\"input\",null,{\"id\":\"kannadaImageInput\",\"type\":\"file\",\"accept\":\"image/*\",\"className\":\"file-input\"},\"$2c\",\"$67\",1]]},\"$2c\",\"$63\",1],[\"$\",\"img\",null,{\"id\":\"kannadaImagePreview\",\"className\":\"image-preview\",\"style\":{\"display\":\"none\"}},\"$2c\",\"$68\",1],[\"$\",\"div\",null,{\"id\":\"kannadaFeedback\",\"className\":\"feedback\"},\"$2c\",\"$69\",1],[\"$\",\"div\",null,{\"id\":\"kannadaTextContainer\",\"style\":{\"display\":\"none\"},\"children\":[[\"$\",\"div\",null,{\"id\":\"kannadaText\",\"className\":\"text-display\"},\"$2c\",\"$6b\",1],[\"$\",\"div\",null,{\"className\":\"button-group\",\"children\":[[\"$\",\"button\",null,{\"id\":\"kannadaSpeakBtn\",\"className\":\"btn btn-primary\",\"children\":\"🔊 Read Aloud\"},\"$2c\",\"$6d\",1],[\"$\",\"button\",null,{\"id\":\"kannadaCopyBtn\",\"className\":\"btn btn-secondary\",\"children\":\"📋 Copy\"},\"$2c\",\"$6e\",1],[\"$\",\"button\",null,{\"id\":\"kannadaDownloadBtn\",\"className\":\"btn btn-secondary\",\"children\":\"⬇️ Download\"},\"$2c\",\"$6f\",1]]},\"$2c\",\"$6c\",1]]},\"$2c\",\"$6a\",1],[\"$\",\"div\",null,{\"id\":\"kannadaEmptyState\",\"className\":\"empty-state\",\"children\":[[\"$\",\"div\",null,{\"className\":\"empty-icon\",\"children\":\"ಅ\"},\"$2c\",\"$71\",1],[\"$\",\"p\",null,{\"children\":\"Upload an image to extract Kannada text\"},\"$2c\",\"$72\",1]]},\"$2c\",\"$70\",1],[\"$\",\"div\",null,{\"id\":\"kannadaExtractContainer\",\"style\":{\"display\":\"none\"},\"children\":[\"$\",\"div\",null,{\"className\":\"button-group\",\"children\":[\"$\",\"button\",null,{\"id\":\"extractBtn\",\"className\":\"btn btn-primary\",\"children\":\"✨ Extract Text\"},\"$2c\",\"$75\",1]},\"$2c\",\"$74\",1]},\"$2c\",\"$73\",1]]},\"$2c\",\"$61\",1],[\"$\",\"div\",null,{\"className\":\"panel\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"panel-title serif\",\"children\":\"English Translation\"},\"$2c\",\"$77\",1],[\"$\",\"div\",null,{\"id\":\"englishFeedback\",\"className\":\"feedback\"},\"$2c\",\"$78\",1],[\"$\",\"div\",null,{\"id\":\"englishTextContainer\",\"style\":{\"display\":\"none\"},\"children\":[[\"$\",\"div\",null,{\"id\":\"englishText\",\"className\":\"text-display english\"},\"$2c\",\"$7a\",1],[\"$\",\"div\",null,{\"className\":\"button-group\",\"children\":[[\"$\",\"button\",null,{\"id\":\"englishSpeakBtn\",\"className\":\"btn btn-primary\",\"children\":\"🔊 Read Aloud\"},\"$2c\",\"$7c\",1],[\"$\",\"button\",null,{\"id\":\"englishCopyBtn\",\"className\":\"btn btn-secondary\",\"children\":\"📋 Copy\"},\"$2c\",\"$7d\",1],[\"$\",\"button\",null,{\"id\":\"englishDownloadBtn\",\"className\":\"btn btn-secondary\",\"children\":\"⬇️ Download\"},\"$2c\",\"$7e\",1]]},\"$2c\",\"$7b\",1]]},\"$2c\",\"$79\",1],[\"$\",\"div\",null,{\"id\":\"englishEmptyState\",\"className\":\"empty-state\",\"children\":[[\"$\",\"div\",null,{\"className\":\"empty-icon\",\"children\":\"🌐\"},\"$2c\",\"$80\",1],[\"$\",\"p\",null,{\"children\":\"English translation will appear here\"},\"$2c\",\"$81\",1]]},\"$2c\",\"$7f\",1]]},\"$2c\",\"$76\",1]]},\"$2c\",\"$60\",1]},\"$2c\",\"$5f\",1],[\"$\",\"script\",null,{\"children\":\"$83\"},\"$2c\",\"$82\",1]]},\"$2c\",\"$57\",1]\n"])</script><script>self.__next_f.push([1,"49:D{\"time\":10.824891000054777}\n49:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"},\"$3b\",\"$84\",0],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},\"$3b\",\"$85\",0]]\n40:D{\"time\":11.176466000033543}\n40:null\n51:D{\"time\":11.184804999968037}\n51:[[\"$\",\"title\",\"0\",{\"children\":\"v0 App\"},\"$3b\",\"$86\",0],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Created with v0\"},\"$3b\",\"$87\",0],[\"$\",\"meta\",\"2\",{\"name\":\"generator\",\"content\":\"v0.app\"},\"$3b\",\"$88\",0]]\n"])</script></body></html>

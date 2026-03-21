@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedic Space Grantha – Kannada Translation Console</title>
+
+<style>
+:root {
+    --indigo:#1a1f3c;
+    --saffron:#d97706;
+    --light:#f9fafb;
+    --border:#e5e7eb;
+}
+
+body {
+    margin:0;
+    font-family: 'Georgia', serif;
+    background:var(--light);
+    color:#111;
+}
+
+header {
+    background:var(--indigo);
+    color:white;
+    padding:18px;
+    text-align:center;
+}
+
+header h1 {
+    margin:0;
+    font-weight:500;
+    letter-spacing:1px;
+}
+
+header span {
+    color:var(--saffron);
+}
+
+.container {
+    display:flex;
+    flex-wrap:wrap;
+    height:calc(100vh - 90px);
+}
+
+.panel {
+    flex:1;
+    min-width:300px;
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid var(--border);
+}
+
+.panel:last-child {
+    border-right:none;
+}
+
+.toolbar {
+    background:white;
+    padding:8px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+}
+
+button, select {
+    background:var(--indigo);
+    color:white;
+    border:none;
+    padding:6px 10px;
+    cursor:pointer;
+    font-size:13px;
+    border-radius:3px;
+}
+
+button.secondary {
+    background:var(--saffron);
+}
+
+button.light {
+    background:#444;
+}
+
+textarea {
+    flex:1;
+    border:none;
+    padding:14px;
+    font-size:16px;
+    resize:none;
+    outline:none;
+    line-height:1.6;
+}
+
+textarea.source {
+    background:#fffdf7;
+}
+
+textarea.target {
+    background:#ffffff;
+}
+
+footer {
+    text-align:center;
+    padding:6px;
+    font-size:12px;
+    background:white;
+    border-top:1px solid var(--border);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Vedic Space <span>Grantha</span></h1>
+<div>Kannada → IAST → English / Sanskrit Translation Console</div>
+</header>
+
+<div class="container">
+
+<!-- LEFT PANEL -->
+<div class="panel">
+<div class="toolbar">
+<button onclick="transliterate()">IAST</button>
+<button onclick="copyText('sourceText')">Copy</button>
+<button onclick="speakText('sourceText','kn-IN')">Read</button>
+<button onclick="downloadText('sourceText','kannada.txt')">Download</button>
+</div>
+<textarea id="sourceText" class="source" placeholder="Paste Kannada OCR text here..."></textarea>
+</div>
+
+<!-- RIGHT PANEL -->
+<div class="panel">
+<div class="toolbar">
+<select id="modeSelect">
+<option value="en">English Translation</option>
+<option value="sa">Sanskrit Translation</option>
+</select>
+<button class="secondary" onclick="translateText()">Translate</button>
+<button onclick="copyText('targetText')">Copy</button>
+<button onclick="speakText('targetText','en-US')">Read</button>
+<button onclick="downloadText('targetText','translation.txt')">Download</button>
+</div>
+<textarea id="targetText" class="target" placeholder="Translation output will appear here..."></textarea>
+</div>
+
+</div>
+
+<footer>
+Vedic Space Grantha • Preservation • Transliteration • Translation
+</footer>
+
+<script>
+// =======================
+// COPY FUNCTION
+// =======================
+function copyText(id) {
+    const text = document.getElementById(id);
+    text.select();
+    document.execCommand("copy");
+}
+
+// =======================
+// DOWNLOAD FUNCTION
+// =======================
+function downloadText(id, filename) {
+    const text = document.getElementById(id).value;
+    const blob = new Blob([text], { type: 'text/plain' });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    link.click();
+}
+
+// =======================
+// TEXT TO SPEECH
+// =======================
+function speakText(id, lang) {
+    const text = document.getElementById(id).value;
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = lang;
+    speechSynthesis.speak(speech);
+}
+
+// =======================
+// BASIC KANNADA → IAST
+// (Expandable mapping)
+// =======================
+function transliterate() {
+    let text = document.getElementById("sourceText").value;
+
+    const map = {
+        "ಅ":"a","ಆ":"ā","ಇ":"i","ಈ":"ī","ಉ":"u","ಊ":"ū",
+        "ಋ":"ṛ","ಎ":"e","ಏ":"ē","ಐ":"ai","ಒ":"o","ಓ":"ō","ಔ":"au",
+        "ಕ":"ka","ಖ":"kha","ಗ":"ga","ಘ":"gha","ಚ":"ca","ಜ":"ja",
+        "ಟ":"ṭa","ಡ":"ḍa","ತ":"ta","ದ":"da","ನ":"na","ಪ":"pa",
+        "ಬ":"ba","ಮ":"ma","ಯ":"ya","ರ":"ra","ಲ":"la","ವ":"va",
+        "ಶ":"śa","ಷ":"ṣa","ಸ":"sa","ಹ":"ha","ಳ":"ḷa"
+    };
+
+    let result = text.split("").map(char => map[char] || char).join("");
+    document.getElementById("targetText").value = result;
+}
+
+// =======================
+// TRANSLATION
+// (Google Translate API placeholder)
+// =======================
+async function translateText() {
+    const text = document.getElementById("sourceText").value;
+    const mode = document.getElementById("modeSelect").value;
+
+    let targetLang = (mode === "en") ? "en" : "sa";
+
+    // Public endpoint (no key required basic use)
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=kn&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        document.getElementById("targetText").value = data[0].map(item => item[0]).join("");
+    } catch (error) {
+        document.getElementById("targetText").value = "Translation failed.";
+    }
+}
+
+</script>
+
+</body>
+</html>
