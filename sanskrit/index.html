@@ -1,0 +1,1709 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedic Space Sanskrit Learning Console - From Sound to Shastra</title>
+    <meta name="description" content="A Vedic Space Sanskrit learning app for beginners, intermediate learners, and advanced students. Study pronunciation, script, grammar, spoken Sanskrit, texts, and research tools from one mobile-friendly console.">
+    <link rel="icon" type="image/webp" href="./logo.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --deep-blue: #1e40af;
+            --light-blue: #3b82f6;
+            --accent-gold: #f59e0b;
+            --light-gold: #fbbf24;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --text-gray: #64748b;
+            --dark-gray: #334155;
+            --border-soft: rgba(30, 58, 138, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
+            min-height: 100vh;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .sanskrit {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 600;
+            min-width: 0;
+        }
+
+        .logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .logo span {
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-gold);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
+            padding: 12px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(251,191,36,0.1)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(251, 191, 36, 0.2);
+            color: var(--light-gold);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 28px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .hero-logo {
+            width: min(160px, 40vw);
+            height: auto;
+            margin: 0 auto 26px;
+            display: block;
+            filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.24));
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 8vw, 5.6rem);
+            font-weight: 300;
+            margin-bottom: 18px;
+            line-height: 1.1;
+        }
+
+        .hero .highlight {
+            color: var(--light-gold);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 36px;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.92;
+        }
+
+        .sanskrit-verse {
+            background: rgba(30, 64, 175, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 15px;
+            padding: 28px;
+            margin: 34px auto;
+            max-width: 680px;
+        }
+
+        .sanskrit-text {
+            font-size: clamp(1.45rem, 4vw, 2rem);
+            color: var(--light-gold);
+            margin-bottom: 10px;
+        }
+
+        .translation {
+            font-size: 16px;
+            opacity: 0.82;
+            font-style: italic;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 34px;
+        }
+
+        .btn-primary,
+        .btn-secondary,
+        .mini-link {
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
+            padding: 15px 30px;
+            border-radius: 30px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 15px 30px;
+            border: 2px solid var(--light-gold);
+            border-radius: 30px;
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover,
+        .mini-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gold);
+            color: var(--primary-blue);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 46px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.16);
+            border-radius: 18px;
+            padding: 22px 18px;
+        }
+
+        .stat-card strong {
+            display: block;
+            font-size: 30px;
+            color: var(--light-gold);
+            margin-bottom: 6px;
+        }
+
+        .stat-card span {
+            font-size: 15px;
+            opacity: 0.86;
+        }
+
+        .benefits,
+        .resource-library,
+        .spoken-section {
+            padding: 100px 0;
+            background: var(--white);
+            color: var(--dark-gray);
+        }
+
+        .spoken-section {
+            background: var(--light-gray);
+        }
+
+        .course {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
+            color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 300;
+            margin-bottom: 18px;
+            color: var(--primary-blue);
+        }
+
+        .course .section-title {
+            color: var(--white);
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-gray);
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .course .section-subtitle {
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .path-grid,
+        .phrase-grid,
+        .resource-grid,
+        .plan-grid {
+            display: grid;
+            gap: 26px;
+        }
+
+        .path-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .phrase-grid,
+        .plan-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .resource-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        .path-card,
+        .phrase-card,
+        .resource-card,
+        .plan-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 10px 40px rgba(30, 58, 138, 0.1);
+            transition: all 0.3s;
+            border: 1px solid var(--border-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .path-card::before,
+        .resource-card::before,
+        .plan-card::before,
+        .phrase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+        }
+
+        .path-card:hover,
+        .resource-card:hover,
+        .plan-card:hover,
+        .phrase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(30, 58, 138, 0.15);
+        }
+
+        .path-top,
+        .resource-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+
+        .path-icon,
+        .resource-icon,
+        .phrase-icon,
+        .plan-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        .path-badge,
+        .resource-badge,
+        .plan-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245, 158, 11, 0.12);
+            color: #b45309;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .path-card h3,
+        .resource-card h3,
+        .phrase-card h3,
+        .plan-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+
+        .path-card p,
+        .resource-card p,
+        .phrase-card p,
+        .plan-card p {
+            color: var(--text-gray);
+            line-height: 1.75;
+            font-size: 16px;
+        }
+
+        .goal-list,
+        .module-points,
+        .resource-tags,
+        .plan-list {
+            list-style: none;
+            margin-top: 20px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .goal-list li,
+        .module-points li,
+        .plan-list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            color: var(--dark-gray);
+        }
+
+        .goal-list i,
+        .module-points i,
+        .plan-list i {
+            color: var(--accent-gold);
+            width: 18px;
+            height: 18px;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .flow-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .mini-link {
+            color: var(--primary-blue);
+            background: rgba(30, 58, 138, 0.08);
+            border-radius: 999px;
+            padding: 10px 14px;
+            box-shadow: none;
+        }
+
+        .mini-link:hover {
+            background: rgba(30, 58, 138, 0.12);
+        }
+
+        .console-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 25px;
+            padding: 34px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        .console-tabs {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 26px;
+        }
+
+        .console-tab {
+            border: 1px solid rgba(251, 191, 36, 0.28);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--white);
+            border-radius: 999px;
+            padding: 12px 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .console-tab.active,
+        .console-tab:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .console-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 24px;
+        }
+
+        .console-intro,
+        .console-checklist,
+        .module-card,
+        .routine-box {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(251, 191, 36, 0.14);
+            border-radius: 20px;
+            padding: 24px;
+        }
+
+        .console-intro h3,
+        .console-checklist h3,
+        .routine-box h3 {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+
+        .console-intro p,
+        .console-checklist p,
+        .routine-box p,
+        .module-card p {
+            color: rgba(255, 255, 255, 0.88);
+            line-height: 1.8;
+        }
+
+        .console-meta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .console-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(251, 191, 36, 0.12);
+            color: var(--light-gold);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .module-stack {
+            display: grid;
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .module-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+
+        .module-head h4 {
+            font-size: 21px;
+            color: var(--light-gold);
+            margin-bottom: 4px;
+        }
+
+        .module-duration {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .module-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .module-links a {
+            color: var(--primary-blue);
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            border-radius: 999px;
+            padding: 10px 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .module-links a:hover {
+            transform: translateY(-2px);
+        }
+
+        .checklist {
+            list-style: none;
+            display: grid;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .check-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 14px 16px;
+        }
+
+        .check-item input {
+            margin-top: 4px;
+            accent-color: var(--light-gold);
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .check-item span {
+            line-height: 1.65;
+        }
+        .routine-box {
+            margin-top: 18px;
+        }
+
+        .routine-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .routine-list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .routine-list i {
+            color: var(--light-gold);
+            width: 18px;
+            height: 18px;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .phrase-card {
+            background: var(--white);
+        }
+
+        .phrase-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+
+        .phrase-sanskrit {
+            font-size: 28px;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+        }
+
+        .phrase-translit {
+            color: var(--accent-gold);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .resource-toolbar {
+            display: grid;
+            grid-template-columns: 1.2fr repeat(2, minmax(180px, 0.4fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .resource-toolbar input,
+        .resource-toolbar select {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(30, 58, 138, 0.14);
+            font: inherit;
+            background: var(--white);
+            color: var(--dark-gray);
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.06);
+        }
+
+        .resource-summary {
+            margin-bottom: 22px;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        .resource-card a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+
+        .resource-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .resource-tags span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(30, 58, 138, 0.08);
+            color: var(--primary-blue);
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .plan-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.16);
+            color: var(--white);
+        }
+
+        .plan-card h3 {
+            color: var(--light-gold);
+        }
+
+        .plan-card p,
+        .plan-list li {
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (min-width: 900px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 899px) {
+            .logo span {
+                white-space: normal;
+                line-height: 1.2;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .header {
+                padding: 12px 0;
+            }
+
+            .hero {
+                padding: 108px 0 64px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .console-card {
+                padding: 22px;
+            }
+
+            .console-layout,
+            .resource-toolbar {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits,
+            .resource-library,
+            .spoken-section,
+            .course {
+                padding: 78px 0;
+            }
+
+            .path-card,
+            .phrase-card,
+            .resource-card,
+            .plan-card {
+                padding: 24px;
+            }
+
+            .section-header {
+                margin-bottom: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#top" class="logo">
+                    <img src="./logo.webp" alt="Vedic Space logo">
+                    <span>Vedic Space Sanskrit</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#paths">Paths</a></li>
+                    <li><a href="#console">Console</a></li>
+                    <li><a href="#spoken">Speaking</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#plan">Plan</a></li>
+                </ul>
+                <a href="#console" class="cta-btn">Start Learning</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="top">
+        <div class="container hero-content fade-in">
+            <div class="hero-badge">
+                <i data-feather="compass"></i>
+                <span>GitHub Pages-friendly Sanskrit academy</span>
+            </div>
+            <img src="./logo.webp" alt="Vedic Space logo" class="hero-logo">
+            <h1 class="serif">From first <span class="highlight">sound</span> to living <span class="highlight">shastra</span>.</h1>
+            <p>
+                A Vedic Space learning console that helps users actually begin Sanskrit: pronunciation,
+                script, foundational grammar, spoken practice, graded reading, and advanced study tools
+                in one intuitive mobile-friendly flow.
+            </p>
+            <div class="sanskrit-verse">
+                <div class="sanskrit-text sanskrit">विद्या ददाति विनयं विनयाद् याति पात्रताम्</div>
+                <div class="translation">Learning gives humility, humility gives fitness. Start with clarity and keep ascending with discipline.</div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#console" class="btn-primary" data-flow-target="beginner">
+                    Launch Beginner Flow
+                    <i data-feather="arrow-right"></i>
+                </a>
+                <a href="#resources" class="btn-secondary">
+                    Browse Curated Sources
+                    <i data-feather="book-open"></i>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <strong>3</strong>
+                    <span>clear learner paths</span>
+                </div>
+                <div class="stat-card">
+                    <strong>12</strong>
+                    <span>curated online sources</span>
+                </div>
+                <div class="stat-card">
+                    <strong>1</strong>
+                    <span>interactive study console</span>
+                </div>
+                <div class="stat-card">
+                    <strong>100%</strong>
+                    <span>static and GitHub Pages compatible</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits" id="paths">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title serif">Choose Your Path</h2>
+                <p class="section-subtitle">
+                    These tracks are not just labels. Each one gives learners a real starting point,
+                    a daily rhythm, and the next best sources to open right now.
+                </p>
+            </div>
+            <div class="path-grid" id="pathGrid"></div>
+        </div>
+    </section>
+
+    <section class="course" id="console">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title serif">Vedic Space Study Console</h2>
+                <p class="section-subtitle">
+                    Switch between beginner, intermediate, and advanced modes. The console remembers your
+                    last selected path and today's checklist in this browser.
+                </p>
+            </div>
+            <div class="console-card fade-in">
+                <div class="console-tabs" id="consoleTabs"></div>
+                <div id="consolePanel"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="spoken-section" id="spoken">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title serif">Spoken Sanskrit Starters</h2>
+                <p class="section-subtitle">
+                    Start speaking early. These short patterns help learners build confidence before they
+                    feel "ready."
+                </p>
+            </div>
+            <div class="phrase-grid fade-in">
+                <article class="phrase-card">
+                    <div class="phrase-head">
+                        <div>
+                            <div class="phrase-sanskrit sanskrit">नमस्ते</div>
+                            <div class="phrase-translit">namaste</div>
+                        </div>
+                        <div class="phrase-icon"><i data-feather="sun"></i></div>
+                    </div>
+                    <p>A respectful hello. Use it daily so Sanskrit becomes lived language, not only book language.</p>
+                </article>
+                <article class="phrase-card">
+                    <div class="phrase-head">
+                        <div>
+                            <div class="phrase-sanskrit sanskrit">अहं कुशली अस्मि</div>
+                            <div class="phrase-translit">aham kushali asmi</div>
+                        </div>
+                        <div class="phrase-icon"><i data-feather="smile"></i></div>
+                    </div>
+                    <p>I am well. Pair this with greetings and self-introduction practice in the beginner console.</p>
+                </article>
+                <article class="phrase-card">
+                    <div class="phrase-head">
+                        <div>
+                            <div class="phrase-sanskrit sanskrit">कृपया पुनः वदतु</div>
+                            <div class="phrase-translit">kripaya punah vadatu</div>
+                        </div>
+                        <div class="phrase-icon"><i data-feather="repeat"></i></div>
+                    </div>
+                    <p>Please say that again. This one sentence makes live spoken practice much easier.</p>
+                </article>
+                <article class="phrase-card">
+                    <div class="phrase-head">
+                        <div>
+                            <div class="phrase-sanskrit sanskrit">अद्य किं पठसि?</div>
+                            <div class="phrase-translit">adya kim pathasi?</div>
+                        </div>
+                        <div class="phrase-icon"><i data-feather="message-circle"></i></div>
+                    </div>
+                    <p>What are you studying today? Great for daily study circles and Vedic Space practice groups.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section class="resource-library" id="resources">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title serif">Curated Resource Library</h2>
+                <p class="section-subtitle">
+                    Filter by level, focus, or keyword. These sources were selected to help users start,
+                    not just admire the idea of learning Sanskrit.
+                </p>
+            </div>
+            <div class="resource-toolbar fade-in">
+                <input type="search" id="resourceSearch" placeholder="Search resources, skills, or text tools...">
+                <select id="levelFilter" aria-label="Filter by level">
+                    <option value="all">All levels</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                    <option value="all-levels">All-levels</option>
+                </select>
+                <select id="focusFilter" aria-label="Filter by focus">
+                    <option value="all">All focus areas</option>
+                    <option value="pronunciation">Pronunciation</option>
+                    <option value="grammar">Grammar</option>
+                    <option value="speaking">Speaking</option>
+                    <option value="texts">Texts</option>
+                    <option value="tools">Tools</option>
+                    <option value="research">Research</option>
+                    <option value="formal-study">Formal study</option>
+                </select>
+            </div>
+            <div class="resource-summary fade-in" id="resourceSummary"></div>
+            <div class="resource-grid" id="resourceGrid"></div>
+        </div>
+    </section>
+
+    <section class="course" id="plan">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title serif">A Practical 30-Day Start</h2>
+                <p class="section-subtitle">
+                    The app is most useful when learners follow a rhythm. This plan gives a simple first month
+                    for self-study or guided Vedic Space circles.
+                </p>
+            </div>
+            <div class="plan-grid fade-in">
+                <article class="plan-card">
+                    <div class="plan-badge"><i data-feather="sunrise"></i><span>Week 1</span></div>
+                    <h3>Train the ear</h3>
+                    <p>Work on vowels, aspiration, dental and retroflex contrasts, and steady recitation pace.</p>
+                    <ul class="plan-list">
+                        <li><i data-feather="check"></i><span>Use the beginner console daily.</span></li>
+                        <li><i data-feather="check"></i><span>Read 5 to 10 syllables aloud every day.</span></li>
+                        <li><i data-feather="check"></i><span>Shadow one spoken Sanskrit clip or class.</span></li>
+                    </ul>
+                </article>
+                <article class="plan-card">
+                    <div class="plan-badge"><i data-feather="pen-tool"></i><span>Week 2</span></div>
+                    <h3>Own the script</h3>
+                    <p>Move from recognition to reading. Pair Devanagari with transliteration until confidence builds.</p>
+                    <ul class="plan-list">
+                        <li><i data-feather="check"></i><span>Practice script conversion with Aksharamukha.</span></li>
+                        <li><i data-feather="check"></i><span>Read one short verse line aloud daily.</span></li>
+                        <li><i data-feather="check"></i><span>Memorize 5 useful spoken phrases.</span></li>
+                    </ul>
+                </article>
+                <article class="plan-card">
+                    <div class="plan-badge"><i data-feather="layers"></i><span>Week 3</span></div>
+                    <h3>Build grammar</h3>
+                    <p>Introduce noun endings, pronouns, and present tense verbs through real sentence patterns.</p>
+                    <ul class="plan-list">
+                        <li><i data-feather="check"></i><span>Study one declension family and one verb pattern.</span></li>
+                        <li><i data-feather="check"></i><span>Write 5 tiny Sanskrit sentences.</span></li>
+                        <li><i data-feather="check"></i><span>Parse one short passage with help from tools.</span></li>
+                    </ul>
+                </article>
+                <article class="plan-card">
+                    <div class="plan-badge"><i data-feather="book-open"></i><span>Week 4</span></div>
+                    <h3>Enter real texts</h3>
+                    <p>Use reading platforms, dictionaries, and spoken repetition to make the language alive and connected.</p>
+                    <ul class="plan-list">
+                        <li><i data-feather="check"></i><span>Read a short stotra or subhashita with support.</span></li>
+                        <li><i data-feather="check"></i><span>Look up unfamiliar forms in Cologne Lexicon.</span></li>
+                        <li><i data-feather="check"></i><span>Choose your next level in the console.</span></li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Vedic Space · Sanskrit learning from sound to shastra</p>
+        </div>
+    </footer>
+
+    <script>
+        const flows = [
+            {
+                id: 'beginner',
+                label: 'Beginner',
+                icon: 'sunrise',
+                badge: '0 to 8 weeks',
+                summary: 'Start with pronunciation, script, first spoken phrases, and simple grammar. This is the right path for complete beginners.',
+                perfectFor: 'New learners, chanters improving pronunciation, and anyone starting Devanagari for the first time.',
+                goals: [
+                    'Hear and reproduce vowels, aspiration, and dental versus retroflex sounds.',
+                    'Read simple Devanagari syllables and common transliteration without panic.',
+                    'Use greetings, self-introduction, and first classroom Sanskrit sentences.',
+                    'Recognize a few essential noun and verb patterns in context.'
+                ],
+                meta: ['20 minutes a day', 'Sound + script + first grammar', 'Best first click: Learn Sanskrit Online'],
+                routine: [
+                    '5 minutes of sound drills: vowels, aspiration, and tongue placement pairs.',
+                    '5 minutes of script reading with transliteration side by side.',
+                    '5 minutes of spoken phrases and repetition.',
+                    '5 minutes of one small grammar pattern and two example sentences.'
+                ],
+                checklist: [
+                    'Read the hero verse aloud three times slowly and clearly.',
+                    'Practice 10 sound pairs: ta/tta, da/dda, sa/sha/ssa, ka/kha, ga/gha.',
+                    'Write or read 5 Devanagari syllables today.',
+                    'Speak at least 3 Sanskrit sentences out loud.'
+                ],
+                modules: [
+                    {
+                        icon: 'volume-2',
+                        title: 'Sound before speed',
+                        duration: 'Week 1',
+                        description: 'Pronunciation is the foundation. Learn to hear vowel length, aspiration, and tongue placement before trying to move fast.',
+                        points: [
+                            'Use minimal pairs and repeat them aloud until the contrast is clear.',
+                            'Do not skip short versus long vowels: they matter to meaning and meter.'
+                        ],
+                        links: [
+                            { label: 'Learn Sanskrit Online', url: 'https://www.learnsanskrit.org/' },
+                            { label: 'Aksharamukha', url: 'https://aksharamukha.appspot.com/' }
+                        ]
+                    },
+                    {
+                        icon: 'pen-tool',
+                        title: 'Read the script',
+                        duration: 'Weeks 1 to 2',
+                        description: 'Pair Devanagari with transliteration until the shapes become familiar through daily exposure.',
+                        points: [
+                            'Read one short line every day instead of cramming the full alphabet once.',
+                            'Use stotras and short verses to connect script with sound naturally.'
+                        ],
+                        links: [
+                            { label: 'Sanskrit Documents', url: 'https://sanskritdocuments.org/' },
+                            { label: 'Samskrita Bharati', url: 'https://samskritabharati.in/' }
+                        ]
+                    },
+                    {
+                        icon: 'layers',
+                        title: 'First grammar steps',
+                        duration: 'Weeks 3 to 4',
+                        description: 'Begin with simple noun and verb patterns in real sentences rather than memorizing endless tables without context.',
+                        points: [
+                            'Start with pronouns, nominative forms, and present-tense verbs.',
+                            'Build tiny sentences such as aham pathami and idam pustakam asti.'
+                        ],
+                        links: [
+                            { label: 'Grammar Lessons', url: 'https://www.learnsanskrit.org/' }
+                        ]
+                    },
+                    {
+                        icon: 'message-circle',
+                        title: 'Speak from day one',
+                        duration: 'Weeks 5 to 8',
+                        description: 'Spoken Sanskrit grows through use. Keep it simple, repeat often, and aim for clarity rather than perfection.',
+                        points: [
+                            'Use greetings, daily questions, and classroom Sanskrit patterns.',
+                            'Join spoken classes where possible to build listening confidence.'
+                        ],
+                        links: [
+                            { label: 'Spoken Sanskrit classes', url: 'https://samskritabharati.in/' }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'intermediate',
+                label: 'Intermediate',
+                icon: 'compass',
+                badge: '2 to 6 months',
+                summary: 'Strengthen grammar, sandhi, reading confidence, and conversation. This path helps learners move from exercises into actual Sanskrit usage.',
+                perfectFor: 'Learners who can read a bit already and want to become functional across grammar, speaking, and text reading.',
+                goals: [
+                    'Recognize common declensions, present tense forms, and participles.',
+                    'Split and understand common sandhi patterns.',
+                    'Read short passages with support from dictionaries and reading tools.',
+                    'Sustain basic spoken Sanskrit beyond memorized greetings.'
+                ],
+                meta: ['30 to 35 minutes a day', 'Grammar + sandhi + reading', 'Best first click: Ambuda'],
+                routine: [
+                    '10 minutes of declensions and conjugations with example sentences.',
+                    '10 minutes of sandhi or compounds using a parser or guided reading.',
+                    '10 minutes of graded text reading with a dictionary.',
+                    '5 minutes of spoken recall or shadowing.'
+                ],
+                checklist: [
+                    'Parse one sandhi example and write the underlying words.',
+                    'Look up at least 3 unfamiliar forms in a dictionary.',
+                    'Read one short text aloud with transliteration hidden if possible.',
+                    'Hold a 2-minute spoken Sanskrit self-dialogue.'
+                ],
+                modules: [
+                    {
+                        icon: 'grid',
+                        title: 'Grammar ladder',
+                        duration: 'Weeks 1 to 4',
+                        description: 'Systematize noun endings, verb classes, pronouns, and common sentence patterns so texts become less intimidating.',
+                        points: [
+                            'Study one declension family deeply before adding another.',
+                            'Prefer example-rich lessons over isolated memorization.'
+                        ],
+                        links: [
+                            { label: 'Learn Sanskrit Online', url: 'https://www.learnsanskrit.org/' },
+                            { label: 'SWAYAM', url: 'https://swayam.gov.in/' }
+                        ]
+                    },
+                    {
+                        icon: 'shuffle',
+                        title: 'Sandhi and compounds',
+                        duration: 'Weeks 3 to 8',
+                        description: 'This is where many learners stall. Use digital tools to make joining and splitting transparent.',
+                        points: [
+                            'Practice splitting one line a day, not fifty examples at once.',
+                            'Keep a notebook of recurring transformations.'
+                        ],
+                        links: [
+                            { label: 'Sanskrit Heritage', url: 'https://sanskrit.inria.fr/' },
+                            { label: 'Cologne Lexicon', url: 'https://www.sanskrit-lexicon.uni-koeln.de/' }
+                        ]
+                    },
+                    {
+                        icon: 'book-open',
+                        title: 'Read graded texts',
+                        duration: 'Ongoing',
+                        description: 'Move into real material through platforms that support word-by-word reading and reference lookups.',
+                        points: [
+                            'Begin with subhashitas, short stotras, and familiar verses.',
+                            'Read with support, then reread without support.'
+                        ],
+                        links: [
+                            { label: 'Ambuda', url: 'https://ambuda.org/' },
+                            { label: 'Sanskrit Documents', url: 'https://sanskritdocuments.org/' }
+                        ]
+                    },
+                    {
+                        icon: 'mic',
+                        title: 'Spoken continuity',
+                        duration: 'Ongoing',
+                        description: 'Speaking should continue through the intermediate stage so grammar stays alive and usable.',
+                        points: [
+                            'Retell your day in simple Sanskrit.',
+                            'Repeat phrases from spoken classes until they become automatic.'
+                        ],
+                        links: [
+                            { label: 'Samskrita Bharati', url: 'https://samskritabharati.in/' }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'advanced',
+                label: 'Advanced',
+                icon: 'book',
+                badge: '6 months onward',
+                summary: 'Go beyond general study into Paninian grammar, close reading, digital corpora, and text traditions.',
+                perfectFor: 'Committed learners, teachers, and serious students of vyakarana, Vedanta, kavya, and shastra.',
+                goals: [
+                    'Use dictionaries, corpora, and reference tools with independence.',
+                    'Read progressively more difficult primary texts and commentaries.',
+                    'Navigate Paninian terminology and structure without intimidation.',
+                    'Build a specialization track such as Vedanta, kavya, mantra, yoga, or grammar.'
+                ],
+                meta: ['45 to 60 minutes a day', 'Research + vyakarana + text study', 'Best first click: Ashtadhyayi.in'],
+                routine: [
+                    '15 minutes of grammar or sutra study.',
+                    '15 minutes of close reading with a lexicon and parser.',
+                    '15 minutes of corpus or reference work for difficult forms.',
+                    '10 to 15 minutes of note-making, recitation, or oral explanation.'
+                ],
+                checklist: [
+                    'Read one passage with both lexicon and parser support.',
+                    'Track one recurring Paninian term or grammatical phenomenon.',
+                    'Compare two digital text witnesses when possible.',
+                    'Summarize your reading in simple Sanskrit or English notes.'
+                ],
+                modules: [
+                    {
+                        icon: 'cpu',
+                        title: 'Enter vyakarana carefully',
+                        duration: 'Core stream',
+                        description: 'Use a searchable sutra reference so Paninian study becomes navigable instead of overwhelming.',
+                        points: [
+                            'Focus on orientation first: what a sutra does, where it sits, and what problem it solves.',
+                            'Study with examples drawn from actual text reading.'
+                        ],
+                        links: [
+                            { label: 'Ashtadhyayi.in', url: 'https://www.ashtadhyayi.in/' },
+                            { label: 'Learn Sanskrit - Vyakarana', url: 'https://www.learnsanskrit.org/' }
+                        ]
+                    },
+                    {
+                        icon: 'search',
+                        title: 'Research with tools',
+                        duration: 'Ongoing',
+                        description: 'Advanced learners become much faster when they use corpora, searchable dictionaries, and structured text archives well.',
+                        points: [
+                            'Use the corpus to find usage patterns instead of guessing rare forms.',
+                            'Check dictionary entries across more than one lexicon when nuance matters.'
+                        ],
+                        links: [
+                            { label: 'Digital Corpus of Sanskrit', url: 'http://www.sanskrit-linguistics.org/dcs/' },
+                            { label: 'Cologne Lexicon', url: 'https://www.sanskrit-lexicon.uni-koeln.de/' }
+                        ]
+                    },
+                    {
+                        icon: 'archive',
+                        title: 'Read across text libraries',
+                        duration: 'Ongoing',
+                        description: 'Blend modern reading platforms with more scholarly archives so you can move between accessibility and depth.',
+                        points: [
+                            'Use Ambuda for supported reading and classical libraries for breadth.',
+                            'Move gradually from familiar verses into prose, commentary, and technical texts.'
+                        ],
+                        links: [
+                            { label: 'Ambuda', url: 'https://ambuda.org/' },
+                            { label: 'SARIT', url: 'https://sarit.indology.info/sarit-pm/docs/welcome.html' },
+                            { label: 'GRETIL', url: 'https://gretil.sub.uni-goettingen.de/' }
+                        ]
+                    },
+                    {
+                        icon: 'layers',
+                        title: 'Choose a specialization',
+                        duration: 'Long-term',
+                        description: 'Sanskrit mastery becomes real when reading and practice point toward a domain: Vedanta, kavya, mantra-shastra, yoga, itihasa, or grammar.',
+                        points: [
+                            'Choose one tradition and stay with it long enough to gain momentum.',
+                            'Keep pronunciation and oral fluency alive even at advanced stages.'
+                        ],
+                        links: [
+                            { label: 'Sanskrit Documents', url: 'https://sanskritdocuments.org/' },
+                            { label: 'SWAYAM', url: 'https://swayam.gov.in/' }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        const resources = [
+            {
+                title: 'Learn Sanskrit Online',
+                level: 'beginner',
+                focus: 'grammar',
+                type: 'Structured course',
+                url: 'https://www.learnsanskrit.org/',
+                description: 'Clear lessons and tools that can take a learner from basics toward advanced grammatical reading.',
+                why: 'Best single starting point for self-driven learners.'
+            },
+            {
+                title: 'Samskrita Bharati',
+                level: 'beginner',
+                focus: 'speaking',
+                type: 'Speaking program',
+                url: 'https://samskritabharati.in/',
+                description: 'Spoken classes, correspondence options, books, and community-led Sanskrit learning.',
+                why: 'Excellent when the goal is living spoken Sanskrit, not only reading.'
+            },
+            {
+                title: 'SWAYAM',
+                level: 'intermediate',
+                focus: 'formal-study',
+                type: 'MOOC platform',
+                url: 'https://swayam.gov.in/',
+                description: 'India’s national platform for university-style courses, including language and humanities offerings.',
+                why: 'Useful for structured academic study when relevant Sanskrit courses are available.'
+            },
+            {
+                title: 'Sanskrit Documents',
+                level: 'all-levels',
+                focus: 'texts',
+                type: 'Text library',
+                url: 'https://sanskritdocuments.org/',
+                description: 'A broad repository of texts, stotras, chants, keyboard utilities, and related study material.',
+                why: 'Great for practice reading and collecting familiar material.'
+            },
+            {
+                title: 'Ambuda',
+                level: 'intermediate',
+                focus: 'texts',
+                type: 'Reading platform',
+                url: 'https://ambuda.org/',
+                description: 'A modern Sanskrit reading environment with texts and supporting reference features.',
+                why: 'Very good for transitioning from lessons into actual reading.'
+            },
+            {
+                title: 'Sanskrit Heritage',
+                level: 'intermediate',
+                focus: 'tools',
+                type: 'Parser and tools',
+                url: 'https://sanskrit.inria.fr/',
+                description: 'Known for sandhi splitting, parsing, and computational assistance for readers.',
+                why: 'Ideal when you start working with joined forms and parsing difficulty.'
+            },
+            {
+                title: 'Cologne Sanskrit Lexicon',
+                level: 'intermediate',
+                focus: 'tools',
+                type: 'Dictionary gateway',
+                url: 'https://www.sanskrit-lexicon.uni-koeln.de/',
+                description: 'Access major dictionaries such as Monier-Williams and Apte in a searchable interface.',
+                why: 'One of the most practical daily tools once text reading begins.'
+            },
+            {
+                title: 'Aksharamukha',
+                level: 'beginner',
+                focus: 'pronunciation',
+                type: 'Transliteration tool',
+                url: 'https://aksharamukha.appspot.com/',
+                description: 'Convert between Devanagari and Roman transliteration while keeping script learning manageable.',
+                why: 'Excellent bridge when script learning and pronunciation need support.'
+            },
+            {
+                title: 'Digital Corpus of Sanskrit',
+                level: 'advanced',
+                focus: 'research',
+                type: 'Annotated corpus',
+                url: 'http://www.sanskrit-linguistics.org/dcs/',
+                description: 'A sandhi-split corpus with lexical and morphological analysis useful for serious research and text study.',
+                why: 'Powerful when you need evidence, not guesses, for difficult forms.'
+            },
+            {
+                title: 'Ashtadhyayi.in',
+                level: 'advanced',
+                focus: 'grammar',
+                type: 'Paninian reference',
+                url: 'https://www.ashtadhyayi.in/',
+                description: 'A searchable digital destination focused on Panini’s grammar and its organization.',
+                why: 'A strong gateway for advanced vyakarana study.'
+            },
+            {
+                title: 'SARIT',
+                level: 'advanced',
+                focus: 'texts',
+                type: 'Scholarly text archive',
+                url: 'https://sarit.indology.info/sarit-pm/docs/welcome.html',
+                description: 'A searchable library of electronic editions in Sanskrit and related languages.',
+                why: 'Useful for more scholarly and text-critical work.'
+            },
+            {
+                title: 'GRETIL',
+                level: 'advanced',
+                focus: 'texts',
+                type: 'Electronic text archive',
+                url: 'https://gretil.sub.uni-goettingen.de/',
+                description: 'A longstanding repository of electronic texts in Sanskrit and other Indian languages.',
+                why: 'Helpful for breadth when you need many texts and editions in one place.'
+            }
+        ];
+
+        const pathGrid = document.getElementById('pathGrid');
+        const consoleTabs = document.getElementById('consoleTabs');
+        const consolePanel = document.getElementById('consolePanel');
+        const resourceGrid = document.getElementById('resourceGrid');
+        const resourceSearch = document.getElementById('resourceSearch');
+        const levelFilter = document.getElementById('levelFilter');
+        const focusFilter = document.getElementById('focusFilter');
+        const resourceSummary = document.getElementById('resourceSummary');
+
+        const flowMap = Object.fromEntries(flows.map(flow => [flow.id, flow]));
+        const checklistKey = 'vedicspace-sanskrit-checklist';
+        const flowKey = 'vedicspace-sanskrit-active-flow';
+        let activeFlow = localStorage.getItem(flowKey) || 'beginner';
+        let checklistState = JSON.parse(localStorage.getItem(checklistKey) || '{}');
+
+        function renderPaths() {
+            pathGrid.innerHTML = flows.map(flow => `
+                <article class="path-card fade-in" data-flow-card="${flow.id}">
+                    <div class="path-top">
+                        <div>
+                            <div class="path-badge"><i data-feather="${flow.icon}"></i><span>${flow.badge}</span></div>
+                            <h3>${flow.label}</h3>
+                        </div>
+                        <div class="path-icon"><i data-feather="${flow.icon}"></i></div>
+                    </div>
+                    <p>${flow.summary}</p>
+                    <ul class="goal-list">
+                        ${flow.goals.map(goal => `<li><i data-feather="check-circle"></i><span>${goal}</span></li>`).join('')}
+                    </ul>
+                    <div class="flow-actions">
+                        <a href="#console" class="mini-link flow-launch" data-flow-target="${flow.id}">
+                            <i data-feather="play-circle"></i>
+                            Open ${flow.label} Console
+                        </a>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function renderConsoleTabs() {
+            consoleTabs.innerHTML = flows.map(flow => `
+                <button class="console-tab ${flow.id === activeFlow ? 'active' : ''}" data-flow-tab="${flow.id}">${flow.label}</button>
+            `).join('');
+        }
+
+        function renderConsolePanel() {
+            const flow = flowMap[activeFlow];
+            consolePanel.innerHTML = `
+                <div class="console-layout">
+                    <div>
+                        <div class="console-intro">
+                            <h3 class="serif">${flow.label} Study Flow</h3>
+                            <p>${flow.summary}</p>
+                            <div class="console-meta">
+                                ${flow.meta.map(item => `<span><i data-feather="star"></i>${item}</span>`).join('')}
+                            </div>
+                            <div class="module-stack">
+                                ${flow.modules.map(module => `
+                                    <article class="module-card">
+                                        <div class="module-head">
+                                            <div>
+                                                <h4>${module.title}</h4>
+                                                <div class="module-duration">${module.duration}</div>
+                                            </div>
+                                            <div class="path-icon"><i data-feather="${module.icon}"></i></div>
+                                        </div>
+                                        <p>${module.description}</p>
+                                        <ul class="module-points">
+                                            ${module.points.map(point => `<li><i data-feather="check"></i><span>${point}</span></li>`).join('')}
+                                        </ul>
+                                        <div class="module-links">
+                                            ${module.links.map(link => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')}
+                                        </div>
+                                    </article>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="console-checklist">
+                            <h3 class="serif">Today's Checklist</h3>
+                            <p>${flow.perfectFor}</p>
+                            <ul class="checklist">
+                                ${flow.checklist.map((item, index) => {
+                                    const stateKey = `${flow.id}-${index}`;
+                                    return `
+                                        <li class="check-item">
+                                            <input type="checkbox" data-check-id="${stateKey}" ${checklistState[stateKey] ? 'checked' : ''}>
+                                            <span>${item}</span>
+                                        </li>
+                                    `;
+                                }).join('')}
+                            </ul>
+                        </div>
+                        <div class="routine-box">
+                            <h3 class="serif">Recommended Daily Rhythm</h3>
+                            <p>Use this rhythm to make the path feel realistic and sustainable.</p>
+                            <ul class="routine-list">
+                                ${flow.routine.map(item => `<li><i data-feather="clock"></i><span>${item}</span></li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.querySelectorAll('[data-check-id]').forEach(box => {
+                box.addEventListener('change', event => {
+                    checklistState[event.target.dataset.checkId] = event.target.checked;
+                    localStorage.setItem(checklistKey, JSON.stringify(checklistState));
+                });
+            });
+        }
+        function setActiveFlow(flowId) {
+            activeFlow = flowId;
+            localStorage.setItem(flowKey, flowId);
+            renderConsoleTabs();
+            renderConsolePanel();
+            attachConsoleEvents();
+            if (window.feather) feather.replace();
+        }
+
+        function attachConsoleEvents() {
+            document.querySelectorAll('[data-flow-tab]').forEach(button => {
+                button.addEventListener('click', () => setActiveFlow(button.dataset.flowTab));
+            });
+
+            document.querySelectorAll('[data-flow-target]').forEach(link => {
+                link.addEventListener('click', () => setActiveFlow(link.dataset.flowTarget));
+            });
+        }
+
+        function renderResources() {
+            const searchTerm = resourceSearch.value.trim().toLowerCase();
+            const level = levelFilter.value;
+            const focus = focusFilter.value;
+
+            const filtered = resources.filter(resource => {
+                const matchesSearch = !searchTerm || [resource.title, resource.description, resource.why, resource.type].join(' ').toLowerCase().includes(searchTerm);
+                const matchesLevel = level === 'all' || resource.level === level || (level === 'all-levels' && resource.level === 'all-levels');
+                const matchesFocus = focus === 'all' || resource.focus === focus;
+                return matchesSearch && matchesLevel && matchesFocus;
+            });
+
+            resourceSummary.textContent = `${filtered.length} curated resource${filtered.length === 1 ? '' : 's'} ready to explore.`;
+            resourceGrid.innerHTML = filtered.map(resource => `
+                <article class="resource-card fade-in">
+                    <div class="resource-top">
+                        <div>
+                            <div class="resource-badge"><i data-feather="bookmark"></i><span>${resource.type}</span></div>
+                            <h3>${resource.title}</h3>
+                        </div>
+                        <div class="resource-icon"><i data-feather="book-open"></i></div>
+                    </div>
+                    <p>${resource.description}</p>
+                    <div class="resource-tags">
+                        <span><i data-feather="layers"></i>${resource.level}</span>
+                        <span><i data-feather="target"></i>${resource.focus}</span>
+                    </div>
+                    <ul class="goal-list">
+                        <li><i data-feather="check-circle"></i><span>${resource.why}</span></li>
+                    </ul>
+                    <div class="flow-actions">
+                        <a href="${resource.url}" target="_blank" rel="noreferrer" class="mini-link">
+                            <i data-feather="external-link"></i>
+                            Visit source
+                        </a>
+                    </div>
+                </article>
+            `).join('');
+
+            if (window.feather) feather.replace();
+            revealVisibleFadeIns();
+        }
+
+        function initFilters() {
+            resourceSearch.addEventListener('input', renderResources);
+            levelFilter.addEventListener('change', renderResources);
+            focusFilter.addEventListener('change', renderResources);
+        }
+
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (event) {
+                    const href = this.getAttribute('href');
+                    const target = document.querySelector(href);
+                    if (target) {
+                        event.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
+        function initHeaderScroll() {
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('.header');
+                header.style.background = window.scrollY > 100 ? 'rgba(30, 58, 138, 0.98)' : 'rgba(30, 58, 138, 0.95)';
+            });
+        }
+
+        function initFadeIns() {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll('.fade-in').forEach(element => observer.observe(element));
+        }
+
+        function revealVisibleFadeIns() {
+            document.querySelectorAll('.fade-in').forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 40) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        function init() {
+            renderPaths();
+            renderConsoleTabs();
+            renderConsolePanel();
+            attachConsoleEvents();
+            renderResources();
+            initFilters();
+            initSmoothScroll();
+            initHeaderScroll();
+            initFadeIns();
+            if (window.feather) feather.replace();
+            revealVisibleFadeIns();
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
