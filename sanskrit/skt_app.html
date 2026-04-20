@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedic Space - Sanskrit Learning Console</title>
+    <meta name="description" content="End-to-end learning console from sound to shastra. Includes structured paths, integrated dictionaries, gamified VSS Mandala tracking, and live Japa Yajna study rooms.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary-blue: #1e3a8a;
+            --deep-blue: #1e40af;
+            --light-blue: #3b82f6;
+            --accent-gold: #f59e0b;
+            --light-gold: #fbbf24;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --text-gray: #64748b;
+            --dark-gray: #334155;
+            --border-soft: rgba(30, 58, 138, 0.1);
+            --mobile-nav-height: 70px;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
+            min-height: 100vh;
+            padding-bottom: 0; 
+        }
+
+        .serif { font-family: 'Playfair Display', serif; }
+        .sanskrit { font-family: 'Noto Sans Devanagari', sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Top Header */
+        .header {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            z-index: 1000; padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .logo { display: flex; align-items: center; gap: 12px; color: var(--white); text-decoration: none; font-size: 22px; font-weight: 600; }
+        .logo svg { width: 32px; height: 32px; color: var(--light-gold); }
+
+        .nav-links { display: none; gap: 28px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--light-gold); }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
+            padding: 12px 22px;
+            border-radius: 25px;
+            text-decoration: none; font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: none; 
+        }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3); }
+
+        /* General Layout */
+        .section-padded { padding: 100px 0; background: var(--white); }
+        .section-dark { padding: 100px 0; background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue)); color: var(--white); }
+        
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-title { font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 300; margin-bottom: 18px; color: var(--primary-blue); }
+        .section-dark .section-title { color: var(--white); }
+        .section-subtitle { font-size: 18px; color: var(--text-gray); max-width: 760px; margin: 0 auto; }
+        .section-dark .section-subtitle { color: rgba(255, 255, 255, 0.82); }
+
+        /* Unified Console Container */
+        .unified-console {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        .console-nav-tabs {
+            display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .console-nav-tab {
+            background: rgba(255, 255, 255, 0.05); color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 20px; border-radius: 99px;
+            font-weight: 600; cursor: pointer; transition: all 0.3s;
+        }
+        .console-nav-tab.active, .console-nav-tab:hover {
+            background: var(--light-gold); color: var(--primary-blue);
+        }
+
+        .console-view { display: none; animation: fadeIn 0.4s ease; }
+        .console-view.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Dashboard & Grids */
+        .dashboard-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; }
+        .panel-box { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(251, 191, 36, 0.14); border-radius: 20px; padding: 24px; }
+        
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .resource-card { background: var(--white); border-radius: 16px; padding: 24px; border-top: 4px solid var(--accent-gold); }
+        .resource-card h4 { color: var(--primary-blue); font-size: 18px; margin-bottom: 8px; }
+        .resource-card a { color: var(--primary-blue); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; margin-top: 15px; }
+
+        /* Embedded Workspace & Jitsi */
+        .iframe-container { width: 100%; height: 500px; border: 1px solid var(--border-soft); border-radius: 12px; overflow: hidden; background: var(--light-gray); }
+
+        /* Spoken Phrase Controls */
+        .flow-controls { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; }
+        .flow-card-display {
+            background: rgba(255,255,255,0.05); border-radius: 20px; padding: 40px; text-align: center;
+            max-width: 600px; margin: 0 auto; border: 2px solid var(--light-gold);
+        }
+        .btn-action { background: var(--light-gold); color: var(--primary-blue); border: none; padding: 12px 24px; border-radius: 30px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+
+        /* Mandala Tracker */
+        .mandala-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); gap: 10px; margin-top: 20px;
+        }
+        .mandala-day {
+            aspect-ratio: 1; border-radius: 50%; border: 2px solid var(--light-gold);
+            display: flex; align-items: center; justify-content: center; font-weight: bold; cursor: pointer;
+            transition: all 0.3s; background: rgba(255,255,255,0.05); color: var(--light-gold);
+        }
+        .mandala-day.completed { background: var(--light-gold); color: var(--primary-blue); box-shadow: 0 0 15px rgba(251, 191, 36, 0.4); }
+
+        /* Sleek Mobile Bottom Nav */
+        .mobile-bottom-nav {
+            display: none; position: fixed; bottom: 0; left: 0; width: 100%; height: var(--mobile-nav-height);
+            background: rgba(30, 58, 138, 0.98); backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(251, 191, 36, 0.3); z-index: 2000;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+        }
+        .mobile-nav-items { display: flex; justify-content: space-around; align-items: center; height: 100%; list-style: none; padding: 0; }
+        .mobile-nav-items li a {
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+            color: rgba(255,255,255,0.7); text-decoration: none; font-size: 11px; font-weight: 500; padding: 8px; transition: color 0.2s;
+        }
+        .mobile-nav-items li a.active, .mobile-nav-items li a:hover { color: var(--light-gold); }
+
+        @media (min-width: 900px) {
+            .nav-links { display: flex; }
+            .cta-btn { display: inline-block; }
+        }
+        @media (max-width: 899px) {
+            body { padding-bottom: var(--mobile-nav-height); }
+            .mobile-bottom-nav { display: block; }
+            .header { padding: 12px 0; }
+            .nav-links { display: none !important; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .console-nav-tabs { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 10px; }
+            .console-nav-tab { white-space: nowrap; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav">
+            <a href="#" class="logo"><i data-feather="sun"></i><span>Vedic Space</span></a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="switchMainTab('dashboard')">Dashboard</a></li>
+                <li><a href="#" onclick="switchMainTab('library')">Library</a></li>
+                <li><a href="#" onclick="switchMainTab('japa-yajna')">Japa Yajna</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <nav class="mobile-bottom-nav">
+        <ul class="mobile-nav-items">
+            <li><a href="#" onclick="switchMainTab('dashboard')" class="active"><i data-feather="grid"></i>Console</a></li>
+            <li><a href="#" onclick="switchMainTab('speak')"><i data-feather="mic"></i>Speak</a></li>
+            <li><a href="#" onclick="switchMainTab('mandala')"><i data-feather="circle"></i>Mandala</a></li>
+            <li><a href="#" onclick="switchMainTab('japa-yajna')"><i data-feather="video"></i>Live</a></li>
+        </ul>
+    </nav>
+
+    <section class="section-dark" style="min-height: 100vh; padding-top: 120px;">
+        <div class="container">
+            <div class="unified-console">
+                
+                <div class="console-nav-tabs" id="main-tabs">
+                    <button class="console-nav-tab active" onclick="switchMainTab('dashboard')">Study Dashboard</button>
+                    <button class="console-nav-tab" onclick="switchMainTab('speak')">Spoken Flow</button>
+                    <button class="console-nav-tab" onclick="switchMainTab('mandala')">VSS Mandala Tracker</button>
+                    <button class="console-nav-tab" onclick="switchMainTab('library')">Embedded Lexicon</button>
+                    <button class="console-nav-tab" onclick="switchMainTab('japa-yajna')">Japa Yajna Online</button>
+                </div>
+
+                <div id="view-dashboard" class="console-view active">
+                    <div class="dashboard-grid">
+                        <div class="panel-box">
+                            <h3 class="serif" style="color: var(--light-gold); margin-bottom: 10px; font-size: 24px;">Current Path: Intermediate</h3>
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">Strengthen grammar, sandhi, reading confidence, and conversation.</p>
+                            
+                            <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px; margin-bottom: 15px;">
+                                <h4 style="color: var(--white); margin-bottom: 5px;"><i data-feather="grid" style="width:16px; margin-right:8px;"></i>Grammar Ladder (Weeks 1-4)</h4>
+                                <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Systematize noun endings and verb classes. Study one declension deeply.</p>
+                            </div>
+                            <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px;">
+                                <h4 style="color: var(--white); margin-bottom: 5px;"><i data-feather="shuffle" style="width:16px; margin-right:8px;"></i>Sandhi Integration (Weeks 3-8)</h4>
+                                <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Use parsing tools to make splitting transparent. Practice one line daily.</p>
+                            </div>
+                        </div>
+                        <div class="panel-box">
+                            <h3 class="serif" style="color: var(--white); margin-bottom: 15px; font-size: 20px;">Daily Checklist</h3>
+                            <ul style="list-style: none;">
+                                <li style="display:flex; gap:10px; margin-bottom:12px; align-items: center;">
+                                    <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--light-gold);">
+                                    <span>Parse one sandhi string</span>
+                                </li>
+                                <li style="display:flex; gap:10px; margin-bottom:12px; align-items: center;">
+                                    <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--light-gold);">
+                                    <span>Search 3 words in Cologne Lexicon</span>
+                                </li>
+                                <li style="display:flex; gap:10px; margin-bottom:12px; align-items: center;">
+                                    <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--light-gold);">
+                                    <span>Complete Spoken Flow cycle</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="view-speak" class="console-view">
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <h3 class="serif" style="font-size: 28px; color: var(--light-gold);">Manual Practice Flow</h3>
+                        <p style="color: rgba(255,255,255,0.7);">Auto-start disabled. Control your pacing and recall.</p>
+                    </div>
+                    
+                    <div class="flow-controls">
+                        <button class="btn-action" onclick="prevPhrase()" style="background: rgba(255,255,255,0.1); color: var(--white);"><i data-feather="arrow-left"></i> Previous</button>
+                        <button class="btn-action" onclick="nextPhrase()">Next <i data-feather="arrow-right"></i></button>
+                    </div>
+
+                    <div class="flow-card-display" id="flashcardDisplay">
+                        <div style="font-size: 12px; letter-spacing: 2px; color: var(--text-gray); margin-bottom: 15px;">PHRASE <span id="flowIndex">1</span>/4</div>
+                        <div class="sanskrit" id="flowSanskrit" style="font-size: 42px; color: var(--white); margin-bottom: 10px;">नमस्ते</div>
+                        <div id="flowTranslit" style="font-size: 20px; color: var(--light-gold); font-style: italic; margin-bottom: 20px;">namaste</div>
+                        <p id="flowMeaning" style="font-size: 16px; color: rgba(255,255,255,0.8);">A respectful hello. Use it daily so Sanskrit becomes lived language.</p>
+                    </div>
+                </div>
+
+                <div id="view-mandala" class="console-view">
+                    <div class="panel-box">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                            <div>
+                                <h3 class="serif" style="color: var(--light-gold); font-size: 26px;">45-Day VSS Mandala</h3>
+                                <p style="color: rgba(255,255,255,0.7);">Gamified sadhana console. Tap to log your daily completion.</p>
+                            </div>
+                            <div style="background: rgba(251, 191, 36, 0.2); padding: 10px 20px; border-radius: 99px; font-weight: bold; color: var(--light-gold);">
+                                Streak: <span id="streakCount">0</span> Days
+                            </div>
+                        </div>
+                        <div class="mandala-grid" id="mandalaGrid">
+                            </div>
+                    </div>
+                </div>
+
+                <div id="view-library" class="console-view">
+                    <div class="panel-box" style="margin-bottom: 20px;">
+                        <h3 class="serif" style="color: var(--light-gold); margin-bottom: 15px;">Embedded Cologne Lexicon</h3>
+                        <form action="https://vrsamskrita.com/dict/" method="GET" target="dictFrame" style="display: flex; gap: 10px;">
+                            <input type="text" name="q" placeholder="Enter Devanagari or HK text..." style="flex: 1; padding: 12px; border-radius: 8px; border: none; font-size: 16px;">
+                            <button type="submit" class="btn-action">Search</button>
+                        </form>
+                    </div>
+                    <div class="iframe-container">
+                        <iframe name="dictFrame" src="about:blank" style="width: 100%; height: 100%; border: none;" title="Dictionary Frame"></iframe>
+                    </div>
+                </div>
+
+                <div id="view-japa-yajna" class="console-view">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <h3 class="serif" style="color: var(--light-gold); font-size: 28px;">Japa Yajna Online</h3>
+                        <p style="color: rgba(255,255,255,0.7);">Live unified conferencing portal for group chanting and spoken practice.</p>
+                    </div>
+                    <div class="iframe-container" style="height: 600px;">
+                        <iframe allow="camera; microphone; fullscreen; display-capture" src="https://meet.jit.si/JapaYajnaOnlineVedicSpace" style="height: 100%; width: 100%; border: 0;"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Tab Management
+        function switchMainTab(tabId) {
+            document.querySelectorAll('.console-view').forEach(view => view.classList.remove('active'));
+            document.querySelectorAll('.console-nav-tab').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.mobile-nav-items a').forEach(btn => btn.classList.remove('active
